@@ -68,23 +68,7 @@ function imageZoom(imgID, resultID) {
     return {x : x, y : y};
   }
 }
-</script>
-
-  <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>X-PULSE</title>
-	  <link rel="icon" type="image/ico" href="images/logo.gif" />
-    
-	     <script>
-        $(document).ready(function () {
-            $("button").click(function () {
-                $("#ooo").attr("href", function (i, origValue) {
-                    return origValue + "/jquery/";
-                });
-            });
-        });
-			 function magnify(imgID, zoom) {
+	function magnify(imgID, zoom) {
   var img, glass, w, h, bw;
   img = document.getElementById(imgID);
 
@@ -144,6 +128,22 @@ function imageZoom(imgID, resultID) {
     return {x : x, y : y};
   }
 }
+</script>
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>X-PULSE</title>
+	  <link rel="icon" type="image/ico" href="images/logo.gif" />
+    
+	     <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#ooo").attr("href", function (i, origValue) {
+                    return origValue + "/jquery/";
+                });
+            });
+        });
     </script>
 <style>
 body {
@@ -374,6 +374,7 @@ magnify("myimage2", 3);
 </body>
 </html>
  
+
 
 
 
