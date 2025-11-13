@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -6,7 +6,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/Stylesheet1.css">
-	<link src="stylesheet" type="text/css" href="css/stylesheet3.css">
     <script src="JS/Script1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -25,7 +24,303 @@
                 });
             });
         });
-			 const isTouch = "ontouchstart" in window;
+
+        const isTouch = "ontouchstart" in window;
+
+document.querySelectorAll(".card").forEach((card) => {
+  const inner = card.querySelector(".card-inner");
+
+  // Tap/click flip met subtiele scale-bounce
+  card.addEventListener("click", () => {
+    const baseRotate = card.classList.contains("flipped") ? 0 : 180;
+
+    inner.style.transition = "transform 0.15s ease-out";
+    inner.style.transform = `rotateY(${baseRotate}deg) scale(1.05)`;
+
+    setTimeout(() => {
+      inner.style.transition = "transform 0.7s cubic-bezier(.4,.2,.2,1)";
+      inner.style.transform = `rotateY(${baseRotate}deg) scale(1)`;
+      card.classList.toggle("flipped");
+    }, 150);
+  });
+
+  if (!isTouch) {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+      const baseRotate = card.classList.contains("flipped") ? 180 : 0;
+      inner.style.transform = `rotateY(${baseRotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      const baseRotate = card.classList.contains("flipped") ? 180 : 0;
+      inner.style.transform = `rotateY(${baseRotate}deg) rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+  }
+});
+    </script>
+    <style>
+body {
+  
+  background-color: white;
+  color: black;
+
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+.container div {
+  margin: 10px;
+  padding: 10px;
+  text-align: center;  
+  font-size: 30px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap");
+
+:root {
+  --bg: #0a0c10;
+  --card-bg: rgba(20, 25, 35, 0.9);
+  --accent: #00f5ff;
+  --text: #fafbfd;
+  --text-dim: #c6c7cc;
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  transform-style: preserve-3d;
+  border-radius: var(--radius);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s, filter 0.3s;
+}
+
+.card-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
+    0 0 25px rgba(0, 255, 255, 0.15) inset;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.card:hover .card-face::before,
+.card.flipped .card-face::before {
+  opacity: 1;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
+      0 0 25px rgba(0, 255, 255, 0.15) inset;
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(0, 255, 255, 0.4),
+      0 0 35px rgba(0, 255, 255, 0.25) inset;
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
+      0 0 25px rgba(0, 255, 255, 0.15) inset;
+  }
+}
+
+.card-front h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.card-front p {
+  font-size: 1rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.one {
+  background: url("images/vago.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.two {
+  background: url("images/sato.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.three {
+  background: url("images/kim.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.four {
+  background: url("https://iili.io/KST8L1R.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-back h3 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+ul.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.features li {
+  margin-bottom: 0.6rem;
+  padding-left: 1.4rem;
+  position: relative;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+ul.features li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.cta-buttons a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.cta-buttons a.primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.cta-buttons a.primary:hover {
+  background: #00ffff;
+}
+
+.cta-buttons a.secondary {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.cta-buttons a.secondary:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+  .card-inner {
+    min-height: 300px;
+  }
+  .card-face {
+    padding: 18px;
+  }
+  .card-front h2 {
+    font-size: 1.3rem;
+  }
+  .card-back h3 {
+    font-size: 1.2rem;
+  }
+  ul.features li {
+    font-size: 0.9rem;
+  }
+}
+</style>
+</head>
+<script>
+   function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,de,hi,ar,fr,es', // Customize this list
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+  const isTouch = "ontouchstart" in window;
 
 document.querySelectorAll(".card").forEach((card) => {
   const inner = card.querySelector(".card-inner");
@@ -64,35 +359,10 @@ document.querySelectorAll(".card").forEach((card) => {
   }
 });
 
-    </script>
-    <style>
-body {
-  
-  background-color: white;
-  color: black;
-
-}
-
-.dark-mode {
-  background-color: black;
-  color: white;
-}
-</style>
-
-  </head>
-<script>
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,de,hi,ar,fr,es', // Customize this list
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
  </head>
-<body style="height:2440px">
+<body style="height:1440px">
   <nav class="navbar navbar-clean">
   <div class="container-fluid"> 
   <div class="navbar-header">
@@ -100,12 +370,12 @@ body {
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                </div>
                   <ul class="nav navbar-nav topnav" style=" padding-left:250px; text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);"> 
-                   <li class="home"><a href="index.html">About US</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="funds&synergies.html">Funds&Synergies</a></li>
-                        <li><a href="history.html">History</span></a>          
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Archive<span class="caret"></span></a>
+                   <li class="home"><a href="index.html"><strong>About us</strong></a></li>
+                        <li><a href="projects.html"><strong>Projects</strong></a></li>
+                        <li><a href="gallery.html"><strong>Gallery</strong></a></li>
+                        <li><a href="funds&synergies.html"><strong>Funds&Synergies</strong></a></li>
+                        <li><a href="history.html"><strong>History</strong></span></a>          
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Archive</strong><span class="caret"></span></a>
                              <ul class="dropdown-menu" style="background-color: #2894FF;">
 							  <li><a href="#archive.html">2025</a></li>
                               <li><a href="archive2024.html">2024</a></li>
@@ -113,8 +383,8 @@ body {
                       </li>
                     </ul>
                   </li>                  
-                        <li><a href="references.html">References</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="references.html"><strong>References</strong></a></li>
+                        <li><a href="contact.html"><strong>Contact</strong></a></li>
                     </ul>
                      <ul class="nav navbar-nav topnav navbar-right" style="margin:10px;">
                       <li>
@@ -166,7 +436,7 @@ body {
     <img src="images/div.png" alt="first" style="width:100%;">
     <br>
     <p></p>
-    <p style="color:antiquewhite" style="text-align: justify;">
+    <p style="color:antiquewhite" style="text-align: justify; padding: 25px;">
 Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
 ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
 pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
@@ -177,13 +447,25 @@ exposure imaging	of	stochastic	phenomena	in	matter.
          </div>
        </div>
       </div>
-  	</div>
+ 
+      <div class="col-sm-2 sidenav" style="margin-left:45px; ">	    
+    <br>
+  <h3 style="color: #222479;"><strong>THIS</strong></h3>
+  <br>
+  <br>
+	<p style="text-align: justify; margin: 20px;">
+
+		</p>
+    <br>
+    <br>
+	</div>
+  </div>
   <div class="col-sm-8 text-left" style="margin-top: 20px;"> 
-    <main class="main-container" style="height: 800px;">
-  <div ↖️ class="card-container" style="height: 800px;">
+    <main class="main-container" style="height: 1175px;">
+  <div ↖️ class="card-container" style="height: 1175px;">
     <div class="inner-container">
-      <div class="border-outer" style="height: 800px;">
-        <div ↖️ class="main-card" style="height: 800px; width:2055px;"></div>
+      <div class="border-outer" style="height: 1175x;">
+        <div ↖️ class="main-card" style="height: 1175px; width:2058px;"></div>
       </div>
       <div class="glow-layer-1"></div>
       <div class="glow-layer-2"></div>
@@ -191,48 +473,34 @@ exposure imaging	of	stochastic	phenomena	in	matter.
     <div class="overlay-1"></div>
     <div class="overlay-2"></div>
     <div class="background-glow"></div>
-    <div class="content-container" style="height: 800px; border-radius: 10px;">
+    <div class="content-container" style="height: 1160px; border-radius: 10px;">
       <div class="content-top">
-        <div class="scrollbar-glass">
          <div class="main-container">
           <div class="aurora" style="border-radius: 10px;">
          <div class="text" style=" text-align: center; ">
           <br>
-         <h2>X-Pulse</h2>
+         <h1 style="color: white; text-shadow: 1px 1px 2px rgb(0, 0, 0);"><strong>X-Pulse</strong></h1>
          <br>
          <h3 style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);">X-ray Probing of Ultrafast Events</h3>
          <br>
          </div>
          </div>
          </div>
+         <h2 style="text-align:  center;">"Meat Z Team"</h2>
          <br>
-  <div class="scrollbar-glass" style=" text-align: center; height: 550px;">
-    <br>
-   <h4><strong>Please contact us :</strong></h4>
-    <br>
-    <h4 style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);"><u><strong>Address:</strong></u></h4>
-    <h4><strong>European XFEL Gmbh</strong></h4>
-    <h4><strong></strong>Holzkoppel 4</strong></h4>
-    <h4><strong></strong>22869</strong></h4>
-    <h4><strong></strong>Germany</strong></h4>
-    <br>
-    <h4><strong>tel.:  +49 (0)40 8998-6348</strong></Tel></h4>
-    <br>
-    <h4><strong>email: </strong></Tel></h4>
-    <br>
-
-	 <h3>Meet the Team</h3> 
-	  <div class="card-grid">
-
+         <br>
+  <div class="card-grid">
   <!-- Card 1 -->
   <div class="card">
     <div class="card-inner">
       <div class="card-face card-front one">
         <div>
-          <h2>Quantum UI</h2>
-          <p>Next-gen UI framework designed for speed, interactivity, and effortless scalability.</p>
+          <h2>Patrik Vagovič</h2>
+          <p>Dr Researcher at Center for Free-Electron Laser Science</p>
         </div>
-        <p>Tap or click to flip</p>
+        <p>Tel: +49-40-8998 - 6348
+         E-mail: patrik.vagovic@cfel.de
+ </p>
       </div>
       <div class="card-face card-back">
         <div>
@@ -257,10 +525,11 @@ exposure imaging	of	stochastic	phenomena	in	matter.
     <div class="card-inner">
       <div class="card-face card-front two">
         <div>
-          <h2>Neon Cloud</h2>
-          <p>Cloud-native infrastructure that scales dynamically and keeps latency near zero.</p>
+          <h2>Dr.Fokushi Sato</h2>
+          <p>Senior scientist at European XFEL GmbH </p>
         </div>
-        <p>Tap or click to flip</p>
+        <p>Tel: +49-40-8998-6864
+E-mail: tokushi.sato@xfel.eu</p>
       </div>
       <div class="card-face card-back">
         <div>
@@ -285,8 +554,8 @@ exposure imaging	of	stochastic	phenomena	in	matter.
     <div class="card-inner">
       <div class="card-face card-front three">
         <div>
-          <h2>Nova AI</h2>
-          <p>Advanced AI toolkit to build, train, and deploy models directly in the browser.</p>
+          <h2>Chan Kim</h2>
+          <p>Ph.D Scientist (Operations Leader) at European X-Ray Free-Electron Laser</p>
         </div>
         <p>Tap or click to flip</p>
       </div>
@@ -313,7 +582,7 @@ exposure imaging	of	stochastic	phenomena	in	matter.
     <div class="card-inner">
       <div class="card-face card-front four">
         <div>
-          <h2>Pulse Metrics</h2>
+          <h2>Šarlota Birnšteinová</h2>
           <p>Real-time monitoring platform with predictive analytics and anomaly detection.</p>
         </div>
         <p>Tap or click to flip</p>
@@ -335,14 +604,30 @@ exposure imaging	of	stochastic	phenomena	in	matter.
       </div>
     </div>
   </div>
-
+  <br>
+  <br>
+  <br>
+  <div class="container" style="content:left; color: white;">
+<h4><strong>Please contact us :</strong></h4>
+    <br>
+    <h4 style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);"><u><strong>Address:</strong></u></h4>
+    <h4><strong>European XFEL Gmbh</strong></h4>
+    <h4><strong></strong>Holzkoppel 4</strong></h4>
+    <h4><strong></strong>22869</strong></h4>
+    <h4><strong></strong>Germany</strong></h4>
+    <br>
+    <h4><strong>tel.:  +49 (0)40 8998-6348</strong></Tel></h4>
+    <br>
+    <h4><strong>email: </strong></Tel></h4>
+    <br>
+    </div>
 </div>
    </div>
    </div>
    </div>
    </div>
-   </div>
-   </div>
+   
+   
    <div class="col-sm-2 sidenav" style="margin-top: 20px;">
      <main class="main-container">
   <div ↖️ class="card-container">
@@ -378,11 +663,11 @@ exposure imaging	of	stochastic	phenomena	in	matter.
        </div>
      </div>
   <div class="col-sm-2 sidenav" style="margin-top: 20px;">
-	<main class="main-container">
-  <div ↖️ class="card-container">
+	<main class="main-container" style="height: 450px;">
+  <div ↖️ class="card-container" style="height: 450px;">
     <div class="inner-container">
-      <div class="border-outer">
-        <div ↖️ class="main-card"></div>
+      <div class="border-outer" style="height: 450px;">
+        <div ↖️ class="main-card" style="height: 450px; width: 488px;"></div>
       </div>
       <div class="glow-layer-1"></div>
       <div class="glow-layer-2"></div>
@@ -430,5 +715,3 @@ function myFunction() {
   </div>
 </body>
 </html>
-
-
