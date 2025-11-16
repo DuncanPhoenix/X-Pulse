@@ -76,7 +76,6 @@ function imageZoom(imgID, resultID) {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>X-PULSE</title>
 	  <link rel="icon" type="image/ico" href="images/logo.gif" />
-    
 	     <script>
         $(document).ready(function () {
             $("button").click(function () {
@@ -86,25 +85,19 @@ function imageZoom(imgID, resultID) {
             });
         });
     </script>
-        <style>
+<style>
 body {
-  
   background-color: white;
   color: black;
-
 }
-
 .dark-mode {
   background-color: black;
   color: white;
 }
-
 * {box-sizing: border-box;}
-
 .img-zoom-container {
   position: relative;
 }
-
 .img-zoom-lens {
   position: absolute;
   border: 1px solid #d4d4d4;
@@ -112,7 +105,6 @@ body {
   width: 40px;
   height: 40px;
 }
-
 .img-zoom-result {
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
@@ -130,8 +122,7 @@ body {
     }, 'google_translate_element');
   }
     </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-   
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <script src="magiczoomplus/magiczoomplus.js" type="text/javascript"></script>
         <script type="text/javascript">
             MagicZoomPlus.options = {
@@ -144,7 +135,6 @@ body {
                 }
             }
         </script>
- 
         <script type="text/javascript">
             function logEvents(t) {
                 var c= document.getElementById('console-window');
@@ -156,7 +146,7 @@ body {
             }
         </script>
  </head>
-<body style="height:2440px">
+<body style="height:1440px">
   <nav class="navbar navbar-clean">
   <div class="container-fluid"> 
   <div class="navbar-header">
@@ -183,7 +173,6 @@ body {
                      <ul class="nav navbar-nav topnav navbar-right" style="margin:10px;">
                       <li>
                  
-                 
          <div id="google_translate_element"></div>
                     </li></ul>
                      <form class="navbar-form navbar-right" action="/action_page.php">
@@ -199,10 +188,10 @@ body {
                 </div>
             </nav>
 			   <div class="magic"></div>
-</head>
+ </head>
  <img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
  <br>
- <div class="w3-container w3-margin">
+ <div class="w3-container">
  <div class="container-fluid text-center">    
   <div class="row content">
   <div class="col-sm-2 sidenav">	
@@ -227,7 +216,7 @@ exposure imaging	of	stochastic	phenomena	in	matter.
   <br>
   <br>
   <p style="text-align: justify; margin: 20px;"></p>
-  <div id="myresult" class="img-zoom-result" style="width: 100px; height: 100px;"></div>
+  <div id="myresult" class="img-zoom-result" style="width: 20px; height: 200px;"></div>
     <br>
     <br>
 	</div>
@@ -237,7 +226,7 @@ exposure imaging	of	stochastic	phenomena	in	matter.
   <br>
   <div class="polaroid">
  
-  <div class="text" style="margin-right:120px;">
+  <div class="text" style="">
   <br>
      <h2><strong>X - Pulse</strong></h2>
      <br>
@@ -348,6 +337,7 @@ function myFunction() {
 </body>
 </html>
  
+
 
 
 
