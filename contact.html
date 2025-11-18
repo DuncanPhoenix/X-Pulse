@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <head>
+    <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
        <title>X-PULSE</title>
@@ -26,17 +26,14 @@
         });
 
         const isTouch = "ontouchstart" in window;
-
-document.querySelectorAll(".card").forEach((card) => {
+  document.querySelectorAll(".card").forEach((card) => {
   const inner = card.querySelector(".card-inner");
 
   // Tap/click flip met subtiele scale-bounce
   card.addEventListener("click", () => {
     const baseRotate = card.classList.contains("flipped") ? 0 : 180;
-
     inner.style.transition = "transform 0.15s ease-out";
     inner.style.transform = `rotateY(${baseRotate}deg) scale(1.05)`;
-
     setTimeout(() => {
       inner.style.transition = "transform 0.7s cubic-bezier(.4,.2,.2,1)";
       inner.style.transform = `rotateY(${baseRotate}deg) scale(1)`;
@@ -56,8 +53,7 @@ document.querySelectorAll(".card").forEach((card) => {
       const baseRotate = card.classList.contains("flipped") ? 180 : 0;
       inner.style.transform = `rotateY(${baseRotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
     });
-
-    card.addEventListener("mouseleave", () => {
+      card.addEventListener("mouseleave", () => {
       const baseRotate = card.classList.contains("flipped") ? 180 : 0;
       inner.style.transform = `rotateY(${baseRotate}deg) rotateX(0deg) rotateY(0deg) scale(1)`;
     });
@@ -122,11 +118,9 @@ body {
   border-radius: var(--radius);
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
-
 .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
-
 .card-face {
   position: absolute;
   inset: 0;
@@ -141,7 +135,6 @@ body {
   transform-style: preserve-3d;
   transition: box-shadow 0.3s, filter 0.3s;
 }
-
 .card-face::before {
   content: "";
   position: absolute;
@@ -152,13 +145,11 @@ body {
   opacity: 0;
   transition: opacity 0.4s;
 }
-
 .card:hover .card-face::before,
 .card.flipped .card-face::before {
   opacity: 1;
   animation: pulse 2s infinite alternate;
 }
-
 @keyframes pulse {
   0% {
     box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
@@ -173,20 +164,17 @@ body {
       0 0 25px rgba(0, 255, 255, 0.15) inset;
   }
 }
-
 .card-front h2 {
   font-family: "Orbitron", sans-serif;
   font-size: 1.6rem;
   color: var(--accent);
   margin-bottom: 0.5rem;
 }
-
 .card-front p {
   font-size: 1rem;
   color: var(--text-dim);
   line-height: 1.5;
 }
-
 .one {
   background: url("images/vago.png");
   background-position: center;
@@ -211,27 +199,23 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .card-back {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .card-back h3 {
   font-family: "Orbitron", sans-serif;
   font-size: 1.4rem;
   color: var(--accent);
   margin-bottom: 1rem;
 }
-
 ul.features {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 ul.features li {
   margin-bottom: 0.6rem;
   padding-left: 1.4rem;
@@ -239,20 +223,17 @@ ul.features li {
   color: var(--text-dim);
   font-size: 0.95rem;
 }
-
 ul.features li::before {
   content: "⚡";
   position: absolute;
   left: 0;
   color: var(--accent);
 }
-
 .cta-buttons {
   display: flex;
   gap: 12px;
   margin-top: 1.5rem;
 }
-
 .cta-buttons a {
   flex: 1;
   text-align: center;
@@ -262,7 +243,6 @@ ul.features li::before {
   font-weight: 600;
   transition: all 0.3s;
 }
-
 .cta-buttons a.primary {
   background: var(--accent);
   color: #000;
@@ -276,10 +256,8 @@ ul.features li::before {
   border: 1px solid var(--accent);
   color: var(--accent);
 }
-
 .cta-buttons a.secondary:hover {
   background: rgba(0, 255, 255, 0.1);
-}
 
 @media (max-width: 768px) {
   body {
@@ -313,17 +291,13 @@ ul.features li::before {
     }, 'google_translate_element');
   }
   const isTouch = "ontouchstart" in window;
-
-document.querySelectorAll(".card").forEach((card) => {
+  document.querySelectorAll(".card").forEach((card) => {
   const inner = card.querySelector(".card-inner");
-
   // Tap/click flip met subtiele scale-bounce
   card.addEventListener("click", () => {
     const baseRotate = card.classList.contains("flipped") ? 0 : 180;
-
     inner.style.transition = "transform 0.15s ease-out";
     inner.style.transform = `rotateY(${baseRotate}deg) scale(1.05)`;
-
     setTimeout(() => {
       inner.style.transition = "transform 0.7s cubic-bezier(.4,.2,.2,1)";
       inner.style.transform = `rotateY(${baseRotate}deg) scale(1)`;
@@ -350,11 +324,10 @@ document.querySelectorAll(".card").forEach((card) => {
     });
   }
 });
-
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
  </head>
-<body style="height:1440px">
+ <body style="height:1440px">
   <nav class="navbar navbar-clean">
   <div class="container-fluid"> 
   <div class="navbar-header">
@@ -397,8 +370,7 @@ document.querySelectorAll(".card").forEach((card) => {
             </nav>
              <div class="magic"></div>
 </head>
-
- <img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+<img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 <br>
 <br>
  <div class="w3-container" >
@@ -419,13 +391,10 @@ document.querySelectorAll(".card").forEach((card) => {
     <div class="background-glow"></div>
     <div class="content-container">
       <div class="content-top">
-        <div class="aurora2" style="border-radius:10px; ">
-          
+        <div class="aurora2" style="border-radius:10px; "> 
           <h4 style="text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(255, 255, 255);">Motivation</h4>
-       
         </div>
       </div>
-    
     <img src="images/div.png" alt="first" style="width:100%;">
     <br>
     <p></p>
@@ -436,8 +405,7 @@ pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’
 synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
 exposure imaging	of	stochastic	phenomena	in	matter.
 		</p>
-         </div>
- 
+        </div>
       </div>
       <div class="col-sm-2 sidenav">	    
     <br>
@@ -489,8 +457,7 @@ exposure imaging	of	stochastic	phenomena	in	matter.
           <p>Dr Researcher at Center for Free-Electron Laser Science</p>
         </div>
         <p>Tel: +49-40-8998 - 6348
-         E-mail: patrik.vagovic@cfel.de
- </p>
+         E-mail: patrik.vagovic@cfel.de</p>
       </div>
       <div class="card-face card-back">
         <div>
@@ -509,7 +476,6 @@ exposure imaging	of	stochastic	phenomena	in	matter.
       </div>
     </div>
   </div>
-
   <!-- Card 2 -->
   <div class="card">
     <div class="card-inner">
@@ -538,7 +504,6 @@ E-mail: tokushi.sato@xfel.eu</p>
       </div>
     </div>
   </div>
-
   <!-- Card 3 -->
   <div class="card">
     <div class="card-inner">
@@ -566,7 +531,6 @@ E-mail: tokushi.sato@xfel.eu</p>
       </div>
     </div>
   </div>
-
   <!-- Card 4 -->
   <div class="card">
     <div class="card-inner">
@@ -620,7 +584,6 @@ E-mail: tokushi.sato@xfel.eu</p>
    </div>
    </div>
    </div>
-   
     <div class="col-sm-2 sidenav" style="margin-top: 20px;">
     <main class="main-container">
     <div ↖️ class="card-container">
@@ -655,12 +618,12 @@ E-mail: tokushi.sato@xfel.eu</p>
         </div>
        </div>
      </div>
-  <div class="col-sm-2 sidenav" style="margin-top: 20px;">
+    <div class="col-sm-2 sidenav" style="margin-top: 20px;">
 	<main class="main-container" style="height: 450px;">
     <div ↖️ class="card-container" style="height: 450px;">
     <div class="inner-container">
       <div class="border-outer" style="height: 450px;">
-        <div ↖️ class="main-card" style="height: 450px; width: 488px;"></div>
+      <div ↖️ class="main-card" style="height: 450px; width: 488px;"></div>
       </div>
       <div class="glow-layer-1"></div>
       <div class="glow-layer-2"></div>
@@ -673,7 +636,7 @@ E-mail: tokushi.sato@xfel.eu</p>
       <img src="images/f1.gif" style="width:200px;height:150px;"/>
       <br>
     <div class="scrollbar-glass" >
-  <div class="main-container" style=" width:max;">
+    <div class="main-container" style=" width:max;">
 	<br>
 	<h5 style="text-align: justify;"><b>Understanding	Fast	Phenomena	of	Fluid	Transport	in	Porous	Media	using	MHz	Xray	Microscopy</b></h5>
 	<br>
@@ -690,7 +653,7 @@ E-mail: tokushi.sato@xfel.eu</p>
      </div>
      </div>
     </div>
-   </div>
+
   <div class="footer" style="align-content:center;">
      <br>
       <br>
@@ -706,8 +669,8 @@ function myFunction() {
   <h6 class="w3-small" style="text-align:center;">email.com <a href="https://x-pulse.eu">https://x-pulse.eu</a> tel.: +49 (0)40 8998-6348</p>
   </div>
 </body>
-
 </html>
+
 
 
 
