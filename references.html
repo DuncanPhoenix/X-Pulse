@@ -24,7 +24,51 @@
             });
         });
     </script>
-    <style>      
+    <style>    
+		const mouse = {
+  x: 0.5,
+  y: 0.5,
+  targetX: 0.5,
+  targetY: 0.5,
+};
+
+const clamp = (v) => Math.max(0, Math.min(1, v));
+
+let rafId = null;
+
+const onPointerMove = (e) => {
+  if (rafId) return;
+
+  rafId = requestAnimationFrame(() => {
+    mouse.targetX = clamp(e.clientX / window.innerWidth);
+    mouse.targetY = clamp(1 - e.clientY / window.innerHeight);
+    rafId = null;
+  });
+};
+
+window.addEventListener("pointermove", onPointerMove, { passive: true });
+
+document.querySelectorAll(".glass-button").forEach((button) => {
+  const update = (e) => {
+    const rect = button.getBoundingClientRect();
+
+    const x =
+      clamp((e.clientX - rect.left) / rect.width) * 100;
+    const y =
+      clamp((e.clientY - rect.top) / rect.height) * 100;
+
+    button.style.setProperty("--x", `${x}%`);
+    button.style.setProperty("--y", `${y}%`);
+  };
+
+  const reset = () => {
+    button.style.setProperty("--x", "50%");
+    button.style.setProperty("--y", "50%");
+  };
+
+  button.addEventListener("pointermove", update, { passive: true });
+  button.addEventListener("pointerleave", reset, { passive: true });
+});
 body {
   background-color: white;
   color: black;
@@ -111,7 +155,50 @@ body {
 }
 </style>
    <script>
-   
+   const mouse = {
+  x: 0.5,
+  y: 0.5,
+  targetX: 0.5,
+  targetY: 0.5,
+};
+
+const clamp = (v) => Math.max(0, Math.min(1, v));
+
+let rafId = null;
+
+const onPointerMove = (e) => {
+  if (rafId) return;
+
+  rafId = requestAnimationFrame(() => {
+    mouse.targetX = clamp(e.clientX / window.innerWidth);
+    mouse.targetY = clamp(1 - e.clientY / window.innerHeight);
+    rafId = null;
+  });
+};
+
+window.addEventListener("pointermove", onPointerMove, { passive: true });
+
+document.querySelectorAll(".glass-button").forEach((button) => {
+  const update = (e) => {
+    const rect = button.getBoundingClientRect();
+
+    const x =
+      clamp((e.clientX - rect.left) / rect.width) * 100;
+    const y =
+      clamp((e.clientY - rect.top) / rect.height) * 100;
+
+    button.style.setProperty("--x", `${x}%`);
+    button.style.setProperty("--y", `${y}%`);
+  };
+
+  const reset = () => {
+    button.style.setProperty("--x", "50%");
+    button.style.setProperty("--y", "50%");
+  };
+
+  button.addEventListener("pointermove", update, { passive: true });
+  button.addEventListener("pointerleave", reset, { passive: true });
+});
    function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
@@ -305,7 +392,8 @@ Villanueva-Perez,	P.	(2024).	Development	towards	high-resolution	kHz-sp</h4>
 		<img src="images/gif.gif" alt="HTML5 Icon" style="width:200px; height:300px;"/>
         <br>
 		<br>
-	    <button class="btn1" onclick="myFunction()"><p style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74)";>DarkMatter</p></button>
+	    <button class="glass-button" onclick="myFunction()"><p style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74)";>DarkMatter</p></button>
+	
 		<br>
 		<br>
     	</div>
@@ -344,6 +432,7 @@ function myFunction() {
 </body>
 
 </html>
+
 
 
 
