@@ -16,24 +16,13 @@
       <title>X-PULSE</title>
 	  <link rel="icon" type="image/ico" href="images/logo.gif" />
      <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
-<script>
-function myMap() {
-var mapProp= {
-  center:new google.maps.LatLng(51.508742,-0.120850),
-  zoom:5,
-};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-}
-</script>
-	     <script>
-        $(document).ready(function () {
-            $("button").click(function () {
-                $("#ooo").attr("href", function (i, origValue) {
-                    return origValue + "/jquery/";
-                });
-            });
-        });
 
+   <script type="module" src="./index.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6myHzS10YXdcazAFalmXvDkrYCp5cLc8&libraries=maps,marker&v=weekly"
+      defer
+    ></script>
+  <script>
   const isTouch = "ontouchstart" in window;
   document.querySelectorAll(".card").forEach((card) => {
   const inner = card.querySelector(".card-inner");
@@ -666,9 +655,16 @@ Email: pablo.villanueva_perez@fysik.lu.se</p>
     <br>
     <h4><strong>email: </strong></Tel></h4>
     <br>
-    <div class="google-map">
-    <iframe src="[your unique google URL] " width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+        <gmp-map
+      center="41.027748173921374, -92.41852445367961"
+      zoom="13"
+      map-id="DEMO_MAP_ID"
+    >
+      <gmp-advanced-marker
+        position="41.027748173921374, -92.41852445367961"
+        title="Ottumwa, IA"
+      ></gmp-advanced-marker>
+    </gmp-map>
 	  <br>
 	  <br>
 	    </div>
@@ -759,6 +755,7 @@ function myFunction() {
   
  </body>
 </html>
+
 
 
 
