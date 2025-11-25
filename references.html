@@ -23,6 +23,60 @@
                 });
             });
         });
+			
+   const mouse = {
+  x: 0.5,
+  y: 0.5,
+  targetX: 0.5,
+  targetY: 0.5,
+};
+
+const clamp = (v) => Math.max(0, Math.min(1, v));
+
+let rafId = null;
+
+const onPointerMove = (e) => {
+  if (rafId) return;
+
+  rafId = requestAnimationFrame(() => {
+    mouse.targetX = clamp(e.clientX / window.innerWidth);
+    mouse.targetY = clamp(1 - e.clientY / window.innerHeight);
+    rafId = null;
+  });
+};
+
+window.addEventListener("pointermove", onPointerMove, { passive: true });
+
+document.querySelectorAll(".glass-button").forEach((button) => {
+  const update = (e) => {
+    const rect = button.getBoundingClientRect();
+
+    const x =
+      clamp((e.clientX - rect.left) / rect.width) * 100;
+    const y =
+      clamp((e.clientY - rect.top) / rect.height) * 100;
+
+    button.style.setProperty("--x", `${x}%`);
+    button.style.setProperty("--y", `${y}%`);
+  };
+
+  const reset = () => {
+    button.style.setProperty("--x", "50%");
+    button.style.setProperty("--y", "50%");
+  };
+
+  button.addEventListener("pointermove", update, { passive: true });
+  button.addEventListener("pointerleave", reset, { passive: true });
+});
+   function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
     </script>
     <style>    
 		const mouse = {
@@ -154,60 +208,7 @@ body {
 }
 }
 </style>
-   <script>
-   const mouse = {
-  x: 0.5,
-  y: 0.5,
-  targetX: 0.5,
-  targetY: 0.5,
-};
-
-const clamp = (v) => Math.max(0, Math.min(1, v));
-
-let rafId = null;
-
-const onPointerMove = (e) => {
-  if (rafId) return;
-
-  rafId = requestAnimationFrame(() => {
-    mouse.targetX = clamp(e.clientX / window.innerWidth);
-    mouse.targetY = clamp(1 - e.clientY / window.innerHeight);
-    rafId = null;
-  });
-};
-
-window.addEventListener("pointermove", onPointerMove, { passive: true });
-
-document.querySelectorAll(".glass-button").forEach((button) => {
-  const update = (e) => {
-    const rect = button.getBoundingClientRect();
-
-    const x =
-      clamp((e.clientX - rect.left) / rect.width) * 100;
-    const y =
-      clamp((e.clientY - rect.top) / rect.height) * 100;
-
-    button.style.setProperty("--x", `${x}%`);
-    button.style.setProperty("--y", `${y}%`);
-  };
-
-  const reset = () => {
-    button.style.setProperty("--x", "50%");
-    button.style.setProperty("--y", "50%");
-  };
-
-  button.addEventListener("pointermove", update, { passive: true });
-  button.addEventListener("pointerleave", reset, { passive: true });
-});
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-    </script>
+ 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
  </head>
 <body style="height:1440px">
@@ -415,7 +416,7 @@ Villanueva-Perez,	P.	(2024).	Development	towards	high-resolution	kHz-sp</h4>
    </div>
    </div>
 
-   <div class="footer" style="align-content: center;>
+   <div class="footer" style="align-content: center;">
      <br>
       <br>
 
@@ -432,6 +433,7 @@ function myFunction() {
 </body>
 
 </html>
+
 
 
 
