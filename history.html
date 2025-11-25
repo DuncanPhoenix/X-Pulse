@@ -11,40 +11,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
   <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>X-PULSE</title>
 	  <link rel="icon" type="image/ico" href="images/logo.gif" />
     
-	     <script>
-        $(document).ready(function () {
-            $("button").click(function () {
-                $("#ooo").attr("href", function (i, origValue) {
-                    return origValue + "/jquery/";
-                });
-            });
-        });
-              let languageContent = {
-         "en": {
-            "text1": "This is a sample content",
-            "language": "English",
-         },
-         "de": {
-           "text1": "Scheisse arbeit",
-            "language": "German",
-         }
-      }
-      function swithcLang(lang) {
-         for (let key in languageContent[lang]) {
-            document.getElementById(key).innerHTML = languageContent[lang][key];
-         }
-      }
-    </script>
     <script src="https://elfsightcdn.com/platform.js" async></script>
     <script>
-
    function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
@@ -106,6 +80,15 @@ body {
 .dark-mode {
   background-color: black;
   color: white;
+	.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: light-blue;
+   color: white;
+   text-align: center;
+}
 }
 </style>
 </head>
@@ -233,6 +216,7 @@ function myFunction() {
 </body>
 </html>
  
+
 
 
 
