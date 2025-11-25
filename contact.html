@@ -13,9 +13,18 @@
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <title>X-PULSE</title>
+      <title>X-PULSE</title>
 	  <link rel="icon" type="image/ico" href="images/logo.gif" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
 	     <script>
         $(document).ready(function () {
             $("button").click(function () {
@@ -25,7 +34,7 @@
             });
         });
 
-        const isTouch = "ontouchstart" in window;
+  const isTouch = "ontouchstart" in window;
   document.querySelectorAll(".card").forEach((card) => {
   const inner = card.querySelector(".card-inner");
 
@@ -60,6 +69,8 @@
   }
 });
     </script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
     <style>
 body {
   background-color: white;
@@ -616,7 +627,9 @@ E-mail: tokushi.sato@xfel.eu</p>
     <br>
     <h4><strong>email: </strong></Tel></h4>
     <br>
-   
+   <div id="googleMap" style="width:100%;height:400px;"></div>
+	  <br>
+	  <br>
 	    </div>
     <div class="col-sm-2 sidenav" style="margin-top: 20px;">
     <main class="main-container">
@@ -706,6 +719,7 @@ function myFunction() {
   
  </body>
 </html>
+
 
 
 
