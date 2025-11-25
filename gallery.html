@@ -322,14 +322,7 @@ welding	process.</p>
        
         <a href="images/tomo.png" id="zoom" title="macro" rel="click-to-activate: true" class="MagicZoomPlus" ><img src="images/tomo.png" style="width:flexi; height:150px;"/></a>
         <br/>
-        <script>
-            function changeImages1(){
-                // apply new changes to our zoom (and only this zoom)
-                //  new settings passed in the last parameter to update() function
-                //  will only extend existing settings
-                MagicZoomPlus.update('zoom', 'images/tomo.png', 'show-title: false');
-            }
-        </script>
+
   <br>
   <p style="text-align: justify;">MHz Tomoscopy,	proposed	schematics,	prototype	at	European	XFEL,	first	
 validation	on	laser	induced	bubble	dynamics	recorded	in	April	2025.</p>
@@ -386,23 +379,22 @@ function myFunction() {
    element.classList.toggle("dark-mode");
 }
 </script>
-    <script>
-            function changeImages2(){
-                var zoom = document.getElementById('zoom'); //get the reference to our zoom object
-                zoom.href = 'images/harley1c.jpg'; //change the big image
-                zoom.rel = 'zoom-height: 170px'; // enable zoom drag mode
-                zoom.firstChild.src = 'images/harley1b.jpg'; //change the small image
-                // refresh ALL zooms on the page
-                MagicZoomPlus.refresh();
+
+                <script>
+            function changeImages1(){
+                // apply new changes to our zoom (and only this zoom)
+                //  new settings passed in the last parameter to update() function
+                //  will only extend existing settings
+                MagicZoomPlus.update('zoom', 'images/tomo.png', 'show-title: false');
             }
         </script>
-        
   <h6 class="w3-small" style="text-align:center;">X - Pulse</p>
   <h6 class="w3-small" style="text-align:center;">email.com <a href="https://x-pulse.eu">https://x-pulse.eu</a> tel.: +49 (0)40 8998-6348</p>
   </div>
 </body>
 </html>
  
+
 
 
 
