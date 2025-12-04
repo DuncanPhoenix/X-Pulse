@@ -63,7 +63,7 @@ background-color: black;
   border-radius: 6px 0 6px 6px;
 }
 .navbar.navbar-clean {
-  background-image: blue;
+  background-color: blue;
   border-radius: 0;
   border-bottom: 1px solid #bfbfbf;
   color: #ffffff;
@@ -662,6 +662,7 @@ container-fluid {
 #gui {position: absolute; top: 10px; left: 20px }
 
 .dg.a { margin-right:60 !important; }
+
 
 
 
