@@ -29,7 +29,7 @@
 }
 .dropdown-submenu{ position: relative; }
 .dropdown-submenu>.dropdown-menu{
-background-image: linear-gradient(rgb(38, 66, 114), rgb(102, 180, 213), rgb(65, 9, 74));
+background-color: black;
  color: #fff;
   top:0;
   left:100%;
@@ -644,6 +644,7 @@ container-fluid {
 #gui {position: absolute; top: 10px; left: 20px }
 
 .dg.a { margin-right:60 !important; }
+
 
 
 
