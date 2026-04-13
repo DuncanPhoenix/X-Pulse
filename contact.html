@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -9,15 +10,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <head>
+    
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>X-PULSE</title>
 	  <link rel="icon" type="image/ico" href="images/logo.gif" />
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
-
-   <script type="module" src="./index.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6myHzS10YXdcazAFalmXvDkrYCp5cLc8&libraries=maps,marker&v=weekly"defer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+      <script type="module" src="./index.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6myHzS10YXdcazAFalmXvDkrYCp5cLc8&libraries=maps,marker&v=weekly"defer>
 		let map;
      async function initMap() {
     const { Map } = (await google.maps.importLibrary('maps'));
@@ -26,44 +26,8 @@
         zoom: 8,
     });
 }
-		
-initMap();
-  <script>
-  const isTouch = "ontouchstart" in window;
-  document.querySelectorAll(".card").forEach((card) => {
-  const inner = card.querySelector(".card-inner");
-
-  // Tap/click flip met subtiele scale-bounce
-  card.addEventListener("click", () => {
-    const baseRotate = card.classList.contains("flipped") ? 0 : 180;
-    inner.style.transition = "transform 0.15s ease-out";
-    inner.style.transform = `rotateY(${baseRotate}deg) scale(1.05)`;
-    setTimeout(() => {
-      inner.style.transition = "transform 0.7s cubic-bezier(.4,.2,.2,1)";
-      inner.style.transform = `rotateY(${baseRotate}deg) scale(1)`;
-      card.classList.toggle("flipped");
-    }, 150);
-  });
-
-  if (!isTouch) {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -10;
-      const rotateY = ((x - centerX) / centerX) * 10;
-      const baseRotate = card.classList.contains("flipped") ? 180 : 0;
-      inner.style.transform = `rotateY(${baseRotate}deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
-    });
-      card.addEventListener("mouseleave", () => {
-      const baseRotate = card.classList.contains("flipped") ? 180 : 0;
-      inner.style.transform = `rotateY(${baseRotate}deg) rotateX(0deg) rotateY(0deg) scale(1)`;
-    });
-  }
-});
-    </script>
+		initMap();
+ 
 	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 
     <style>
@@ -335,9 +299,18 @@ ul.features li::before {
   }
 }
 </style>
-</head>
-<script>
-  const isTouch = "ontouchstart" in window;
+
+ <script>
+   function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+		   window.addEventListener('DOMContentLoaded', () => {
+			    const isTouch = "ontouchstart" in window;
   document.querySelectorAll(".card").forEach((card) => {
   const inner = card.querySelector(".card-inner");
   // Tap/click flip met subtiele scale-bounce
@@ -371,16 +344,6 @@ ul.features li::before {
     });
   }
 });
-  </script>
-	   <script>
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
     </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
  </head>
@@ -425,7 +388,7 @@ ul.features li::before {
                 </div>
             </nav>
              <div class="magic"></div>
-</head>
+
 <img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 <br>
 <br>
@@ -478,7 +441,7 @@ exposure imaging	of	stochastic	phenomena	in	matter.
  <h2><strong>Meat Z Team</strong></h2>
 	  <br>
   <div class="card-grid">
-  <!-- Card 1 -->
+ <!-- Card 1 -->
   <div class="card">
     <div class="card-inner">
       <div class="card-face card-front one">
@@ -487,25 +450,27 @@ exposure imaging	of	stochastic	phenomena	in	matter.
           <p>Dr Researcher at Center for Free-Electron Laser Science</p>
         </div>
         <p>Tel: +49-40-8998 - 6348
-         E-mail: patrik.vagovic@cfel.de</p>
+         E-mail: patrik.vagovic@cfel.de
+ </p>
       </div>
       <div class="card-face card-back">
         <div>
-          <h3>Features</h3>
+          <h3>Research Interests</h3>
           <ul class="features">
-            <li>Lightning-fast rendering</li>
-            <li>Modular component system</li>
-            <li>Seamless API integration</li>
-            <li>AI-powered UI suggestions</li>
+            <li>Ultrafast X-ray dynamics</li>
+            <li>Free-electron laser science</li>
+            <li>Single-shot imaging</li>
+            <li>Atomic-scale probing</li>
           </ul>
         </div>
         <div class="cta-buttons">
-          <a href="#" class="primary">Get Started</a>
-          <a href="#" class="secondary">Learn More</a>
+          <a href="mailto:patrik.vagovic@cfel.de" class="primary">Email</a>
+          <a href="#" class="secondary">Profile</a>
         </div>
       </div>
     </div>
   </div>
+
   <!-- Card 2 -->
   <div class="card">
     <div class="card-inner">
@@ -519,21 +484,22 @@ E-mail: tokushi.sato@xfel.eu</p>
       </div>
       <div class="card-face card-back">
         <div>
-          <h3>Advantages</h3>
+          <h3>Expertise</h3>
           <ul class="features">
-            <li>Auto-scaling engine</li>
-            <li>low-latency network</li>
-            <li>Zero-downtime</li>
-            <li>Built-in analytics</li>
+            <li>X-ray free-electron lasers</li>
+            <li>Scientific instrumentation</li>
+            <li>Beamline operations</li>
+            <li>Ultrafast phenomena</li>
           </ul>
         </div>
         <div class="cta-buttons">
-          <a href="#" class="primary">Deploy Now</a>
-          <a href="#" class="secondary">Docs</a>
+          <a href="mailto:tokushi.sato@xfel.eu" class="primary">Email</a>
+          <a href="#" class="secondary">Profile</a>
         </div>
       </div>
     </div>
   </div>
+
   <!-- Card 3 -->
   <div class="card">
     <div class="card-inner">
@@ -542,48 +508,49 @@ E-mail: tokushi.sato@xfel.eu</p>
           <h2>Chan Kim</h2>
           <p>Ph.D Scientist (Operations Leader) at European X-Ray Free-Electron Laser</p>
         </div>
-        <p>Tap or click to flip</p>
+        <p>Email: chan.kim@xfel.eu</p>
       </div>
       <div class="card-face card-back">
         <div>
-          <h3>What's Inside</h3>
+          <h3>Specializations</h3>
           <ul class="features">
-            <li>In-browser training engine</li>
-            <li>Model visualization tools</li>
-            <li>Secure model hosting</li>
-            <li>Dataset builder</li>
+            <li>Operations leadership</li>
+            <li>X-ray beamline management</li>
+            <li>Scientific operations</li>
+            <li>Facility coordination</li>
           </ul>
         </div>
         <div class="cta-buttons">
-          <a href="#" class="primary">Try Nova</a>
-          <a href="#" class="secondary">Explore API</a>
+          <a href="mailto:chan.kim@xfel.eu" class="primary">Email</a>
+          <a href="#" class="secondary">Profile</a>
         </div>
       </div>
     </div>
   </div>
+
   <!-- Card 4 -->
   <div class="card">
     <div class="card-inner">
       <div class="card-face card-front four">
         <div>
           <h2>Šarlota Birnšteinová</h2>
-          <p>Real-time monitoring platform with predictive analytics and anomaly detection.</p>
+          <p>Scientist at European XFEL</p>
         </div>
-        <p>Tap or click to flip</p>
+        <p>Email: sarlota.birnsteinova@xfel.eu</p>
       </div>
       <div class="card-face card-back">
         <div>
-          <h3>Highlights</h3>
+          <h3>Research Areas</h3>
           <ul class="features">
-            <li>Live dashboards</li>
-            <li>Predictive forecasting</li>
-            <li>Custom alerts & triggers</li>
-            <li>AI-based anomaly tracking</li>
+            <li>X-ray probing techniques</li>
+            <li>Ultrafast events</li>
+            <li>Data processing</li>
+            <li>Scientific computing</li>
           </ul>
         </div>
         <div class="cta-buttons">
-          <a href="#" class="primary">Start Free</a>
-          <a href="#" class="secondary">View Demo</a>
+          <a href="mailto:sarlota.birnsteinova@xfel.eu" class="primary">Email</a>
+          <a href="#" class="secondary">Profile</a>
         </div>
       </div>
     </div>
