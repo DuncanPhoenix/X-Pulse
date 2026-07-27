@@ -1,254 +1,438 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>X-PULSE</title>
+  <link rel="icon" type="image/ico" href="images/logo.gif" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/Stylesheet1.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/Stylesheet1.css">
-   <script src="JS/Script1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>X-PULSE</title>
-	  <link rel="icon" type="image/ico" href="images/logo.gif" />
-    
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <script>
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
- </head>
-<body style="height:2040px">
-  <nav class="navbar navbar-clean">
-  <div class="container-fluid"> 
-  <div class="navbar-header">
-	 <a class="navbar-brand"><img src="images/logo.gif" class="w3-image" style="float:left; margin:"0px; width="50" height="0" href="#"><a class="navbar-brand" style="text-align:center; color:black; text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(255, 255, 255);" href="index.html"><strong>X-PULSE</strong></a>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-               </div>
-                  <ul class="nav navbar-nav topnav" style=" padding-left:100px; text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);"> 
-                   <li class="home"><a href="index.html"><strong>About us</strong></a></li>
-                        <li><a href="projects.html"><strong>Projects</strong></a></li>
-                        <li><a href="gallery.html"><strong>Gallery</strong></a></li>
-                        <li><a href="funds&synergies.html"><strong>Funds&Synergies</strong></a></li>
-                        <li><a href="history.html"><strong>History</strong></span></a>          
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Archive</strong><span class="caret"></span></a>
-                             <ul class="dropdown-menu" style="background-color: #2894FF;">
-							  <li><a href="archive2025.html">2025</a></li>
-                              <li><a href="archive2024.html">2024</a></li>
-							   <li><a href="archive2023.html">2023</a></li>          
-                              </li>
-                              </ul>
-                              </li>                  
-                        <li><a href="references.html"><strong>References</strong></a></li>
-                        <li><a href="contact.html"><strong>Contact</strong></a></li>
-                    </ul>
-                     <ul class="nav navbar-nav topnav navbar-right" style="margin:10px;">
-                      <li>
-                 
-         <div id="google_translate_element"></div>
-                    </li></ul>
-                     <form class="navbar-form navbar-right" action="/action_page.php">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" name="search">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="glyphicon glyphicon-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                     </form>
-                </div>
-            </nav>
-			 <div class="magic"></div>
-             <style>
-body {
-  background-color: white;
-  color: black;
-	body, html {
-  height: 100%;
-}
-}
-.dark-mode {
-  background-color: black;
-  color: white;
-	.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: light-blue;
-   color: white;
-   text-align: center;
-}
-}
-.parallax {
-  /* The image used */
-  background-image: url('images/about_project-scaled.jpg');
+  <script src="JS/Script1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,de,hi,ar,fr,es,it,sk',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
 
-  /* Full height */
-  height: 100%; 
+    body.dark-mode {
+      background-color: #000;
+      color: #f5f5f5;
+    }
 
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style>
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .navbar-clean {
+      background: #f7f7f7;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding: 10px 0;
+    }
+
+    .navbar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .navbar-brand {
+      color: #000 !important;
+      text-shadow: 1px 1px 2px #fff, 0 0 25px rgb(96, 12, 98), 0 0 5px #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 0;
+    }
+
+    .navbar-brand img {
+      width: 50px;
+      height: auto;
+      margin: 0;
+    }
+
+    .navbar-toggle {
+      margin-right: 0;
+      border: 1px solid #ccc;
+    }
+
+    .topnav {
+      padding-left: 20px;
+      text-shadow: 1px 1px 2px #000, 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);
+    }
+
+    .navbar-collapse {
+      border-top: 1px solid #e7e7e7;
+      box-shadow: none;
+    }
+
+    .navbar-nav > li > a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .hero-images {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    .hero-images img {
+      flex: 1 1 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+      min-height: 220px;
+      object-fit: cover;
+    }
+
+    .page-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .sidenav {
+      flex: 0 0 250px;
+      max-width: 250px;
+    }
+
+    .main-content {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .box {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+    }
+
+    body.dark-mode .box {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .polaroid {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    body.dark-mode .polaroid {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .article-content h4,
+    .article-content p {
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    .btn1 {
+      background: linear-gradient(135deg, #6a1b9a, #2894ff);
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      padding: 8px 14px;
+      font-weight: 600;
+    }
+
+    .footer {
+      background: #e8f4ff;
+      padding: 20px 15px 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    body.dark-mode .footer {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .footer img {
+      display: inline-block;
+      margin: 0 6px;
+      width: 32px;
+      height: 32px;
+    }
+
+    @media (max-width: 991px) {
+      .page-grid {
+        flex-direction: column;
+      }
+
+      .sidenav,
+      .main-content {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      .topnav {
+        padding-left: 0;
+      }
+
+      .navbar-form {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-header {
+        padding: 0 15px;
+      }
+
+      .navbar-brand {
+        font-size: 18px;
+      }
+
+      .navbar-collapse {
+        padding: 0 15px;
+      }
+
+      .navbar-nav {
+        margin: 7.5px 0;
+      }
+
+      .navbar-nav > li > a {
+        padding: 10px 0;
+      }
+
+      .navbar-form,
+      .navbar-right {
+        float: none !important;
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .navbar-right {
+        margin-right: 0;
+      }
+
+      .hero-images {
+        flex-direction: column;
+      }
+
+      .hero-images img {
+        flex: 1 1 100%;
+      }
+
+      .page-grid {
+        padding: 15px;
+      }
+
+      .polaroid {
+        padding: 15px;
+      }
+
+      .article-content h1 {
+        font-size: 28px;
+      }
+
+      .article-content h2,
+      .article-content h3 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-clean {
+        padding: 8px 0;
+      }
+
+      .article-content h1 {
+        font-size: 24px;
+      }
+
+      .article-content h3,
+      .article-content h4 {
+        font-size: 16px;
+      }
+
+      .footer {
+        padding: 15px 10px 25px;
+      }
+    }
+  </style>
 </head>
- <img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-<br>
- <div class="container-fluid text-center">
-  <div class="col-sm-2 sidenav">	
-	<div class="box" style="margin-top:20px;">
-    <div id="myDIV">
-	<img src="images/logo.gif" alt="first" style="width:100%; height:100%;">
-	</div>
-     <hr>
-     <h3 style="text-align: center">Motivation</h3>
-     <br>
-    <img src="images/div.png" style="width:100%;">
-    <br>
-    <p></p>
-    <p style="text-align: justify; padding:5px;">
-    <br>
-Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
-ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
-pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
-synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
-exposure imaging	of	stochastic	phenomena	in	matter.
-	 </p>
-     <br>
-     <video controls="images/j.png" name="media" style="width:220px; height:100px;"><source src="Merkaba.mp3" type="audio/mpeg"></video>
-     <br>
-	<br>
+<body>
+  <nav class="navbar navbar-clean">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.gif" alt="X-PULSE logo" />
+          <span><strong>X-PULSE</strong></span>
+        </a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-navigation" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="site-navigation">
+        <ul class="nav navbar-nav topnav">
+          <li><a href="index.html"><strong>About us</strong></a></li>
+          <li><a href="projects.html"><strong>Projects</strong></a></li>
+          <li><a href="gallery.html"><strong>Gallery</strong></a></li>
+          <li><a href="funds&synergies.html"><strong>Funds&Synergies</strong></a></li>
+          <li class="active"><a href="history.html"><strong>History</strong></a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Archive</strong><span class="caret"></span></a>
+            <ul class="dropdown-menu" style="background-color: #2894FF;">
+              <li><a href="archive2025.html">2025</a></li>
+              <li><a href="archive2024.html">2024</a></li>
+              <li><a href="archive2023.html">2023</a></li>
+            </ul>
+          </li>
+          <li><a href="references.html"><strong>References</strong></a></li>
+          <li><a href="contact.html"><strong>Contact</strong></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><div id="google_translate_element"></div></li>
+        </ul>
+        <form class="navbar-form navbar-right" action="/action_page.php">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search" />
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-   </div>
+  </nav>
 
-  <div class="col-sm-8 text-left"> 
-  <br>
-  <div class="polaroid" >           
-  <div class="container" style="color: light-blue; text-shadow: 1px 1px 2px rgb(0, 0, 0)">
-  <div class="text" text-align: center; style="text-align: justify; width=device-width;">
-  <br>
-    <br>
-     <h2>X-Pulse</h2>
-     <br>
-     <h3 style="color:blue;">X-ray Probing of Ultrafast Events</h3>
-     <br>
-     <h1 ><strong>HISTORY</strong></h1>
-     <br>
-     <br>
-     <h4 style="text-align: justify; line-height: 1.8">
-     The history of speed photography evolved from capturing mechanical events visible to the human eye to using highly specialized lasers to probe subatomic-level ultrafast processes. 
-     Breakthroughs were driven by innovations in photographic technology and lighting, revealing hidden aspects of motion for both scientific analysis and artistic expression.
-     Pioneers and chronophotography Eadweard Muybridge (1870s): Muybridge pioneered the photographic study of motion using a battery of cameras triggered by tripwires. 
-     His 1878 series, The Horse in Motion, famously proved that a horse lifts all four hooves off the ground at the same time during a gallop. 
-     This work was foundational for the development of cinematography. Étienne-Jules Marey (1880s): The French physiologist developed the field of chronophotography by using a single camera to record successive images of motion.
-     He invented a "photographic gun" to take 12 pictures per second and later a continuous-film chronophotograph that was a precursor to the modern film camera. 
-     Marey's work often presented multiple exposures on a single plate to visually trace the path of movement. Georges Demeny and Ottomar Anschutz (1880s): Marey's assistant, Georges Demeny, refined chronophotography by creating the stroboscope for projecting images of motion. 
-     Independently, Ottomar Anschutz developed cameras with focal-plane shutters for exposures as fast as 1/1000th of a second and invented a viewer that used electric sparks to illuminate chronophotographs.
-     The flash and high-speed strobe Early flash photography (1850s-1920s): The concept of flash photography dates to the 1850s, but early methods used dangerous, explosive flash powder. In the 1920s, flashes were still large, noisy, and smoky affairs.
-     Harold "Doc" Edgerton (1930s): At the Massachusetts Institute of Technology (MIT), Edgerton pioneered the use of the electronic stroboscope to "stop" fast motion and produce crisp, instantaneous photos. His iconic images include a splashing milk drop forming a "coronet" and a bullet piercing an apple.
-     Edgerton and his partners founded the company EG&G, which developed and produced high-speed photographic equipment. Strobe photography applications: Edgerton's work had both scientific and artistic applications. Scientific: High-speed strobe photography allowed physicists to analyze phenomena like fluid dynamics and air currents.
-     Military: During WWII, Edgerton developed a powerful strobe system for aerial night reconnaissance. Artistic: His visually arresting images of motion won acclaim at art museums and inspired other photographers.</h4>
- <br>
- <h3 style="color:blue;">Ultrafast events and modern methods</h3>
- <br>
- <h4 style="text-align: justify; line-height: 1.8"><u>Rapatronic camera (1950s):</u> During the Cold War, Edgerton and his company developed the rapatronic (for "rapid electronic") camera to photograph nuclear tests. 
- It used a magneto-optical shutter with no moving parts to capture exposures as short as 10 nanoseconds, allowing scientists to measure the expanding fireball from an atomic detonation.
- <br>
- <u>Electronic imaging sensors (1980s-1990s):</u> The invention and refinement of charge-coupled device (CCD) and complementary metal-oxide-semiconductor (CMOS) sensors revolutionized high-speed photography.
- Early CCD cameras had readout limitations, but engineers developed ways to increase frame rates. Later CMOS sensors offered high flexibility by allowing a tradeoff between frame rate and resolution, making high-speed photography more accessible.
- <br>
- <u>Pump-probe spectroscopy (1980s):</u> Ahmed Zewail pioneered the "pump-probe" method using ultrafast lasers to study chemical reactions at the femtosecond scale (\(10^{-15}\) seconds).
- The "pump" laser pulse provides energy to start a reaction, and the subsequent "probe" pulse photographs the molecular dynamics as they occur. This technique, known as femtochemistry, earned Zewail the Nobel Prize in 1999 and allows scientists to "watch" atoms and molecules as they move.
- <br>
- <u>Compressed Ultrafast Photography (CUP) (2014):</u> Researchers developed CUP as a single-shot imaging technique capable of capturing non-repetitive events at an astonishing \(10^{11}\) frames per second. 
- It works by compressing a scene's temporal and spatial data and capturing it with a single exposure, later reconstructing the full video. </h4>
-  <br>
-  </p>
-  <br>
-  <br>
-  <br>
-      <br>
-     </div>
-    </div>
-   </div>
+  <div class="hero-images">
+    <img src="images/j.png" alt="Scientific visual" />
+    <img src="images/j.png" alt="Scientific visual" />
   </div>
 
-   <div class="col-sm-2 sidenav">
-   	<div class="box" style="margin-top:20px;">
-	<h3>Follow X - Pulse</h3>
-	
-	<p>on social media</p>
-		<br>
-		 <p>
-		 <a href="https://facebook.com" target="_blank"><img src="images/face.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-         <a href="https://instagram.com/" target="_blank"><img src="images/insta.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		 <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		 <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-	     </p>
-	  <hr>
-	  <img src="images/gif.gif" alt="HTML5 Icon" style="width:200px; height:300px;"/>
-        <br>
-		<br>
-		<button class="btn1" onclick="myFunction()"><p style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74)";>DarkMatter</p></button>
-		<br>
-	</div>
-	<div class="box" >
-	<br>
-	<h3><b>X-ray Probing of Ultrafast Events</b></h3>
-	<hr>
-	<p></p>	
-		<br>
-		<img src="images/f1.gif" style="width:200px;height:150px;"/>
-		</p>
-		      <br>
-	<br>
-	<h5 style="text-align: justify;"><b>Understanding	Fast	Phenomena	of	Fluid	Transport	in	Porous	Media	using	MHz	Xray	Microscopy</b></h5>
-	<br>
-	<p style="text-align: justify;">Proposal	Number	6937,		PI	Patrick	Huber,	TUHH/DESY,	Hamburg, Germany,	Propagation	of	water	through	porous	media.</p>	
-    <hr>
-       <br>
-	</div>
-   </div>
+  <div class="page-grid">
+    <aside class="sidenav">
+      <div class="box">
+        <div id="myDIV">
+          <img src="images/logo.gif" alt="X-PULSE logo" />
+        </div>
+        <hr />
+        <h3 style="text-align: center;">Motivation</h3>
+        <img src="images/div.png" alt="Decorative divider" />
+        <p style="text-align: justify; padding: 5px;">
+          Modern 4th-generation X-ray facilities provide unprecedented opportunities for probing ultrafast dynamics. Their exceptionally high photon flux per pulse (10^9 - 10^12 photons per pulse), combined with ultra-short pulse durations (~10 fs and ~100 ps at XFELs and synchrotrons) and pulse megahertz repetition rates, enables ultra-fast single-shot/single exposure imaging of stochastic phenomena in matter.
+        </p>
+        <video controls name="media" style="width: 100%; max-width: 220px; height: auto;"><source src="Merkaba.mp3" type="audio/mpeg" /></video>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="polaroid article-content">
+        <h2>X-Pulse</h2>
+        <h3 style="color: blue;">X-ray Probing of Ultrafast Events</h3>
+        <h1><strong>HISTORY</strong></h1>
+        <h4>
+          The history of speed photography evolved from capturing mechanical events visible to the human eye to using highly specialized lasers to probe subatomic-level ultrafast processes. Breakthroughs were driven by innovations in photographic technology and lighting, revealing hidden aspects of motion for both scientific analysis and artistic expression.
+        </h4>
+        <h4>
+          Pioneers and chronophotography: Eadweard Muybridge (1870s) pioneered the photographic study of motion using a battery of cameras triggered by tripwires. His 1878 series, The Horse in Motion, famously proved that a horse lifts all four hooves off the ground at the same time during a gallop. This work was foundational for the development of cinematography.
+        </h4>
+        <h4>
+          Étienne-Jules Marey (1880s) developed the field of chronophotography by using a single camera to record successive images of motion. He invented a photographic gun to take 12 pictures per second and later a continuous-film chronophotograph that was a precursor to the modern film camera. Marey’s work often presented multiple exposures on a single plate to visually trace the path of movement.
+        </h4>
+        <h4>
+          Georges Demeny and Ottomar Anschutz refined chronophotography by creating the stroboscope for projecting images of motion. Independently, Anschutz developed cameras with focal-plane shutters for exposures as fast as 1/1000th of a second and invented a viewer that used electric sparks to illuminate chronophotographs.
+        </h4>
+        <h4>
+          Early flash photography (1850s-1920s) evolved from dangerous explosive flash powder to more practical systems. Harold “Doc” Edgerton (1930s) pioneered the use of the electronic stroboscope to “stop” fast motion and produce crisp, instantaneous photos, including iconic images such as a splashing milk drop and a bullet piercing an apple. His work had both scientific and artistic applications.
+        </h4>
+        <h3 style="color: blue;">Ultrafast events and modern methods</h3>
+        <h4>
+          <u>Rapatronic camera (1950s):</u> During the Cold War, Edgerton and his company developed the rapatronic camera to photograph nuclear tests. It used a magneto-optical shutter with no moving parts to capture exposures as short as 10 nanoseconds.
+        </h4>
+        <h4>
+          <u>Electronic imaging sensors (1980s-1990s):</u> The invention and refinement of CCD and CMOS sensors revolutionized high-speed photography. Later CMOS sensors offered high flexibility by allowing a tradeoff between frame rate and resolution.
+        </h4>
+        <h4>
+          <u>Pump-probe spectroscopy (1980s):</u> Ahmed Zewail pioneered the pump-probe method using ultrafast lasers to study chemical reactions at the femtosecond scale (10<sup>-15</sup> seconds). This technique, known as femtochemistry, earned him the Nobel Prize in 1999.
+        </h4>
+        <h4>
+          <u>Compressed Ultrafast Photography (CUP) (2014):</u> Researchers developed CUP as a single-shot imaging technique capable of capturing non-repetitive events at an astonishing 10<sup>11</sup> frames per second.
+        </h4>
+      </div>
+    </main>
+
+    <aside class="sidenav">
+      <div class="box">
+        <h3>Follow X - Pulse</h3>
+        <p>on social media</p>
+        <p>
+          <a href="https://facebook.com" target="_blank"><img src="images/face.png" alt="Facebook" /></a>
+          <a href="https://instagram.com/" target="_blank"><img src="images/insta.png" alt="Instagram" /></a>
+          <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="Twitter" /></a>
+          <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="LinkedIn" /></a>
+        </p>
+        <hr />
+        <img src="images/gif.gif" alt="Animated visual" style="width: 100%; max-width: 200px; height: auto; margin: 0 auto;" />
+        <br />
+        <button class="btn1" onclick="myFunction()">DarkMatter</button>
+      </div>
+      <div class="box">
+        <h3><b>X-ray Probing of Ultrafast Events</b></h3>
+        <hr />
+        <img src="images/f1.gif" alt="Research illustration" style="width: 100%; max-width: 200px; height: auto; margin: 0 auto;" />
+        <h5 style="text-align: justify;"><b>Understanding Fast Phenomena of Fluid Transport in Porous Media using MHz X-ray Microscopy</b></h5>
+        <p style="text-align: justify;">Proposal Number 6937, PI Patrick Huber, TUHH/DESY, Hamburg, Germany, propagation of water through porous media.</p>
+      </div>
+    </aside>
   </div>
- 
- <div class="w3-container w3-margin">
-   <div class="footer">
-     <br>
-      <br>
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
-  <h6 class="w3-small" style="text-align:center;">X - Pulse</p>
-		 <a href="https://facebook.com" target="_blank"><img src="images/facebl.png" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-         <a href="https://instagram.com/" target="_blank"><img src="images/instabl.png" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-		 <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-	     <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-         <h6 class="w3-small" style="text-align:center;">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</p>
-  <br>
-  <p style="color: blue;">Copyright ©2026 Duncan Phoenix</p>
-  </div>
+
+  <footer class="footer">
+    <h6 class="w3-small">X - Pulse</h6>
+    <a href="https://facebook.com" target="_blank"><img src="images/facebl.png" alt="Facebook" /></a>
+    <a href="https://instagram.com/" target="_blank"><img src="images/instabl.png" alt="Instagram" /></a>
+    <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="Twitter" /></a>
+    <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn" /></a>
+    <h6 class="w3-small">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</h6>
+    <p style="color: blue;">Copyright ©2026 Duncan Phoenix</p>
+  </footer>
+
+  <script>
+    function myFunction() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 </html>
- 
+
 
 
 
