@@ -59,7 +59,7 @@
         border: 0;
         border-radius: 0;
         margin-bottom: 0;
-        padding: 10px 0;
+        padding: 8px 0;
       }
       .navbar-header {
         display: flex;
@@ -76,9 +76,10 @@
         padding-left: 0;
         text-shadow: 1px 1px 2px #ffffff, 0 0 25px rgb(96, 12, 98), 0 0 5px #ffffff;
         font-weight: 700;
+        white-space: nowrap;
       }
-      .navbar-brand img { width: 50px; height: auto; margin: 0; }
-      .navbar-clean .container-fluid { padding-left: 0; padding-right: 15px; }
+      .navbar-brand img { width: 46px; height: auto; margin: 0; }
+      .navbar-clean .container-fluid { padding-left: 12px; padding-right: 12px; }
       .navbar-header { padding-left: 0; }
       .navbar-toggle {
         margin-right: 0;
@@ -86,15 +87,19 @@
         background: transparent;
       }
       .topnav {
-        padding-left: 20px;
+        padding-left: 8px;
         text-shadow: 1px 1px 2px #000000, 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);
+        display: flex;
+        align-items: center;
       }
       .navbar-collapse { border-top: 1px solid var(--border); box-shadow: none; }
-      .navbar-nav > li > a { padding: 10px 15px; }
+      .navbar-nav > li > a { padding: 8px 12px; font-size: 13px; }
+      .navbar-nav > li.dropdown > a { padding-right: 20px; }
       .translator-widget {
         max-width: 140px;
         overflow: hidden;
-        margin-top: 4px;
+        margin-top: 2px;
+        margin-left: 6px;
       }
       .translator-widget .goog-te-gadget,
       .translator-widget .goog-te-combo,
@@ -189,7 +194,7 @@
         </button>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav topnav" style="padding-left: 100px; text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);">
+        <ul class="nav navbar-nav topnav" style="padding-left: 8px; text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);">
           <li class="home"><a href="index.html"><strong>About us</strong></a></li>
           <li><a href="projects.html"><strong>Projects</strong></a></li>
           <li><a href="gallery.html"><strong>Gallery</strong></a></li>
@@ -206,12 +211,12 @@
           <li><a href="references.html"><strong>References</strong></a></li>
           <li><a href="contact.html"><strong>Contact</strong></a></li>
         </ul>
-        <ul class="nav navbar-nav topnav navbar-right" style="margin: 10px;">
+        <ul class="nav navbar-nav navbar-right topnav" style="margin: 0 0 0 8px;">
           <li>
             <div id="google_translate_element" class="translator-widget"></div>
           </li>
         </ul>
-        <form class="navbar-form navbar-right" action="/action_page.php">
+        <form class="navbar-form navbar-right" action="/action_page.php" style="margin: 0 0 0 8px;">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="search" />
             <div class="input-group-btn">
@@ -227,7 +232,7 @@
   <div class="magic"></div>
        <div class="hero-images">
          <img src="images/j.png" alt="Lights" class="w3-image" />
-         <img src="images/j.png" alt="Lights" class="w3-image" />
+  
        </div>
    <br>
    <div class="w3-container w3-margin">
@@ -321,8 +326,6 @@
  </body>
  
  </html>
-
-
 
 
 
