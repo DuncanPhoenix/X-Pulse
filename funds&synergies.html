@@ -1,43 +1,314 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>X-PULSE</title>
+  <link rel="icon" type="image/ico" href="images/logo.gif" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/Stylesheet1.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/Stylesheet1.css">
-    <script src="JS/Script1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>X-PULSE</title>
-	  <link rel="icon" type="image/ico" href="images/logo.gif" />
-    
-	     <script>
-        $(document).ready(function () {
-            $("button").click(function () {
-                $("#ooo").attr("href", function (i, origValue) {
-                    return origValue + "/jquery/";
-                });
-            });
-        });
+  <script src="JS/Script1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,de,hi,ar,fr,es,it,sk',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
 
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
- </head>
-<body style="height:1240px">
+    body.dark-mode {
+      background-color: #000;
+      color: #f5f5f5;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  
+
+    .navbar-brand img {
+      width: 50px;
+      height: auto;
+      margin: 0;
+    }
+
+    .navbar-toggle {
+      margin-right: 0;
+      border: 1px solid #ccc;
+    }
+
+    .topnav {
+      padding-left: 20px;
+      text-shadow: 1px 1px 2px #000, 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);
+    }
+
+    .navbar-collapse {
+      border-top: 1px solid #e7e7e7;
+      box-shadow: none;
+    }
+
+    .navbar-nav > li > a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+    }
+
+    .social-links img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .sidebar-intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-intro img {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .hero-images {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    .hero-images img {
+      flex: 1 1 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+      min-height: 220px;
+      object-fit: cover;
+    }
+
+    .page-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 20px;
+      align-items: flex-start;
+    }
+
+    .sidenav {
+      flex: 0 0 240px;
+      max-width: 240px;
+    }
+
+    .main-content {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .box {
+      background: #fff;
+      padding: 14px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+    }
+
+    body.dark-mode .box {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .polaroid {
+      background: #fff;
+      padding: 18px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      max-width: 100%;
+    }
+
+    body.dark-mode .polaroid {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .article-content h2,
+    .article-content h3,
+    .article-content h4,
+    .article-content p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: justify;
+      line-height: 1.7;
+    }
+
+    .article-content h1 {
+      margin-top: 6px;
+      margin-bottom: 12px;
+    }
+
+    .btn1 {
+      background: linear-gradient(135deg, #6a1b9a, #2894ff);
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      padding: 8px 14px;
+      font-weight: 600;
+    }
+
+    .footer {
+      background: #e8f4ff;
+      padding: 20px 15px 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    body.dark-mode .footer {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .footer img {
+      display: inline-block;
+      margin: 0 6px;
+      width: 32px;
+      height: 32px;
+    }
+
+    @media (max-width: 991px) {
+      .page-grid {
+        flex-direction: column;
+      }
+
+      .sidenav,
+      .main-content {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      .topnav {
+        padding-left: 0;
+      }
+
+      .navbar-form {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-header {
+        padding: 0 15px;
+      }
+
+      .navbar-brand {
+        font-size: 18px;
+      }
+
+      .navbar-collapse {
+        padding: 0 15px;
+      }
+
+      .navbar-nav {
+        margin: 7.5px 0;
+      }
+
+      .navbar-nav > li > a {
+        padding: 10px 0;
+      }
+
+      .navbar-form,
+      .navbar-right {
+        float: none !important;
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .navbar-right {
+        margin-right: 0;
+      }
+
+      .hero-images {
+        flex-direction: column;
+      }
+
+      .hero-images img {
+        flex: 1 1 100%;
+      }
+
+      .page-grid {
+        padding: 15px;
+      }
+
+      .polaroid {
+        padding: 15px;
+      }
+
+      .article-content h1 {
+        font-size: 28px;
+      }
+
+      .article-content h2,
+      .article-content h3 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-clean {
+        padding: 8px 0;
+      }
+
+      .article-content h1 {
+        font-size: 24px;
+      }
+
+      .article-content h3,
+      .article-content h4 {
+        font-size: 16px;
+      }
+
+      .footer {
+        padding: 15px 10px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
    <nav class="navbar navbar-clean">
   <div class="container-fluid"> 
   <div class="navbar-header">
@@ -62,9 +333,7 @@
                         <li><a href="contact.html"><strong>Contact</strong></a></li>
                      </ul>
                      <ul class="nav navbar-nav topnav navbar-right" style="margin:10px;">
-                     <li>
-         <div id="google_translate_element"></div>
-                    </li></ul>
+                   </ul>
                      <form class="navbar-form navbar-right" action="/action_page.php">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="search">
@@ -78,20 +347,11 @@
                 </div>
             </nav>
 			   <div class="magic"></div>
-             <style>
-body {
-  background-color: white;
-  color: black;
-}
-.dark-mode {
-  background-color: black;
-  color: white;
-}
-</style>
-</head>
- <img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-<br>
- <div class="container-fluid text-center">    
+
+  <div class="hero-images">
+    <img src="images/j.png" alt="Scientific visual" />
+ 
+  </div>
 
     <div class="col-sm-2 sidenav">	
 	<div class="box" style="margin-top:20px; ">
