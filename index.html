@@ -22,22 +22,28 @@
       color: #111;
       line-height: 1.6;
     }
+
     body.dark-mode {
       background-color: #000;
       color: #f5f5f5;
     }
+
     img {
       max-width: 100%;
       height: auto;
       display: block;
     }
+  
+
     .navbar-clean {
       background: #f7f7f7;
       border: 0;
       border-radius: 0;
       margin-bottom: 0;
       padding: 8px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
+
     .navbar-brand {
       display: flex;
       align-items: center;
@@ -47,6 +53,7 @@
       color: #111 !important;
       font-weight: 700;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .navbar-brand img {
@@ -60,6 +67,10 @@
       margin-right: 0;
       border: 1px solid #ccc;
       background: transparent;
+    }
+
+    .navbar-toggle .icon-bar {
+      background-color: #111;
     }
 
     .topnav {
@@ -261,17 +272,16 @@
         padding: 10px 0;
       }
 
-      .navbar-form,
-      .navbar-right,
-      .translator-widget {
-        float: none !important;
-        width: 100%;
-        max-width: 100%;
-        margin: 10px 0;
-      }
-
       .navbar-right {
         margin-right: 0;
+      }
+
+      .navbar-collapse {
+        padding: 0 15px;
+      }
+
+      .navbar-nav > li > a {
+        padding: 10px 0;
       }
 
       .hero-images {
