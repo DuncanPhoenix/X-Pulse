@@ -1,42 +1,315 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>X-PULSE</title>
+  <link rel="icon" type="image/ico" href="images/logo.gif" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/Stylesheet1.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/Stylesheet1.css">
-   <script src="JS/Script1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>X-PULSE</title>
-	  <link rel="icon" type="image/ico" href="images/logo.gif" />
-      <script>
-        $(document).ready(function () {
-            $("button").click(function () {
-                $("#ooo").attr("href", function (i, origValue) {
-                    return origValue + "/jquery/";
-                });
-            });
-        }); 
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
- </head>
-<body style="height:2440px">
-  <nav class="navbar navbar-clean">
+  <script src="JS/Script1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,de,hi,ar,fr,es,it,sk',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    body.dark-mode {
+      background-color: #000;
+      color: #f5f5f5;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  
+
+    .navbar-brand img {
+      width: 50px;
+      height: auto;
+      margin: 0;
+    }
+
+    .navbar-toggle {
+      margin-right: 0;
+      border: 1px solid #ccc;
+    }
+
+    .topnav {
+      padding-left: 20px;
+      text-shadow: 1px 1px 2px #000, 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);
+    }
+
+    .navbar-collapse {
+      border-top: 1px solid #e7e7e7;
+      box-shadow: none;
+    }
+
+    .navbar-nav > li > a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+    }
+
+    .social-links img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .sidebar-intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-intro img {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .hero-images {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    .hero-images img {
+      flex: 1 1 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+      min-height: 220px;
+      object-fit: cover;
+    }
+
+    .page-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 20px;
+      align-items: flex-start;
+    }
+
+    .sidenav {
+      flex: 0 0 240px;
+      max-width: 240px;
+    }
+
+    .main-content {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .box {
+      background: #fff;
+      padding: 14px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+    }
+
+    body.dark-mode .box {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .polaroid {
+      background: #fff;
+      padding: 18px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      max-width: 100%;
+    }
+
+    body.dark-mode .polaroid {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .article-content h2,
+    .article-content h3,
+    .article-content h4,
+    .article-content p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: justify;
+      line-height: 1.7;
+    }
+
+    .article-content h1 {
+      margin-top: 6px;
+      margin-bottom: 12px;
+    }
+
+    .btn1 {
+      background: linear-gradient(135deg, #6a1b9a, #2894ff);
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      padding: 8px 14px;
+      font-weight: 600;
+    }
+
+    .footer {
+      background: #e8f4ff;
+      padding: 20px 15px 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    body.dark-mode .footer {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .footer img {
+      display: inline-block;
+      margin: 0 6px;
+      width: 32px;
+      height: 32px;
+    }
+
+    @media (max-width: 991px) {
+      .page-grid {
+        flex-direction: column;
+      }
+
+      .sidenav,
+      .main-content {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      .topnav {
+        padding-left: 0;
+      }
+
+      .navbar-form {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-header {
+        padding: 0 15px;
+      }
+
+      .navbar-brand {
+        font-size: 18px;
+      }
+
+      .navbar-collapse {
+        padding: 0 15px;
+      }
+
+      .navbar-nav {
+        margin: 7.5px 0;
+      }
+
+      .navbar-nav > li > a {
+        padding: 10px 0;
+      }
+
+      .navbar-form,
+      .navbar-right {
+        float: none !important;
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .navbar-right {
+        margin-right: 0;
+      }
+
+      .hero-images {
+        flex-direction: column;
+      }
+
+      .hero-images img {
+        flex: 1 1 100%;
+      }
+
+      .page-grid {
+        padding: 15px;
+      }
+
+      .polaroid {
+        padding: 15px;
+      }
+
+      .article-content h1 {
+        font-size: 28px;
+      }
+
+      .article-content h2,
+      .article-content h3 {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-clean {
+        padding: 8px 0;
+      }
+
+      .article-content h1 {
+        font-size: 24px;
+      }
+
+      .article-content h3,
+      .article-content h4 {
+        font-size: 16px;
+      }
+
+      .footer {
+        padding: 15px 10px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+   <nav class="navbar navbar-clean">
   <div class="container-fluid"> 
   <div class="navbar-header">
 	 <a class="navbar-brand"><img src="images/logo.gif" class="w3-image" style="float:left; margin:"0px; width="50" height="0" href="#"><a class="navbar-brand" style="text-align:center; color:black; text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(255, 255, 255);" href="index.html"><strong>X-PULSE</strong></a>
@@ -52,17 +325,15 @@
                              <ul class="dropdown-menu" style="background-color: #2894FF;">
 							  <li><a href="archive2025.html">2025</a></li>
                               <li><a href="archive2024.html">2024</a></li>
-							   <li><a href="archive2023.html">2023</a></li>           
+							   <li><a href="archive2023.html">2023</a></li>          
                       </li>
                     </ul>
                   </li>                  
                         <li><a href="references.html"><strong>References</strong></a></li>
                         <li><a href="contact.html"><strong>Contact</strong></a></li>
-                    </ul>
+                     </ul>
                      <ul class="nav navbar-nav topnav navbar-right" style="margin:10px;">
-                      <li>  
-         <div id="google_translate_element"></div>
-                    </li></ul>
+                   </ul>
                      <form class="navbar-form navbar-right" action="/action_page.php">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="search">
@@ -76,51 +347,41 @@
                 </div>
             </nav>
 			   <div class="magic"></div>
-             <style>
-body {
-  background-color: white;
-  color: black;
-}
-.dark-mode {
-  background-color: black;
-  color: white;
-}
-.button1 {
-  align-content: center;
-}
-table, th, td {
-  border: 1px solid black;
-</style>
-</head>
- <img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
- <br>
- <div class="w3-container w3-margin">
- <div class="container-fluid text-center">    
-    <div class="col-sm-2 sidenav">	
-	<div class="box" style="margin-top:20px;">
-	<div id="myDIV" style="content-align: center">
-	<img src="images/logo.gif" alt="first" style="width:100%; height:100%;">
-	</div>
-	<hr>
-    <h4>Motivation</h4>
-	<p style="text-align: justify; padding: 10px;">
-Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
-ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
-pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
-synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
-exposure imaging	of	stochastic	phenomena	in	matter.
-	</p>
-	<br>
-	</div>
-		<img src="images/tomoscopy_schemaFull.png" alt="first" style="width:100%; height:100%;">
-	</div>
-  <div class="col-sm-8 text-left"> 
-  <br>
-  <div class="polaroid">
-  <div class="container">
-  <div class="text" style="margin-right:220px;  text-align: center;">
-    <br>
-  <h3 style="text-align:center;"> Our mission is to push boundaries of advanced X-ray pulse resolved imaging at large scale X-ray infrastructures</h3>
+
+  <div class="hero-images">
+    <img src="images/j.png" alt="Scientific visual" />
+ 
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidenav">
+      <div class="box">
+        <div class="sidebar-intro">
+  
+
+     <img src="images/logo.gif" style="width:100%; height: 100%">
+     </div>
+     <hr>
+     <h3>Motivation</h3>
+     <br>
+     <img src="images/div.png" alt="first" style="width:100%;">
+     <br>
+     <p></p>
+     <br>
+     <p style="text-align: justify; padding:10px;">
+ Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
+ ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
+ pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
+ synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
+ exposure imaging	of	stochastic	phenomena	in	matter.
+      </p>
+     </div>
+   
+    </aside>
+
+    <main class="main-content">
+      <div class="polaroid article-content">
+     <h3 style="text-align:center;"> Our mission is to push boundaries of advanced X-ray pulse resolved imaging at large scale X-ray infrastructures</h3>
   <br>
   <br>
   <h4 style="text-align: justify; line-height: 1.8">We	have	pioneered	this	field	through:
@@ -244,87 +505,51 @@ scientifically and	technologically	relevant	applications.</h4>
   <br>
   <br>
   <br>
-  </div>
-  </div>
-  </div>
-  <p></p>
-  </div>
-    <div class="col-sm-2 sidenav">
-   	<div class="box" style="margin-top:20px;">
-	<h3>Follow X - Pulse</h3>
-	
-	<p>on social media</p>
-		<br>
-		<p>
-		 <a href="https://facebook.com" target="_blank"><img src="images/face.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-         <a href="https://instagram.com/" target="_blank"><img src="images/insta.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		 <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		 <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		</p>
-	   <hr>
-	   <img src="images/gif.gif" alt="HTML5 Icon" style="width:200px;height:300px;"/>
-        <br>
-		<br>
-		<button class="btn1" onclick="myFunction()"><p style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74)";>DarkMatter</p></button>
-	
-		<br>
-	</div>
-	<div class="box" >
-	 <br>
-	<h3><b>X-ray Probing of Ultrafast Events</b></h3>
-	<hr>
-	<p></p>	
-		<br>
-		<img src="images/f1.gif" style="width:200px;height:150px;"/>
-		</p>
-		      <br>
-	<br>
-	<h5 style="text-align: justify;"><b>Understanding	Fast	Phenomena	of	Fluid	Transport	in	Porous	Media	using	MHz	Xray	Microscopy</b></h5>
-	<br>
-	<p style="text-align: justify;">Proposal	Number	6937,		PI	Patrick	Huber,	TUHH/DESY,	Hamburg, Germany,	Propagation	of	water	through	porous	media.</p>	
-    <hr>
-       <br>
-	</div>
-   </div>
-  <div class="w3-container w3-margin">
-  <p style="text-align:center;"> </p>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="footer">
-     <br>
-     <br>
+      </div>
+    </main>
 
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
-  	  <h6 class="w3-small" style="text-align:center;">X - Pulse</p>
-	  <a href="https://facebook.com" target="_blank"><img src="images/facebl.png" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-      <a href="https://instagram.com/" target="_blank"><img src="images/instabl.png" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-	  <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-	  <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-      <h6 class="w3-small" style="text-align:center;">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</p>
-	  <br>
-  <p style="color: blue;">Copyright ©2026 Duncan Phoenix</p>
+    <aside class="sidenav">
+      <div class="box">
+        <h3>Follow X - Pulse</h3>
+        <p>on social media</p>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank"><img src="images/face.png" alt="Facebook" /></a>
+          <a href="https://instagram.com/" target="_blank"><img src="images/insta.png" alt="Instagram" /></a>
+          <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="Twitter" /></a>
+          <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="LinkedIn" /></a>
+        </div>
+        <hr />
+        <img src="images/gif.gif" alt="Animated visual" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; display: block;" />
+        <br />
+        <button class="btn1" onclick="myFunction()">DarkMatter</button>
+      </div>
+      <div class="box">
+        <h3><b>X-ray Probing of Ultrafast Events</b></h3>
+        <hr />
+        <img src="images/f1.gif" alt="Research illustration" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; display: block;" />
+        <h5 style="text-align: justify; margin: 10px 0 6px;"><b>Understanding Fast Phenomena of Fluid Transport in Porous Media using MHz X-ray Microscopy</b></h5>
+        <p style="text-align: justify; margin: 0;">Proposal Number 6937, PI Patrick Huber, TUHH/DESY, Hamburg, Germany, propagation of water through porous media.</p>
+      </div>
+    </aside>
   </div>
+
+  <footer class="footer">
+    <h6 class="w3-small">X - Pulse</h6>
+    <a href="https://facebook.com" target="_blank"><img src="images/facebl.png" alt="Facebook" /></a>
+    <a href="https://instagram.com/" target="_blank"><img src="images/instabl.png" alt="Instagram" /></a>
+    <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="Twitter" /></a>
+    <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn" /></a>
+    <h6 class="w3-small">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</h6>
+    <p style="color: blue;">Copyright ©2026 Duncan Phoenix</p>
+  </footer>
+
+  <script>
+    function myFunction() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 </html>
- 
-
-
-
-
-
-
-
-
-
-
-
 
 
 
