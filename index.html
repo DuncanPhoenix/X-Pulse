@@ -13,24 +13,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="JS/Script1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("button").click(function () {
-        $("#ooo").attr("href", function (i, origValue) {
-          return origValue + "/jquery/";
-        });
-      });
-    });
-
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,de,hi,ar,fr,es,it,sk',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <style>
       :root {
@@ -97,18 +79,7 @@
       .navbar-collapse { border-top: 1px solid var(--border); box-shadow: none; }
       .navbar-nav > li > a { padding: 8px 12px; font-size: 13px; }
       .navbar-nav > li.dropdown > a { padding-right: 20px; }
-      .translator-widget {
-        max-width: 140px;
-        overflow: hidden;
-        margin-top: 2px;
-        margin-left: 6px;
-      }
-      .translator-widget .goog-te-gadget,
-      .translator-widget .goog-te-combo,
-      .translator-widget iframe {
-        max-width: 120px !important;
-        font-size: 11px !important;
-      }
+
       .hero-images { display: flex; flex-wrap: wrap; margin: 0; }
       .hero-images img {
         flex: 1 1 50%;
@@ -206,9 +177,7 @@
                         <li><a href="contact.html"><strong>Contact</strong></a></li>
                      </ul>
                      <ul class="nav navbar-nav topnav navbar-right" style="margin:10px;">
-                     <li>
-         <div id="google_translate_element"></div>
-                    </li></ul>
+                    </ul>
                      <form class="navbar-form navbar-right" action="/action_page.php">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="search">
