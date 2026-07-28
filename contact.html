@@ -25,17 +25,6 @@
                 });
             });
         });
-
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
  </head>
 <body style="height:1240px">
    <nav class="navbar navbar-clean">
@@ -62,9 +51,7 @@
                         <li><a href="contact.html"><strong>Contact</strong></a></li>
                      </ul>
                      <ul class="nav navbar-nav topnav navbar-right" style="margin:10px;">
-                     <li>
-         <div id="google_translate_element"></div>
-                    </li></ul>
+                </ul>
                      <form class="navbar-form navbar-right" action="/action_page.php">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="search">
@@ -401,15 +388,7 @@ ul.features li::before {
 </style>
 
  <script>
-   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,de,hi,ar,fr,es,it,sk', // Customize this list
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-		   window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('DOMContentLoaded', () => {
 			    const isTouch = "ontouchstart" in window;
   document.querySelectorAll(".card").forEach((card) => {
   const inner = card.querySelector(".card-inner");
@@ -446,7 +425,6 @@ ul.features li::before {
 });
 });
     </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
  </head>
  <img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"><img src="images/j.png" alt="Lights" class="w3-image" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 <br>
