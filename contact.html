@@ -417,6 +417,15 @@ ul.features li::before {
   margin: 8px 0 8px 10px;
 }
 
+.btn1 {
+  background: linear-gradient(135deg, #6a1b9a, #2894ff);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-weight: 600;
+}
+
 .footer {
   width: 100%;
   margin-top: auto;
@@ -552,6 +561,54 @@ ul.features li::before {
 @media (max-width: 768px) {
   body {
     padding-top: 64px;
+  }
+
+  .container-fluid.text-center {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .col-sm-2.sidenav,
+  .col-sm-8,
+  .main-container,
+  .card-container,
+  .inner-container,
+  .border-outer,
+  .main-card,
+  .glow-layer-1,
+  .glow-layer-2,
+  .overlay-1,
+  .overlay-2,
+  .background-glow,
+  .content-container,
+  .scrollbar-glass,
+  .aurora2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card-inner {
+    min-height: 320px;
+  }
+
+  .contact-section,
+  .contact-section #map,
+  #map,
+  #map iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .contact-section .box {
+    margin: 0 !important;
   }
 
   .hero-row {
@@ -984,7 +1041,7 @@ exposure imaging	of	stochastic	phenomena	in	matter.
     <img src="images/gif.gif" alt="HTML5 Icon" style="width:200px; height:300px;"/>
 	<br>
 	<br>
-	<button class="btn1" onclick="myFunction()"><p style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74)";>DarkMatter</p></button>
+  <button class="btn1" onclick="myFunction()">DarkMatter</button>
 
         <div class="box" style="margin-top: 20px;">
     <main class="main-container">
