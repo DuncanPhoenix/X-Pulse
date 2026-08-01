@@ -70,6 +70,14 @@ body {
   color: black;
   padding-top: 70px;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: auto !important;
+}
+
+html {
+  min-height: 100%;
 }
 .google-map {
      padding-bottom: 50%;
@@ -409,6 +417,12 @@ ul.features li::before {
   margin: 8px 0 8px 10px;
 }
 
+.footer {
+  width: 100%;
+  margin-top: auto;
+  clear: both;
+}
+
 .hero-row {
   display: flex;
   flex-wrap: wrap;
@@ -633,7 +647,7 @@ ul.features li::before {
 </style>
 
 </head>
-<body style="height:1240px">
+<body>
    <nav class="navbar navbar-clean">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -1032,6 +1046,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const middleColumn = layout ? layout.querySelector(".col-sm-8") : null;
   const mapEl = document.getElementById("map");
   const contactRow = mapEl ? mapEl.closest(".row") : null;
+  const footer = document.querySelector(".footer");
 
   if (layout && middleColumn && sidebars.length > 1) {
     const leftSidebar = sidebars[0];
@@ -1058,6 +1073,11 @@ document.addEventListener("DOMContentLoaded", () => {
     middleColumn.appendChild(contactRow);
   }
 
+  // Keep footer at the page root so it can sit at the true bottom of the page.
+  if (footer && footer.parentElement !== document.body) {
+    document.body.appendChild(footer);
+  }
+
   const toggle = document.querySelector(".navbar-toggle");
   const menu = document.getElementById("site-navbar");
 
@@ -1073,7 +1093,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
  </body>
 </html>
-
 
 
 
