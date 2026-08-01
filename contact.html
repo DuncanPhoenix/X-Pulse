@@ -483,6 +483,27 @@ ul.features li::before {
   width: 100%;
 }
 
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.contact-section .box {
+  float: none !important;
+  margin: 0 !important;
+  flex: 1 1 280px;
+}
+
+.contact-section #map {
+  flex: 1 1 360px;
+  margin: 0 !important;
+  max-width: none;
+}
+
 #map {
   width: 100%;
   max-width: 760px;
@@ -506,6 +527,11 @@ ul.features li::before {
     flex: 1 1 100%;
     max-width: 100%;
     width: 100%;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    gap: 14px;
   }
 }
 
@@ -1004,6 +1030,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const layout = document.querySelector(".container-fluid.text-center");
   const sidebars = Array.from(document.querySelectorAll(".col-sm-2.sidenav"));
   const middleColumn = layout ? layout.querySelector(".col-sm-8") : null;
+  const mapEl = document.getElementById("map");
+  const contactRow = mapEl ? mapEl.closest(".row") : null;
 
   if (layout && middleColumn && sidebars.length > 1) {
     const leftSidebar = sidebars[0];
@@ -1015,6 +1043,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Enforce exact visual order: left Motivation, center Meat Z Team, right Follow X-Pulse.
     layout.append(leftSidebar, middleColumn, rightSidebar);
+
+    // Keep main panels at the very top of each sidebar.
+    [leftSidebar, rightSidebar].forEach((sidebar) => {
+      const mainPanel = sidebar.querySelector("main.main-container");
+      if (mainPanel) {
+        sidebar.prepend(mainPanel);
+      }
+    });
+  }
+
+  if (middleColumn && contactRow) {
+    contactRow.classList.add("contact-section");
+    middleColumn.appendChild(contactRow);
   }
 
   const toggle = document.querySelector(".navbar-toggle");
@@ -1032,8 +1073,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
  </body>
 </html>
-
-
 
 
 
