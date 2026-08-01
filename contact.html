@@ -465,6 +465,18 @@ ul.features li::before {
   .container-fluid.text-center > .col-sm-8 {
     flex: unset;
   }
+
+  .container-fluid.text-center > .layout-left {
+    grid-column: 1;
+  }
+
+  .container-fluid.text-center > .layout-center {
+    grid-column: 2;
+  }
+
+  .container-fluid.text-center > .layout-right {
+    grid-column: 3;
+  }
 }
 
 .card-grid {
@@ -990,11 +1002,19 @@ function myFunction() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const layout = document.querySelector(".container-fluid.text-center");
-  const sidebars = document.querySelectorAll(".col-sm-2.sidenav");
+  const sidebars = Array.from(document.querySelectorAll(".col-sm-2.sidenav"));
   const middleColumn = layout ? layout.querySelector(".col-sm-8") : null;
 
-  if (layout && middleColumn && sidebars.length > 1 && sidebars[1].parentElement !== layout) {
-    layout.appendChild(sidebars[1]);
+  if (layout && middleColumn && sidebars.length > 1) {
+    const leftSidebar = sidebars[0];
+    const rightSidebar = sidebars[1];
+
+    leftSidebar.classList.add("layout-left");
+    middleColumn.classList.add("layout-center");
+    rightSidebar.classList.add("layout-right");
+
+    // Enforce exact visual order: left Motivation, center Meat Z Team, right Follow X-Pulse.
+    layout.append(leftSidebar, middleColumn, rightSidebar);
   }
 
   const toggle = document.querySelector(".navbar-toggle");
@@ -1012,7 +1032,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
  </body>
 </html>
-
 
 
 
