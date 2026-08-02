@@ -202,6 +202,28 @@
       margin-bottom: 12px;
     }
 
+    .table-pan {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 6px;
+    }
+
+    .table-pan .table-auto {
+      width: 100%;
+      min-width: 860px;
+      border-collapse: collapse;
+      line-height: 1.8;
+    }
+
+    .table-pan .table-auto th,
+    .table-pan .table-auto td {
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
     .btn1 {
       background: linear-gradient(135deg, #6a1b9a, #2894ff);
       color: #fff;
@@ -252,6 +274,10 @@
     }
 
     @media (max-width: 767px) {
+      body {
+        overflow-x: hidden;
+      }
+
       .navbar-header {
         padding: 0 15px;
       }
@@ -505,36 +531,38 @@ scientifically and	technologically	relevant	applications.</h4>
   <br>
 <h2 style="color:lightblue;">Road map Summary</h2>
 
-<table class="table-auto" style="border-radius: 5px; width:100%, text-align: justify; line-height: 1.8; padding: 10px; ">
-  <tr>
-    <th>Step</th>
-    <th>Objesctive</th>
-    <th>Equipment/Infrastructure</th>
-    <th>Estimated Cost</th>
-    <th>Expect Outcome</th>
-  </tr>
-  <tr>
-    <td>1.Feasibility test</td>
-    <td>Demonstrate MHx radiograpghy & projection tomoscopy with existing resources</td>
-    <td>Timing & synchronization signals Fast and slow shutters</td>
-        <td>Minimal (infrastructure only)</td>
-    <td>Proof-of-principle MHz & radiography at P25</td>
-  </tr>
-  <tr>
-    <td>2.Dedicated Implematntation</td>
-    <td>Establish high-speed imaging capability</td>
-    <td>4-8 CMOS detectors (1-500kHz, ~40k each) 1-2 Shimadzu: HPV-X3 detectors (~350k€ each)</td>
-    <td>CMOS: 160-320k€  Shimadzu: 350-700k€ </td>
-    <td>Fully operational MHz radiography & kHz-sampled tomoscopy</td>
-  </tr>
+<div class="table-pan">
+  <table class="table-auto" style="border-radius: 5px;">
     <tr>
-    <td>3.Validation on real systems</td>
-    <td>Apply methods to scientific and industrially relevant cases</td>
-    <td>Imaging of additive manufacturing, laser ablation, acoustic wave-tissue interactions Water transport in porous media (Bluemat consortium)</td>
-    <td>No major new costs beyond Step 2</td>
-    <td>Demonstration of high-impact applications establish P25 as a unique platform for ultrafast 4D synchrotron imaging</td>
-  </tr>
-</table>
+      <th>Step</th>
+      <th>Objesctive</th>
+      <th>Equipment/Infrastructure</th>
+      <th>Estimated Cost</th>
+      <th>Expect Outcome</th>
+    </tr>
+    <tr>
+      <td>1.Feasibility test</td>
+      <td>Demonstrate MHx radiograpghy & projection tomoscopy with existing resources</td>
+      <td>Timing & synchronization signals Fast and slow shutters</td>
+      <td>Minimal (infrastructure only)</td>
+      <td>Proof-of-principle MHz & radiography at P25</td>
+    </tr>
+    <tr>
+      <td>2.Dedicated Implematntation</td>
+      <td>Establish high-speed imaging capability</td>
+      <td>4-8 CMOS detectors (1-500kHz, ~40k each) 1-2 Shimadzu: HPV-X3 detectors (~350k€ each)</td>
+      <td>CMOS: 160-320k€  Shimadzu: 350-700k€ </td>
+      <td>Fully operational MHz radiography & kHz-sampled tomoscopy</td>
+    </tr>
+    <tr>
+      <td>3.Validation on real systems</td>
+      <td>Apply methods to scientific and industrially relevant cases</td>
+      <td>Imaging of additive manufacturing, laser ablation, acoustic wave-tissue interactions Water transport in porous media (Bluemat consortium)</td>
+      <td>No major new costs beyond Step 2</td>
+      <td>Demonstration of high-impact applications establish P25 as a unique platform for ultrafast 4D synchrotron imaging</td>
+    </tr>
+  </table>
+</div>
 	  <p style="color:lightblue;"> *More precise cost are being evaluated.</p>
   <br>
   <br>
