@@ -445,6 +445,64 @@ ul.features li::before {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
+.page-grid {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) 260px;
+  gap: 16px;
+  align-items: start;
+  padding: 20px 15px;
+}
+
+.sidebar-column,
+.main-column {
+  width: 100%;
+}
+
+.panel {
+  background: #fff;
+  padding: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+}
+
+body.dark-mode .panel {
+  background: #111;
+  color: #f5f5f5;
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-row a img {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.contact-section .panel {
+  flex: 1 1 280px;
+  margin-bottom: 0;
+}
+
+.contact-section #map {
+  flex: 1 1 360px;
+  margin: 0;
+  max-width: none;
+}
+
 .container-fluid.text-center {
   display: flex;
   flex-wrap: wrap;
@@ -540,6 +598,12 @@ ul.features li::before {
 }
 
 @media (max-width: 991px) {
+  .page-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 15px 10px;
+  }
+
   .container-fluid.text-center {
     flex-direction: column;
     gap: 10px;
@@ -561,6 +625,11 @@ ul.features li::before {
 @media (max-width: 768px) {
   body {
     padding-top: 64px;
+  }
+
+  .page-grid {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .container-fluid.text-center {
@@ -756,327 +825,147 @@ ul.features li::before {
   
  </div>
 <br>
- <div class="container-fluid text-center">    
-    <div class="col-sm-2 sidenav" style="margin-top: 20px;">	
-    <main class="main-container">
-    <div ↖️ class="card-container">
-    <div class="inner-container">
-      <div class="border-outer">
-      <div ↖️ class="main-card"></div>
-      </div>
-      <div class="glow-layer-1"></div>
-      <div class="glow-layer-2"></div>
-    </div>
-    <div class="overlay-1"></div>
-    <div class="overlay-2"></div>
-    <div class="background-glow"></div>
-    <div class="content-container">
-      <div class="content-top">
-        <div class="aurora2" style="border-radius:10px; "> 
-          <h4 style="text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(255, 255, 255);">Motivation</h4>
-        </div>
-      </div>
-    <img src="images/div.png" alt="first" style="width:100%;">
-    <br>
-    <p></p>
-    <p style="text-align: justify; padding: 10px;">
-Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
-ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
-pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
-synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
-exposure imaging	of	stochastic	phenomena	in	matter.
-		</p>
-        </div>
-      </div>
-	</main>
-   
-      <div class="box">	    
-    <br>
-  <h3 style="color: #222479;"><strong>THIS</strong></h3>
-  <br>
-  <br>
-	<p style="text-align: justify; margin: 20px;">
-	</p>
-    <br>
-    <br>
-	</div>
-  </div>
-  <div class="col-sm-8 text-left" style="margin-top: 20px;"> 
- <h2><strong>Meat Z Team</strong></h2>
-	  <br>
-  <div class="card-grid">
- <!-- Card 1 -->
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-face card-front one">
-        <div>
-          <h2>Patrik Vagovič</h2>
-          <p>Dr Researcher at Center for Free-Electron Laser Science</p>
-        </div>
-        <p>Tel: +49-40-8998 - 6348
-         E-mail: patrik.vagovic@cfel.de
- </p>
-      </div>
-      <div class="card-face card-back">
-        <div>
-          <h3>Research Interests</h3>
-          <ul class="features">
-            <li>Ultrafast X-ray dynamics</li>
-            <li>Free-electron laser science</li>
-            <li>Single-shot imaging</li>
-            <li>Atomic-scale probing</li>
-          </ul>
-        </div>
-        <div class="cta-buttons">
-          <a href="mailto:patrik.vagovic@cfel.de" class="primary">Email</a>
-          <a href="#" class="secondary">Profile</a>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="container-fluid page-grid">
+   <aside class="col-sm-2 sidenav sidebar-column">
+     <div class="panel">
+       <h4 style="text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(255, 255, 255);">Motivation</h4>
+       <img src="images/div.png" alt="Motivation visual" style="width:100%; margin: 10px 0;" />
+       <p style="text-align: justify; padding: 10px;">
+Modern 4th-generation X-ray facilities provide unprecedented opportunities for probing
+ultrafast dynamics. Their exceptionally high photon flux per pulse (109 - 1012 photons per
+pulse), combined with ultra-short pulse duration (~10 fs and ~100 ps at XFEL's and
+synchrotrons) with pulse megahertz repetition rates, enables ultra-fast single-shot/single
+exposure imaging of stochastic phenomena in matter.
+       </p>
+     </div>
+     <div class="panel">
+       <h3 style="color: #222479;"><strong>THIS</strong></h3>
+     </div>
+   </aside>
 
-  <!-- Card 2 -->
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-face card-front two">
-        <div>
-          <h2>Jana Pivoňková</h2>
-          <p>Industrial Liaison Officer at European XFEL GmbH</p>
-        </div>
-        <p>Tel: 
-           E-mail: </p>
-      </div>
-      <div class="card-face card-back">
-        <div>
-          <h3>Expertise</h3>
-          <ul class="features">
-            <li>focus on Central European region and Widening countries</li>
-            <li>emphasis on strategic engagement</li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <div class="cta-buttons">
-          <a href="mailto:" class="primary">Email</a>
-          <a href="#" class="secondary">Profile</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 3 -->
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-face card-front three">
-        <div>
-          <h2>doc. RNDr. Jozef Uličný, CSc.</h2>
-          <p></p>
-        </div>
-        <p> Tel: 	+421 55 234 2556
-			Email: jozef.ulicny@upjs.sk</p>
-      </div>
-      <div class="card-face card-back">
-        <div>
-          <h3>Specializations</h3>
-          <ul class="features">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <div class="cta-buttons">
-          <a href="mailto:" class="primary">Email</a>
-          <a href="#" class="secondary">Profile</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 4 -->
- <!--  <div class="card">
-    <div class="card-inner">
-      <div class="card-face card-front four">
-        <div>
-          <h2>Šarlota Birnšteinová</h2>
-          <p>Scientist at European XFEL</p>
-        </div>
-        <p>Email: sarlota.birnsteinova@xfel.eu</p>
-      </div>
-      <div class="card-face card-back">
-        <div>
-          <h3>Research Areas</h3>
-          <ul class="features">
-            <li>X-ray probing techniques</li>
-            <li>Ultrafast events</li>
-            <li>Data processing</li>
-            <li>Scientific computing</li>
-          </ul>
-        </div>
-        <div class="cta-buttons">
-          <a href="mailto:sarlota.birnsteinova@xfel.eu" class="primary">Email</a>
-          <a href="#" class="secondary">Profile</a>
-        </div>
-      </div>
-    </div>
-  </div>
- <!-- Card 5 -->
- <!-- <div class="card">
-    <div class="card-inner">
-      <div class="card-face card-front five">
-        <div>
-          <h2>Eleni Myrto Asimakopoulou</h2>
-          <p>Ph.D Scientist at MAX IV</p>
+   <main class="col-sm-8 text-left main-column">
+     <h2><strong>Meet Z Team</strong></h2>
+     <br />
+     <div class="card-grid">
+       <div class="card">
+         <div class="card-inner">
+           <div class="card-face card-front one">
+             <div>
+               <h2>Patrik Vagovic</h2>
+               <p>Dr Researcher at Center for Free-Electron Laser Science</p>
+             </div>
+             <p>Tel: +49-40-8998 - 6348<br />E-mail: patrik.vagovic@cfel.de</p>
+           </div>
+           <div class="card-face card-back">
+             <div>
+               <h3>Research Interests</h3>
+               <ul class="features">
+                 <li>Ultrafast X-ray dynamics</li>
+                 <li>Free-electron laser science</li>
+                 <li>Single-shot imaging</li>
+                 <li>Atomic-scale probing</li>
+               </ul>
+             </div>
+             <div class="cta-buttons">
+               <a href="mailto:patrik.vagovic@cfel.de" class="primary">Email</a>
+               <a href="#" class="secondary">Profile</a>
+             </div>
+           </div>
          </div>
-		  <p>+739864184, +46462226634 email: eleni_myrto.asimakopoulou@maxiv.lu.se</p>
-      </div>
-      <div class="card-face card-back">
-        <div>
-          <h3>What's Inside</h3>
-          <ul class="features">
-            <li>In-browser training engine</li>
-            <li>Model visualization tools</li>
-            <li>Secure model hosting</li>
-            <li>Dataset builder</li>
-          </ul>
-        </div>
-        <div class="cta-buttons">
-          <a href="#" class="primary">Try Nova</a>
-          <a href="#" class="secondary">Explore API</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-	    <!-- Card 6 -->
-  <!--<div class="card">
-    <div class="card-inner">
-      <div class="card-face card-front six">
-        <div>
-          <h2>r</h2>
-          <p></p>
-        </div>
-        <p>Tel: 
-                e-mail: </p>
-      </div>
-      <div class="card-face card-back">
-        <div>
-          <h3>Features</h3>
-          <ul class="features">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <div class="cta-buttons">
-          <a href="#" class="primary">Get Started</a>
-          <a href="#" class="secondary">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-	  	 -->
-	  <br>
-	  <br>
-	   <br>
-	  <br>
-  </div>
-	  </div>
-	  <div class="row" style="width: 100%;">
-	  <div class="box" style="float:left; margin: 40px;">
-    <h4><strong>Please contact us :</strong></h4>
-    <br>
-    <h4 style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);"><u><strong>Address:</strong></u></h4>
-	<br>
-    <h4><strong>European XFEL Gmbh</strong></h4>
-	<p></p>
-    <h4><strong></strong>Holzkoppel 4</strong></h4>
-    <p></p>
-    <h4><strong></strong>22869</strong></h4>
-	<p></p>
-    <h4><strong></strong>Germany</strong></h4>
-    <br>
-    <h4><strong>tel.:  +49 (0)40 8998-6348</strong></Tel></h4>
-    <br>
-    <h4><strong>e-mail: x_pulse@gmail.com </strong></Tel></h4>
-    <br>
-	  </div>
-       <div id="map" style="margin-right:40px; margin-top:40px; ">
-	   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2368.1935157686953!2d9.8259547779905!3d53.590008656462544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1839beb4c5823%3A0x41f8ea52d9e23f1c!2sLighthouse%20Erlebniszentrum%20European%20XFEL!5e0!3m2!1sen!2suk!4v1764773879927!5m2!1sen!2suk" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	   </div>
        </div>
-	   <br>
-	   <br>
-	   </div>
-   
-    <div class="col-sm-2 sidenav" style="margin-top: 20px;">
-    <main class="main-container">
-    <div ↖️ class="card-container">
-    <div class="inner-container">
-      <div class="border-outer">
-      <div ↖️ class="main-card"></div>
-      </div>
-      <div class="glow-layer-1"></div>
-      <div class="glow-layer-2"></div>
-    </div>
-    <div class="overlay-1"></div>
-    <div class="overlay-2"></div>
-    <div class="background-glow"></div>
-    <div class="content-container">
-    <div class="content-top">
-    <div class="scrollbar-glass" style="margin-bottom: 20px;">  
-    <div class="main-container" style="margin-bottom: 20px;">
-    <br>
-	<h3>Follow X - Pulse</h3>
-	<p>on social media</p>
-    <br>
-		<p>
-	
-		 <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		 <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		</p>
-	    <br>
-    <img src="images/gif.gif" alt="HTML5 Icon" style="width:200px; height:300px;"/>
-	<br>
-	<br>
-  <button class="btn1" onclick="myFunction()">DarkMatter</button>
 
-        <div class="box" style="margin-top: 20px;">
-    <main class="main-container">
-    <div ↖️ class="card-container">
-    <div class="inner-container">
-      <div class="border-outer">
-      <div ↖️ class="main-card"></div>
-      </div>
-      <div class="glow-layer-1"></div>
-      <div class="glow-layer-2"></div>
-    </div>
-    <div class="overlay-1"></div>
-    <div class="overlay-2"></div>
-    <div class="background-glow"></div>
-    <div class="content-container">
-    <div class="content-top">
-    <div class="scrollbar-glass" style="margin-bottom: 20px;">  
-    <div class="main-container" style="margin-bottom: 20px;">
-    <br>
-   <img src="images/f1.gif" style="width:200px; height:150px;"/>
-      <br>
-	<br>
-	<h5 style="text-align: justify;"><b>Understanding	Fast	Phenomena	of	Fluid	Transport	in	Porous	Media	using	MHz	Xray	Microscopy</b></h5>
-	<br>
-	<p style="text-align: justify;">Proposal	Number	6937,		PI	Patrick	Huber,	TUHH/DESY,	Hamburg, Germany,	Propagation	of	water	through	porous	media.</p>	
-    <hr>
-       <br>
-	 </div>
-    </div>
-    </div>
-    </div>
-	</div>
-  </div>
+       <div class="card">
+         <div class="card-inner">
+           <div class="card-face card-front two">
+             <div>
+               <h2>Jana Pivonkova</h2>
+               <p>Industrial Liaison Officer at European XFEL GmbH</p>
+             </div>
+             <p>Tel: <br />E-mail:</p>
+           </div>
+           <div class="card-face card-back">
+             <div>
+               <h3>Expertise</h3>
+               <ul class="features">
+                 <li>Focus on Central European region and widening countries</li>
+                 <li>Emphasis on strategic engagement</li>
+               </ul>
+             </div>
+             <div class="cta-buttons">
+               <a href="mailto:" class="primary">Email</a>
+               <a href="#" class="secondary">Profile</a>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="card">
+         <div class="card-inner">
+           <div class="card-face card-front three">
+             <div>
+               <h2>doc. RNDr. Jozef Ulicny, CSc.</h2>
+             </div>
+             <p>Tel: +421 55 234 2556<br />E-mail: jozef.ulicny@upjs.sk</p>
+           </div>
+           <div class="card-face card-back">
+             <div>
+               <h3>Specializations</h3>
+               <ul class="features">
+                 <li>Ultrafast imaging and diagnostics</li>
+                 <li>X-ray instrumentation</li>
+               </ul>
+             </div>
+             <div class="cta-buttons">
+               <a href="mailto:jozef.ulicny@upjs.sk" class="primary">Email</a>
+               <a href="#" class="secondary">Profile</a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="contact-section">
+       <div class="panel">
+         <h4><strong>Please contact us:</strong></h4>
+         <br />
+         <h4 style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);"><u><strong>Address:</strong></u></h4>
+         <br />
+         <h4><strong>European XFEL GmbH</strong></h4>
+         <h4><strong>Holzkoppel 4</strong></h4>
+         <h4><strong>22869</strong></h4>
+         <h4><strong>Germany</strong></h4>
+         <br />
+         <h4><strong>tel.: +49 (0)40 8998-6348</strong></h4>
+         <h4><strong>e-mail: x_pulse@gmail.com</strong></h4>
+       </div>
+       <div id="map">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2368.1935157686953!2d9.8259547779905!3d53.590008656462544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1839beb4c5823%3A0x41f8ea52d9e23f1c!2sLighthouse%20Erlebniszentrum%20European%20XFEL!5e0!3m2!1sen!2suk!4v1764773879927!5m2!1sen!2suk" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+       </div>
+     </div>
+   </main>
+
+   <aside class="col-sm-2 sidenav sidebar-column">
+     <div class="panel" style="text-align: center;">
+       <h3>Follow X - Pulse</h3>
+       <p>on social media</p>
+       <div class="social-row">
+         <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="X" /></a>
+         <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="LinkedIn" /></a>
+       </div>
+       <br />
+       <img src="images/gif.gif" alt="Animated visual" style="width:200px; height:300px;" />
+       <br /><br />
+       <button class="btn1" onclick="myFunction()">DarkMatter</button>
+     </div>
+
+     <div class="panel" style="text-align: center;">
+       <img src="images/f1.gif" alt="Research visual" style="width:200px; height:150px;" />
+       <br /><br />
+       <h5 style="text-align: justify;"><b>Understanding Fast Phenomena of Fluid Transport in Porous Media using MHz Xray Microscopy</b></h5>
+       <p style="text-align: justify;">Proposal Number 6937, PI Patrick Huber, TUHH/DESY, Hamburg, Germany, propagation of water through porous media.</p>
+     </div>
+   </aside>
  </div>
-	</div>
-	  </div>
 
 	<div class="footer">
      <br>
@@ -1096,43 +985,6 @@ function myFunction() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const layout = document.querySelector(".container-fluid.text-center");
-  const sidebars = Array.from(document.querySelectorAll(".col-sm-2.sidenav"));
-  const middleColumn = layout ? layout.querySelector(".col-sm-8") : null;
-  const mapEl = document.getElementById("map");
-  const contactRow = mapEl ? mapEl.closest(".row") : null;
-  const footer = document.querySelector(".footer");
-
-  if (layout && middleColumn && sidebars.length > 1) {
-    const leftSidebar = sidebars[0];
-    const rightSidebar = sidebars[1];
-
-    leftSidebar.classList.add("layout-left");
-    middleColumn.classList.add("layout-center");
-    rightSidebar.classList.add("layout-right");
-
-    // Enforce exact visual order: left Motivation, center Meat Z Team, right Follow X-Pulse.
-    layout.append(leftSidebar, middleColumn, rightSidebar);
-
-    // Keep main panels at the very top of each sidebar.
-    [leftSidebar, rightSidebar].forEach((sidebar) => {
-      const mainPanel = sidebar.querySelector("main.main-container");
-      if (mainPanel) {
-        sidebar.prepend(mainPanel);
-      }
-    });
-  }
-
-  if (middleColumn && contactRow) {
-    contactRow.classList.add("contact-section");
-    middleColumn.appendChild(contactRow);
-  }
-
-  // Keep footer at the page root so it can sit at the true bottom of the page.
-  if (footer && footer.parentElement !== document.body) {
-    document.body.appendChild(footer);
-  }
-
   const toggle = document.querySelector(".navbar-toggle");
   const menu = document.getElementById("site-navbar");
 
@@ -1148,10 +1000,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
  </body>
 </html>
-
-
-
-
 
 
 
