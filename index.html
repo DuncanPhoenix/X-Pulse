@@ -176,15 +176,67 @@
 
     .polaroid {
       background: #fff;
-      padding: 18px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      padding: 22px 24px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(12, 24, 48, 0.14);
+      border: 1px solid rgba(40, 148, 255, 0.12);
       max-width: 100%;
+      position: relative;
+      overflow: hidden;
     }
 
     body.dark-mode .polaroid {
-      background: #111;
+      background: linear-gradient(180deg, #111 0%, #151c26 100%);
       color: #f5f5f5;
+      border-color: rgba(40, 148, 255, 0.22);
+    }
+
+    .polaroid::before {
+      content: "";
+      position: absolute;
+      inset: auto -12% -18% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 148, 255, 0.18), rgba(40, 148, 255, 0));
+      pointer-events: none;
+      animation: driftGlow 10s ease-in-out infinite;
+    }
+
+    .polaroid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.04), transparent 30%, rgba(106, 27, 154, 0.05));
+      pointer-events: none;
+    }
+
+    .article-content {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .article-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 6px 8px 14px;
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(40, 148, 255, 0.12);
+      color: #1b5fa7;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      animation: tagPulse 4.5s ease-in-out infinite;
     }
 
     .article-content h2,
@@ -193,8 +245,108 @@
     .article-content p {
       margin-top: 0;
       margin-bottom: 10px;
-      text-align: justify;
       line-height: 1.7;
+    }
+
+    .article-content h2 {
+      text-align: center;
+      color: #0d2f58;
+      font-size: 2.6rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    body.dark-mode .article-content h2 {
+      color: #8fd6ff;
+      text-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+    }
+
+    .article-content h3 {
+      text-align: center;
+      color: #6a1b9a;
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    body.dark-mode .article-content h3 {
+      color: #d7adff;
+    }
+
+    .article-intro {
+      max-width: 820px;
+      margin: 0 auto 4px;
+      padding: 14px 18px;
+      text-align: center !important;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.12), rgba(106, 27, 154, 0.08));
+      border: 1px solid rgba(40, 148, 255, 0.16);
+      border-radius: 999px;
+      color: #18324f;
+      box-shadow: 0 10px 24px rgba(12, 24, 48, 0.08);
+      animation: floatIntro 6s ease-in-out infinite;
+    }
+
+    body.dark-mode .article-intro {
+      color: #edf7ff;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.16), rgba(106, 27, 154, 0.14));
+      border-color: rgba(143, 214, 255, 0.18);
+    }
+
+    .article-divider {
+      width: min(72%, 520px);
+      height: 2px;
+      margin: 18px auto 22px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.95), rgba(106, 27, 154, 0.9), transparent);
+      box-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+    }
+
+    .article-story,
+    .article-closer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-story h4,
+    .article-closer h4 {
+      padding-left: 16px;
+      border-left: 4px solid rgba(40, 148, 255, 0.42);
+      background: rgba(40, 148, 255, 0.05);
+      border-radius: 8px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .article-story h4:first-child,
+    .article-closer h4:first-child {
+      border-left-color: rgba(106, 27, 154, 0.52);
+      background: rgba(106, 27, 154, 0.06);
+      font-weight: 700;
+    }
+
+    .article-closer h4 {
+      text-align: center;
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+
+    .article-title-footer {
+      text-align: center;
+      letter-spacing: 0.02em;
+      color: #234a76;
+      font-weight: 700;
+    }
+
+    body.dark-mode .article-story h4,
+    body.dark-mode .article-closer h4 {
+      background: rgba(143, 214, 255, 0.06);
+      border-left-color: rgba(143, 214, 255, 0.36);
+    }
+
+    body.dark-mode .article-title-footer {
+      color: #cfeeff;
     }
 
     .article-content h1 {
@@ -228,6 +380,38 @@
       margin: 0 6px;
       width: 32px;
       height: 32px;
+    }
+
+    @keyframes floatIntro {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes driftGlow {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(-10px, -12px, 0) scale(1.05);
+      }
+    }
+
+    @keyframes tagPulse {
+      0%,
+      100% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(40, 148, 255, 0);
+      }
+      50% {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 22px rgba(40, 148, 255, 0.12);
+      }
     }
 
     @media (max-width: 991px) {
@@ -300,6 +484,34 @@
         padding: 15px;
       }
 
+      .article-header {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .article-tag {
+        margin-bottom: 10px;
+      }
+
+      .article-content h2 {
+        font-size: 2rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.25rem;
+      }
+
+      .article-intro {
+        border-radius: 22px;
+        padding: 12px 14px;
+        font-size: 0.98rem;
+      }
+
+      .article-divider {
+        width: min(86%, 420px);
+        margin: 16px auto 18px;
+      }
+
       .article-content h1 {
         font-size: 28px;
       }
@@ -319,9 +531,21 @@
         font-size: 24px;
       }
 
+      .article-content h2 {
+        font-size: 1.85rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.1rem;
+      }
+
       .article-content h3,
       .article-content h4 {
         font-size: 16px;
+      }
+
+      .article-intro {
+        font-size: 0.94rem;
       }
 
       .footer {
@@ -414,40 +638,45 @@
 
     <main class="main-content">
       <div class="polaroid article-content">
-        <h2>X-Pulse</h2>
-                 <h3>X-ray Probing of Ultrafast Events</h3>
-                 <p>Our mission is to push boundaries of advanced X-ray pulse resolved imaging at large scale X-ray infrastructures.</p>
-                 <br>
-         <hr>
-                 <br>
-        
-                 <h4>
-                   X-PULSE is a dynasty of leading scientists in the area of ultra-fast imaging. We thrive on creating emerging methodologies that shed light on the world's tiniest mysteries.
-                 </h4>
-       
-        <br>
-                 <h4>
-                   Why do we do it? </h4>
-                  <h4> First of all, it’s fun. But we also see the leaps and bounds of enabling progress in the fields of medicine and materials science.
-                 </h4>
-        <br>
-            </h4>
-                 <h4>
-                    How do we do it?  
-                   </h4>
-                    <h4> We are sort of filmmakers, but the hilarious thing is we have no control over the action. We create the perfect scene, trigger the camera roll, and 
-                        "ACTION!" ... and wait for the elements to show us their play. We record it and rejoice over being the first ever audience to see the ultrafine movie.
-                 </h4>
-        <br>
-        <hr>
-                 <h4>
-                   X-PULSE<br />
-                   Small elements. Bigger picture.<br />
-                   Imaging so that we don’t have to keep imagining.
-                 </h4>
-        <br>
-                 <h4>Founders and Pioneers</h4>
-        <br>
+        <div class="article-header">
+          <div class="article-tag">Research Motion</div>
+          <h2>X-Pulse</h2>
+          <h3>X-ray Probing of Ultrafast Events</h3>
+          <p class="article-intro">Our mission is to push boundaries of advanced X-ray pulse resolved imaging at large scale X-ray infrastructures.</p>
+        </div>
+
+        <hr class="article-divider" />
+
+        <div class="article-story">
+          <h4>
+            X-PULSE is a dynasty of leading scientists in the area of ultra-fast imaging. We thrive on creating emerging methodologies that shed light on the world's tiniest mysteries.
+          </h4>
+
+          <h4>
+            Why do we do it?
+          </h4>
+          <h4>
+            First of all, it’s fun. But we also see the leaps and bounds of enabling progress in the fields of medicine and materials science.
+          </h4>
+
+          <h4>
+            How do we do it?
+          </h4>
+          <h4>
+            We are sort of filmmakers, but the hilarious thing is we have no control over the action. We create the perfect scene, trigger the camera roll, and "ACTION!" ... and wait for the elements to show us their play. We record it and rejoice over being the first ever audience to see the ultrafine movie.
+          </h4>
+        </div>
+
+        <hr class="article-divider" />
+
+        <div class="article-closer">
+          <h4 class="article-title-footer">
+            X-PULSE<br />
+            Small elements. Bigger picture.<br />
+            Imaging so that we don’t have to keep imagining.
+          </h4>
+          <h4>Founders and Pioneers</h4>
+        </div>
       </div>
     </main>
 
@@ -491,8 +720,6 @@
   </script>
 </body>
 </html>
-
-
 
    
 
