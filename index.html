@@ -162,16 +162,65 @@
     }
 
     .box {
-      background: #fff;
-      padding: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+      padding: 18px 16px;
       margin-bottom: 18px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      border-radius: 6px;
+      box-shadow: 0 14px 28px rgba(12, 24, 48, 0.08);
+      border-radius: 16px;
+      border: 1px solid rgba(40, 148, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     body.dark-mode .box {
-      background: #111;
+      background: linear-gradient(180deg, #10161f 0%, #141c27 100%);
       color: #f5f5f5;
+      border-color: rgba(143, 214, 255, 0.16);
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2894ff, #6a1b9a, #00d4ff);
+    }
+
+    .box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(12, 24, 48, 0.12);
+    }
+
+    .box h3 {
+      color: #0d2f58;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    body.dark-mode .box h3 {
+      color: #8fd6ff;
+    }
+
+    .box h5 {
+      background: transparent;
+      text-shadow: none;
+      color: inherit;
+      margin-top: 0;
+    }
+
+    .box hr {
+      margin: 12px auto;
+      width: 72%;
+      height: 2px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.75), transparent);
+      box-shadow: none;
     }
 
     .polaroid {
@@ -358,9 +407,16 @@
       background: linear-gradient(135deg, #6a1b9a, #2894ff);
       color: #fff;
       border: 0;
-      border-radius: 4px;
-      padding: 8px 14px;
+      border-radius: 999px;
+      padding: 10px 18px;
       font-weight: 600;
+      box-shadow: 0 10px 20px rgba(40, 148, 255, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn1:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(40, 148, 255, 0.24);
     }
 
     .footer {
@@ -518,7 +574,7 @@
 
       .article-content h2,
       .article-content h3 {
-        font-size: 22px;
+        font-size: 1.45rem;
       }
     }
 
@@ -720,6 +776,8 @@
   </script>
 </body>
 </html>
+
+
 
    
 
