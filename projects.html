@@ -12,8 +12,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="JS/Script1.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://elfsightcdn.com/platform.js" async></script>
   <style>
     body {
       margin: 0;
@@ -33,7 +31,6 @@
       height: auto;
       display: block;
     }
-  
 
     .navbar-clean {
       background: #f7f7f7;
@@ -99,6 +96,7 @@
       gap: 8px;
       align-items: center;
       margin: 10px 0;
+      justify-content: center;
     }
 
     .social-links a {
@@ -122,13 +120,6 @@
       margin-bottom: 12px;
     }
 
-    .sidebar-intro img {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-
     .hero-images {
       display: flex;
       flex-wrap: wrap;
@@ -136,7 +127,7 @@
     }
 
     .hero-images img {
-      flex: 1 1 50%;
+      flex: 1 1 100%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
       min-height: 220px;
       object-fit: cover;
@@ -162,29 +153,132 @@
     }
 
     .box {
-      background: #fff;
-      padding: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+      padding: 18px 16px;
       margin-bottom: 18px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      border-radius: 6px;
+      box-shadow: 0 14px 28px rgba(12, 24, 48, 0.08);
+      border-radius: 16px;
+      border: 1px solid rgba(40, 148, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     body.dark-mode .box {
-      background: #111;
+      background: linear-gradient(180deg, #10161f 0%, #141c27 100%);
       color: #f5f5f5;
+      border-color: rgba(143, 214, 255, 0.16);
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2894ff, #6a1b9a, #00d4ff);
+    }
+
+    .box:hover,
+    .polaroid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(12, 24, 48, 0.12);
+    }
+
+    .box h3 {
+      color: #0d2f58;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    body.dark-mode .box h3 {
+      color: #8fd6ff;
+    }
+
+    .box h5 {
+      background: transparent;
+      text-shadow: none;
+      color: inherit;
+      margin-top: 0;
+    }
+
+    .box hr {
+      margin: 12px auto;
+      width: 72%;
+      height: 2px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.75), transparent);
+      box-shadow: none;
     }
 
     .polaroid {
       background: #fff;
-      padding: 18px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      padding: 22px 24px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(12, 24, 48, 0.14);
+      border: 1px solid rgba(40, 148, 255, 0.12);
       max-width: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     body.dark-mode .polaroid {
-      background: #111;
+      background: linear-gradient(180deg, #111 0%, #151c26 100%);
       color: #f5f5f5;
+      border-color: rgba(40, 148, 255, 0.22);
+    }
+
+    .polaroid::before {
+      content: "";
+      position: absolute;
+      inset: auto -12% -18% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 148, 255, 0.18), rgba(40, 148, 255, 0));
+      pointer-events: none;
+      animation: driftGlow 10s ease-in-out infinite;
+    }
+
+    .polaroid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.04), transparent 30%, rgba(106, 27, 154, 0.05));
+      pointer-events: none;
+    }
+
+    .article-content {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .article-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 6px 8px 14px;
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(40, 148, 255, 0.12);
+      color: #1b5fa7;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      animation: tagPulse 4.5s ease-in-out infinite;
     }
 
     .article-content h2,
@@ -193,44 +287,106 @@
     .article-content p {
       margin-top: 0;
       margin-bottom: 10px;
-      text-align: justify;
       line-height: 1.7;
+      position: relative;
+      z-index: 1;
     }
 
-    .article-content h1 {
-      margin-top: 6px;
-      margin-bottom: 12px;
+    .article-content h2 {
+      text-align: center;
+      color: #0d2f58;
+      font-size: 2.6rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
     }
 
-    .table-pan {
+    body.dark-mode .article-content h2 {
+      color: #8fd6ff;
+      text-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+    }
+
+    .article-content h3 {
+      text-align: center;
+      color: #6a1b9a;
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    body.dark-mode .article-content h3 {
+      color: #d7adff;
+    }
+
+    .article-intro {
+      max-width: 860px;
+      margin: 0 auto 4px;
+      padding: 14px 18px;
+      text-align: center !important;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.12), rgba(106, 27, 154, 0.08));
+      border: 1px solid rgba(40, 148, 255, 0.16);
+      border-radius: 999px;
+      color: #18324f;
+      box-shadow: 0 10px 24px rgba(12, 24, 48, 0.08);
+      animation: floatIntro 6s ease-in-out infinite;
+    }
+
+    body.dark-mode .article-intro {
+      color: #edf7ff;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.16), rgba(106, 27, 154, 0.14));
+      border-color: rgba(143, 214, 255, 0.18);
+    }
+
+    .article-divider {
+      width: min(72%, 520px);
+      height: 2px;
+      margin: 16px auto 20px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.95), rgba(106, 27, 154, 0.9), transparent);
+      box-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-content h4 {
+      text-align: justify;
+    }
+
+    .content-block {
+      background: rgba(40, 148, 255, 0.05);
+      border-left: 4px solid rgba(40, 148, 255, 0.42);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+    }
+
+    body.dark-mode .content-block {
+      background: rgba(143, 214, 255, 0.06);
+      border-left-color: rgba(143, 214, 255, 0.36);
+    }
+
+    .project-figure {
       width: 100%;
-      overflow-x: auto;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-      border-radius: 6px;
-    }
-
-    .table-pan .table-auto {
-      width: 100%;
-      min-width: 860px;
-      border-collapse: collapse;
-      line-height: 1.8;
-    }
-
-    .table-pan .table-auto th,
-    .table-pan .table-auto td {
-      padding: 10px;
-      vertical-align: top;
-      text-align: left;
+      margin: 16px auto;
+      border-radius: 12px;
+      box-shadow: 0 14px 26px rgba(12, 24, 48, 0.14);
     }
 
     .btn1 {
       background: linear-gradient(135deg, #6a1b9a, #2894ff);
       color: #fff;
       border: 0;
-      border-radius: 4px;
-      padding: 8px 14px;
+      border-radius: 999px;
+      padding: 10px 18px;
       font-weight: 600;
+      box-shadow: 0 10px 20px rgba(40, 148, 255, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn1:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(40, 148, 255, 0.24);
     }
 
     .footer {
@@ -252,6 +408,38 @@
       height: 32px;
     }
 
+    @keyframes floatIntro {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes driftGlow {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(-10px, -12px, 0) scale(1.05);
+      }
+    }
+
+    @keyframes tagPulse {
+      0%,
+      100% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(40, 148, 255, 0);
+      }
+      50% {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 22px rgba(40, 148, 255, 0.12);
+      }
+    }
+
     @media (max-width: 991px) {
       .page-grid {
         flex-direction: column;
@@ -263,10 +451,6 @@
         max-width: 100%;
       }
 
-      .topnav {
-        padding-left: 0;
-      }
-
       .navbar-form {
         margin-top: 10px;
         width: 100%;
@@ -274,10 +458,6 @@
     }
 
     @media (max-width: 767px) {
-      body {
-        overflow-x: hidden;
-      }
-
       .navbar-header {
         padding: 0 15px;
       }
@@ -292,18 +472,6 @@
 
       .navbar-nav {
         margin: 7.5px 0;
-      }
-
-      .navbar-nav > li > a {
-        padding: 10px 0;
-      }
-
-      .navbar-right {
-        margin-right: 0;
-      }
-
-      .navbar-collapse {
-        padding: 0 15px;
       }
 
       .navbar-nav > li > a {
@@ -326,13 +494,24 @@
         padding: 15px;
       }
 
-      .article-content h1 {
-        font-size: 28px;
+      .article-header {
+        padding-left: 0;
+        padding-right: 0;
       }
 
       .article-content h2,
       .article-content h3 {
-        font-size: 22px;
+        font-size: 1.45rem;
+      }
+
+      .article-intro {
+        border-radius: 22px;
+        padding: 12px 14px;
+        font-size: 0.98rem;
+      }
+
+      .article-divider {
+        width: min(86%, 420px);
       }
     }
 
@@ -341,13 +520,17 @@
         padding: 8px 0;
       }
 
-      .article-content h1 {
-        font-size: 24px;
+      .article-content h2 {
+        font-size: 1.85rem;
       }
 
       .article-content h3,
       .article-content h4 {
-        font-size: 16px;
+        font-size: 1.05rem;
+      }
+
+      .article-intro {
+        font-size: 0.94rem;
       }
 
       .footer {
@@ -388,11 +571,6 @@
           <li><a href="references.html"><strong>References</strong></a></li>
           <li><a href="contact.html"><strong>Contact</strong></a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right topnav">
-          <li>
-            <div id="google_translate_element" class="translator-widget"></div>
-          </li>
-        </ul>
         <form class="navbar-form navbar-right" action="/action_page.php">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="search" />
@@ -406,176 +584,92 @@
       </div>
     </div>
   </nav>
-			   <div class="magic"></div>
 
+  <div class="magic"></div>
   <div class="hero-images">
     <img src="images/j.png" alt="Scientific visual" />
- 
   </div>
 
   <div class="page-grid">
     <aside class="sidenav">
       <div class="box">
         <div class="sidebar-intro">
-  
-
-     <img src="images/logo.gif" style="width:100%; height: 100%">
-     </div>
-     <hr>
-     <h3>Motivation</h3>
-     <br>
-     <img src="images/div.png" alt="first" style="width:100%;">
-     <br>
-     <p></p>
-     <br>
-     <p style="text-align: justify; padding:10px;">
- Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
- ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
- pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
- synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
- exposure imaging	of	stochastic	phenomena	in	matter.
-      </p>
-     </div>
-   
+          <img src="images/logo.gif" alt="X-PULSE logo" style="width: 100%; height: 100%;" />
+        </div>
+        <hr />
+        <h3>Motivation</h3>
+        <p style="text-align: justify; padding: 10px;">
+          Modern 4th-generation X-ray facilities provide unprecedented opportunities for probing ultrafast dynamics. Their exceptionally high photon flux per pulse (109 - 1012 photons per pulse), combined with ultra-short pulse duration (~10 fs and ~100 ps at XFELs and synchrotrons) with pulse megahertz repetition rates, enables ultra-fast single-shot/single exposure imaging of stochastic phenomena in matter.
+        </p>
+      </div>
     </aside>
 
     <main class="main-content">
       <div class="polaroid article-content">
-     <h3 style="text-align:center;"> Our mission is to push boundaries of advanced X-ray pulse resolved imaging at large scale X-ray infrastructures</h3>
-  <br>
-  <br>
-  <h4 style="text-align: justify; line-height: 1.8">We	have	pioneered	this	field	through:
-- Early	proof-of-principle	MHz	radiography	with	phase	contrast	(XPCI)	experiments	at	ESRF	
-ID19	[1].
-- Development	of	MHz	X-ray	radiography	with	phase	contrast	at	the	European	XFEL	[2,3],	
-which	was	used	for	several	inhouse	and	user beamtimes [4,5,6]	 at	European	XFEL.
-- User/collaborators campaigns	in	materials	research	and	biomedical	applications,	
-including	imaging	of	processes	in	human	tissues	under	focused	ultrasound.
-- Several	new	beamtime	applications	(9	proposals)	submitted	to	EuXFEL	out	of	that	2	for	
-high	resolution	MHz	XPCI/holography	and	7	for	MHz	Tomoscopy	including	fusion	research	
-application.	
-Examples	(to	be	published)	of	MHz	radiography	performed	in	a	pulse-synchronized	manner	
-at	a	1.128	MHz	frame	rate	(current	camera	limitation),	recently	conducted	at	EuXFEL.	The field	of	view	was	1.28	mm	×	0.8	mm	with	an	effective	pixel	size	of	3.2	µm.
-</h4>
-    <br>
-    <img src="images/34.png" alt="HTML5 Icon" style="width:900px; height:600px;"/>
-    <br>
-  <h4 style="text-align: justify; line-height: 1.8">In	 parallel,	 we have	 proposed	 various	 splitting [7,	 8] schemes	 explored	 via	RÅC	 InVision	
-project and	we	invented	practical	multi-beam	X-ray	(not	limited	to)	splitting	scheme,	which	
-has	been	patented with	DESY,	EuXFEL	and	Tohoku	University	(Japan)	as	assignees	[9].	Based	
-on	this	idea	we	obtained	EIC-Pathfinder	Open	project	“MHz	Tomoscopy”. The	first	successful	
-feasibility	tests	with	two	projections has been	performed	at	European	XFEL [10]	and	ESRF	
-ID19	[11]	and	through	EIC	Pathfinder	MHz	Tomoscopy	funding,	we	recently	constructed	and	
-validated	 a	 MHz	 multi-view	 imaging	 prototype for	 vertical	 scattering	 geometry with	 four	
-simultaneous	projections	(limited	by	budget). Recent	tests	of	the	prototype	at	European XFEL		
-and	ID19	confirmed	that	Tomoscopy	can	be	performe</h4>
-    <br>
-    <h1 >New Developments</h1>
-    <br>
-    <br>
-  <h4 style="text-align: justify; line-height: 1.8">
-To	extend	these	capabilities,	we	are	advancing	highly	sensitive	detection	concepts	using	
-Bragg	Magnifiers	(BM)	combined	with	integrating	detectors.
-- Feasibility	tests	of	pulse-resolved	X-ray	holography	with	BM	at	both	the	European	XFEL	
-and	LCLS	have	demonstrated	large	improvements	in	dynamic	range,	enabling	high-fidelity	
-imaging.
-- We	are	developing	a	prototype	BM	module	for	integration	into	MHz	tomoscopy	setups
-using	available	funding.	For	full	scale	implementation	external	funding	is	being	searched	
-and	applied.
-This	approach	will	enable:
-- Split-and-delay	imaging:	BM	used	as	an	optical	delay	line,	enabling	sampling	in	the	50–200	
-ps	regime	at	XFELs. Innovation	disclosure	submitted	to	DESY	ITT	2024.
-- High-efficiency	synchrotron	detection:	BM	combined	with	direct	detectors	provides	two	
-orders	higher detection	efficiency	compared	to	conventional	indirect	detectors.	Sampling	
-rates	of	1–10	kHz	are	feasible	with	scintillator-based	detection while	with	proposed	
-approach	can	reach	~100kHz	sampling	range	two	orders	higher	than	any	fast	tomography.</h4>
-  <br>
-  <img src="images/bragg.png" alt="HTML5 Icon" style="width:950px; height:600px;"/>
-  </p>
-  <br>
-  <br>
-  <br>
-  <h1>Implementation at P25 White Beam Hutch</h1> 
-  <br>
-  <br>
-  <br>
-<h4 style="text-align: justify; line-height: 1.8">
-The	P25	beamline	offers	a	unique	environment	for	realizing	next-generation	synchrotronbased	ultrafast	imaging.	Our	implementation	strategy	is	structured	in	three	steps:<br>
-• Step	1:	Feasibility	tests
-• - Demonstrate	multi-projection	tomoscopy	and	MHz	phase-contrast	radiography	
-using	available	equipment.
-• - Install	essential	infrastructure	in	the	hutch,	including	timing	and	synchronization	
-signals	and	fast/slow	shutters	to	enable	bunch-resolved	operation.
-<br>
-• Step	2:	Dedicated	implementation
-• - Multi-projection	tomoscopy:	Integration	of	4–8	high-speed	CMOS	detectors	(1	kHz	
-– 500	kHz	sampling	rate,	~40	k€	each).
-• - MHz	radiography:	Installation	of	one	or	two	Shimadzu	HPV-X3	detectors	(~350	k€	
-each)	to	enable	MHz-resolved	single-shot	imaging	at	synchrotron	repetition	rates.
-<br>
-• Step	3:	Validation	on	real	systems
-• Apply	the	developed	platform	to	imaging	of	selected	dynamic	processes,	including:
-• 		Additive	manufacturing	(3D	printing)
-• 		Laser	ablation	and	shock	phenomena
-• 			Acoustic	wave	interactions	with	biological	tissues
-• 			Propagation	of	water	through	porous	media	(applications	of	the	Bluemat	
-consortium)
-• 			Other	representative	ultrafast	stochastic	events
-<br>
-Through	this	staged	approach,	PETRA	P25	will	establish	MHz	radiography	with	phase	
-contrast	(propagation	and	differential	modes)	and	kHz-sampled	multi-projection	
-tomoscopy,	progressing	from	feasibility	to	full	implementation	and	validation	in	
-scientifically and	technologically	relevant	applications.</h4>
-  <br>
-  <br>
-  <br>
-<h2 style="color:lightblue;">Road map Summary</h2>
+        <div class="article-header">
+          <div class="article-tag">Project Pipeline</div>
+          <h2>X-Pulse</h2>
+          <h3>X-ray Probing of Ultrafast Events</h3>
+          <p class="article-intro">Our mission is to push boundaries of advanced X-ray pulse resolved imaging at large scale X-ray infrastructures.</p>
+        </div>
 
-<div class="table-pan">
-  <table class="table-auto" style="border-radius: 5px;">
-    <tr>
-      <th>Step</th>
-      <th>Objesctive</th>
-      <th>Equipment/Infrastructure</th>
-      <th>Estimated Cost</th>
-      <th>Expect Outcome</th>
-    </tr>
-    <tr>
-      <td>1.Feasibility test</td>
-      <td>Demonstrate MHx radiograpghy & projection tomoscopy with existing resources</td>
-      <td>Timing & synchronization signals Fast and slow shutters</td>
-      <td>Minimal (infrastructure only)</td>
-      <td>Proof-of-principle MHz & radiography at P25</td>
-    </tr>
-    <tr>
-      <td>2.Dedicated Implematntation</td>
-      <td>Establish high-speed imaging capability</td>
-      <td>4-8 CMOS detectors (1-500kHz, ~40k each) 1-2 Shimadzu: HPV-X3 detectors (~350k€ each)</td>
-      <td>CMOS: 160-320k€  Shimadzu: 350-700k€ </td>
-      <td>Fully operational MHz radiography & kHz-sampled tomoscopy</td>
-    </tr>
-    <tr>
-      <td>3.Validation on real systems</td>
-      <td>Apply methods to scientific and industrially relevant cases</td>
-      <td>Imaging of additive manufacturing, laser ablation, acoustic wave-tissue interactions Water transport in porous media (Bluemat consortium)</td>
-      <td>No major new costs beyond Step 2</td>
-      <td>Demonstration of high-impact applications establish P25 as a unique platform for ultrafast 4D synchrotron imaging</td>
-    </tr>
-  </table>
-</div>
-	  <p style="color:lightblue;"> *More precise cost are being evaluated.</p>
-  <br>
-  <br>
-  <br>
+        <hr class="article-divider" />
+
+        <h4 class="content-block">
+          We have pioneered this field through early proof-of-principle MHz radiography with phase contrast (XPCI) experiments at ESRF ID19 and through development of MHz X-ray radiography with phase contrast at the European XFEL. The methodology was used for several inhouse and user beamtimes at European XFEL.
+        </h4>
+
+        <h4 class="content-block">
+          We coordinated user and collaborator campaigns in materials research and biomedical applications, including imaging of processes in human tissues under focused ultrasound. Several new beamtime applications were submitted to EuXFEL for high-resolution MHz XPCI/holography and MHz Tomoscopy including fusion-research applications.
+        </h4>
+
+        <h4 class="content-block">
+          Examples of MHz radiography were performed in a pulse-synchronized manner at a 1.128 MHz frame rate (current camera limitation). The field of view was 1.28 mm x 0.8 mm with an effective pixel size of 3.2 um.
+        </h4>
+
+        <img src="images/34.png" alt="MHz radiography examples" class="project-figure" />
+
+        <h4 class="content-block">
+          In parallel, we proposed various splitting schemes explored via R&C InVision and invented a practical multi-beam X-ray splitting concept patented with DESY, EuXFEL and Tohoku University. Based on this idea we obtained the EIC-Pathfinder Open project "MHz Tomoscopy".
+        </h4>
+
+        <h4 class="content-block">
+          First successful feasibility tests with two projections were performed at European XFEL and ESRF ID19. Through EIC Pathfinder funding, we constructed and validated a MHz multi-view imaging prototype for vertical scattering geometry with four simultaneous projections.
+        </h4>
+
+        <h4 class="content-block">
+          Recent tests at European XFEL and ID19 confirmed that tomoscopy can be performed in realistic beamline conditions and extended into next-generation ultrafast workflows.
+        </h4>
+
+        <h3>New Developments</h3>
+        <h4 class="content-block">
+          To extend these capabilities, we are advancing highly sensitive detection concepts using Bragg Magnifiers combined with integrating detectors. Feasibility tests of pulse-resolved X-ray holography at European XFEL and LCLS demonstrated major improvements in dynamic range.
+        </h4>
+
+        <h4 class="content-block">
+          We are building a prototype Bragg Magnifier module for integration into MHz tomoscopy setups. This enables split-and-delay imaging in the 50-200 ps regime at XFELs and high-efficiency synchrotron detection with sampling potential up to about 100 kHz.
+        </h4>
+
+        <img src="images/bragg.png" alt="Bragg Magnifier development" class="project-figure" />
+
+        <h3>Implementation At P25 White Beam Hutch</h3>
+        <h4 class="content-block">
+          The P25 beamline offers a strong environment for next-generation synchrotron ultrafast imaging. Our implementation strategy is staged from feasibility tests and infrastructure integration to dedicated multi-projection tomoscopy and MHz radiography deployment.
+        </h4>
+
+        <h4 class="content-block">
+          Validation on real systems targets additive manufacturing, laser ablation and shock phenomena, acoustic interactions with biological tissues, and propagation of water through porous media. This staged approach bridges feasibility, implementation, and scientific validation.
+        </h4>
+
+        <img src="images/summary.png" alt="Implementation summary" class="project-figure" />
       </div>
     </main>
 
     <aside class="sidenav">
       <div class="box">
         <h3>Follow X - Pulse</h3>
-        <p>on social media</p>
+        <p style="text-align: center;">on social media</p>
         <div class="social-links">
-       
           <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="Twitter" /></a>
           <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="LinkedIn" /></a>
         </div>
@@ -584,6 +678,7 @@ scientifically and	technologically	relevant	applications.</h4>
         <br />
         <button class="btn1" onclick="myFunction()">DarkMatter</button>
       </div>
+
       <div class="box">
         <h3><b>X-ray Probing of Ultrafast Events</b></h3>
         <hr />
@@ -596,7 +691,6 @@ scientifically and	technologically	relevant	applications.</h4>
 
   <footer class="footer">
     <h6 class="w3-small">X - Pulse</h6>
-
     <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="Twitter" /></a>
     <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn" /></a>
     <h6 class="w3-small">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</h6>
