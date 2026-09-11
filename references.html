@@ -12,63 +12,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="JS/Script1.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://elfsightcdn.com/platform.js" async></script>
-	    <script>
-        $(document).ready(function () {
-            $("button").click(function () {
-                $("#ooo").attr("href", function (i, origValue) {
-                    return origValue + "/jquery/";
-                });
-            });
-        });
-			
-   const mouse = {
-  x: 0.5,
-  y: 0.5,
-  targetX: 0.5,
-  targetY: 0.5,
-};
-
-const clamp = (v) => Math.max(0, Math.min(1, v));
-
-let rafId = null;
-
-const onPointerMove = (e) => {
-  if (rafId) return;
-
-  rafId = requestAnimationFrame(() => {
-    mouse.targetX = clamp(e.clientX / window.innerWidth);
-    mouse.targetY = clamp(1 - e.clientY / window.innerHeight);
-    rafId = null;
-  });
-};
-
-window.addEventListener("pointermove", onPointerMove, { passive: true });
-
-document.querySelectorAll(".glass-button").forEach((button) => {
-  const update = (e) => {
-    const rect = button.getBoundingClientRect();
-
-    const x =
-      clamp((e.clientX - rect.left) / rect.width) * 100;
-    const y =
-      clamp((e.clientY - rect.top) / rect.height) * 100;
-
-    button.style.setProperty("--x", `${x}%`);
-    button.style.setProperty("--y", `${y}%`);
-  };
-
-  const reset = () => {
-    button.style.setProperty("--x", "50%");
-    button.style.setProperty("--y", "50%");
-  };
-
-  button.addEventListener("pointermove", update, { passive: true });
-  button.addEventListener("pointerleave", reset, { passive: true });
-});
-
-    </script>
   <style>
     body {
       margin: 0;
@@ -76,7 +19,6 @@ document.querySelectorAll(".glass-button").forEach((button) => {
       background-color: #fff;
       color: #111;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     body.dark-mode {
@@ -89,7 +31,6 @@ document.querySelectorAll(".glass-button").forEach((button) => {
       height: auto;
       display: block;
     }
-  
 
     .navbar-clean {
       background: #f7f7f7;
@@ -125,11 +66,6 @@ document.querySelectorAll(".glass-button").forEach((button) => {
       background: transparent;
     }
 
-    .navbar-toggle:focus,
-    .navbar-toggle:hover {
-      background: rgba(0, 0, 0, 0.04);
-    }
-
     .navbar-toggle .icon-bar {
       background-color: #111;
     }
@@ -143,7 +79,6 @@ document.querySelectorAll(".glass-button").forEach((button) => {
     .navbar-collapse {
       border-top: 1px solid #e7e7e7;
       box-shadow: none;
-      display: block;
     }
 
     .navbar-nav > li > a {
@@ -161,6 +96,7 @@ document.querySelectorAll(".glass-button").forEach((button) => {
       gap: 8px;
       align-items: center;
       margin: 10px 0;
+      justify-content: center;
     }
 
     .social-links a {
@@ -184,25 +120,14 @@ document.querySelectorAll(".glass-button").forEach((button) => {
       margin-bottom: 12px;
     }
 
-    .sidebar-intro img {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-
     .hero-images {
       display: flex;
       flex-wrap: wrap;
       margin: 0;
     }
 
-    .hero-banner {
-      flex: 1 1 50%;
-    }
-
     .hero-images img {
-      flex: 1 1 50%;
+      flex: 1 1 100%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
       min-height: 220px;
       object-fit: cover;
@@ -228,63 +153,132 @@ document.querySelectorAll(".glass-button").forEach((button) => {
     }
 
     .box {
-      background: #fff;
-      padding: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+      padding: 18px 16px;
       margin-bottom: 18px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      border-radius: 6px;
-    }
-
-    .box,
-    .neumorphism-1,
-    .neumorphism-2,
-    .neumorphism-3,
-    .text,
-    .article-content,
-    .sidebar-intro,
-    .footer {
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-    }
-
-    .text,
-    .article-content,
-    .box,
-    .neumorphism-2,
-    .footer {
-      line-height: 1.75;
-    }
-
-    .text {
-      margin: 0 auto;
-      max-width: 100%;
-    }
-
-    .text h2,
-    .text h4,
-    .sidebar-intro h4,
-    .footer h4,
-    .footer h6 {
-      text-align: center;
+      box-shadow: 0 14px 28px rgba(12, 24, 48, 0.08);
+      border-radius: 16px;
+      border: 1px solid rgba(40, 148, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     body.dark-mode .box {
-      background: #111;
+      background: linear-gradient(180deg, #10161f 0%, #141c27 100%);
       color: #f5f5f5;
+      border-color: rgba(143, 214, 255, 0.16);
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2894ff, #6a1b9a, #00d4ff);
+    }
+
+    .box:hover,
+    .polaroid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(12, 24, 48, 0.12);
+    }
+
+    .box h3 {
+      color: #0d2f58;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    body.dark-mode .box h3 {
+      color: #8fd6ff;
+    }
+
+    .box h5 {
+      background: transparent;
+      text-shadow: none;
+      color: inherit;
+      margin-top: 0;
+    }
+
+    .box hr {
+      margin: 12px auto;
+      width: 72%;
+      height: 2px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.75), transparent);
+      box-shadow: none;
     }
 
     .polaroid {
       background: #fff;
-      padding: 18px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      padding: 22px 24px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(12, 24, 48, 0.14);
+      border: 1px solid rgba(40, 148, 255, 0.12);
       max-width: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     body.dark-mode .polaroid {
-      background: #111;
+      background: linear-gradient(180deg, #111 0%, #151c26 100%);
       color: #f5f5f5;
+      border-color: rgba(40, 148, 255, 0.22);
+    }
+
+    .polaroid::before {
+      content: "";
+      position: absolute;
+      inset: auto -12% -18% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 148, 255, 0.18), rgba(40, 148, 255, 0));
+      pointer-events: none;
+      animation: driftGlow 10s ease-in-out infinite;
+    }
+
+    .polaroid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.04), transparent 30%, rgba(106, 27, 154, 0.05));
+      pointer-events: none;
+    }
+
+    .article-content {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .article-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 6px 8px 14px;
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(40, 148, 255, 0.12);
+      color: #1b5fa7;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      animation: tagPulse 4.5s ease-in-out infinite;
     }
 
     .article-content h2,
@@ -293,22 +287,100 @@ document.querySelectorAll(".glass-button").forEach((button) => {
     .article-content p {
       margin-top: 0;
       margin-bottom: 10px;
-      text-align: justify;
       line-height: 1.7;
+      position: relative;
+      z-index: 1;
     }
 
-    .article-content h1 {
-      margin-top: 6px;
+    .article-content h2 {
+      text-align: center;
+      color: #0d2f58;
+      font-size: 2.6rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    body.dark-mode .article-content h2 {
+      color: #8fd6ff;
+      text-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+    }
+
+    .article-content h3 {
+      text-align: center;
+      color: #6a1b9a;
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    body.dark-mode .article-content h3 {
+      color: #d7adff;
+    }
+
+    .article-intro {
+      max-width: 860px;
+      margin: 0 auto 4px;
+      padding: 14px 18px;
+      text-align: center !important;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.12), rgba(106, 27, 154, 0.08));
+      border: 1px solid rgba(40, 148, 255, 0.16);
+      border-radius: 999px;
+      color: #18324f;
+      box-shadow: 0 10px 24px rgba(12, 24, 48, 0.08);
+      animation: floatIntro 6s ease-in-out infinite;
+    }
+
+    body.dark-mode .article-intro {
+      color: #edf7ff;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.16), rgba(106, 27, 154, 0.14));
+      border-color: rgba(143, 214, 255, 0.18);
+    }
+
+    .article-divider {
+      width: min(72%, 520px);
+      height: 2px;
+      margin: 16px auto 20px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.95), rgba(106, 27, 154, 0.9), transparent);
+      box-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+      position: relative;
+      z-index: 1;
+    }
+
+    .reference-item {
+      background: rgba(40, 148, 255, 0.05);
+      border-left: 4px solid rgba(40, 148, 255, 0.42);
+      border-radius: 8px;
+      padding: 10px 12px;
       margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    body.dark-mode .reference-item {
+      background: rgba(143, 214, 255, 0.06);
+      border-left-color: rgba(143, 214, 255, 0.36);
+    }
+
+    .reference-item a {
+      word-break: break-word;
     }
 
     .btn1 {
       background: linear-gradient(135deg, #6a1b9a, #2894ff);
       color: #fff;
       border: 0;
-      border-radius: 4px;
-      padding: 8px 14px;
+      border-radius: 999px;
+      padding: 10px 18px;
       font-weight: 600;
+      box-shadow: 0 10px 20px rgba(40, 148, 255, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn1:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(40, 148, 255, 0.24);
     }
 
     .footer {
@@ -330,38 +402,36 @@ document.querySelectorAll(".glass-button").forEach((button) => {
       height: 32px;
     }
 
-    .col-sm-2.sidenav {
-      text-align: center;
+    @keyframes floatIntro {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
     }
 
-    .col-sm-2.sidenav .neumorphism-2 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: center;
+    @keyframes driftGlow {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(-10px, -12px, 0) scale(1.05);
+      }
     }
 
-    .col-sm-2.sidenav h4,
-    .col-sm-2.sidenav p {
-      text-align: center !important;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .col-sm-2.sidenav img {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .col-sm-2.sidenav .social-icons {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin: 0 auto;
+    @keyframes tagPulse {
+      0%,
+      100% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(40, 148, 255, 0);
+      }
+      50% {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 22px rgba(40, 148, 255, 0.12);
+      }
     }
 
     @media (max-width: 991px) {
@@ -375,10 +445,6 @@ document.querySelectorAll(".glass-button").forEach((button) => {
         max-width: 100%;
       }
 
-      .topnav {
-        padding-left: 0;
-      }
-
       .navbar-form {
         margin-top: 10px;
         width: 100%;
@@ -388,65 +454,26 @@ document.querySelectorAll(".glass-button").forEach((button) => {
     @media (max-width: 767px) {
       .navbar-header {
         padding: 0 15px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
       }
 
       .navbar-brand {
         font-size: 18px;
-        padding-left: 0;
-        min-width: 0;
       }
 
       .navbar-collapse {
-        padding: 12px 15px 16px;
-        background: #f7f7f7;
-        border-top: 1px solid #e5e5e5;
-        margin-top: 8px;
-        display: none;
-      }
-
-      .navbar-collapse.menu-open {
-        display: block;
+        padding: 0 15px;
       }
 
       .navbar-nav {
-        margin: 0;
+        margin: 7.5px 0;
       }
 
       .navbar-nav > li > a {
-        padding: 12px 0;
-      }
-
-      .navbar-right {
-        margin-right: 0;
-      }
-
-      .navbar-form {
-        padding: 0;
-        margin: 12px 0 0;
-      }
-
-      .navbar-form .input-group,
-      .navbar-form .form-control {
-        width: 100%;
-      }
-
-      .navbar-collapse.in {
-        max-height: calc(100vh - 72px);
-        overflow-y: auto;
+        padding: 10px 0;
       }
 
       .hero-images {
         flex-direction: column;
-      }
-
-      .hero-banner {
-        width: 100% !important;
-        flex: 1 1 100%;
-        float: none !important;
-        margin-top: 0 !important;
       }
 
       .hero-images img {
@@ -461,13 +488,24 @@ document.querySelectorAll(".glass-button").forEach((button) => {
         padding: 15px;
       }
 
-      .article-content h1 {
-        font-size: 28px;
+      .article-header {
+        padding-left: 0;
+        padding-right: 0;
       }
 
       .article-content h2,
       .article-content h3 {
-        font-size: 22px;
+        font-size: 1.45rem;
+      }
+
+      .article-intro {
+        border-radius: 22px;
+        padding: 12px 14px;
+        font-size: 0.98rem;
+      }
+
+      .article-divider {
+        width: min(86%, 420px);
       }
     }
 
@@ -476,415 +514,162 @@ document.querySelectorAll(".glass-button").forEach((button) => {
         padding: 8px 0;
       }
 
-      .navbar-brand {
-        font-size: 16px;
-      }
-
-      .navbar-brand img {
-        width: 36px;
-      }
-
-      .article-content h1 {
-        font-size: 24px;
+      .article-content h2 {
+        font-size: 1.85rem;
       }
 
       .article-content h3,
       .article-content h4 {
-        font-size: 16px;
+        font-size: 1.05rem;
+      }
+
+      .article-intro {
+        font-size: 0.94rem;
       }
 
       .footer {
         padding: 15px 10px 25px;
       }
     }
-
-    @media (min-width: 768px) {
-      .navbar-collapse {
-        display: block !important;
-        height: auto !important;
-        overflow: visible !important;
-        padding: 0;
-      }
-    }
-		const mouse = {
-  x: 0.5,
-  y: 0.5,
-  targetX: 0.5,
-  targetY: 0.5,
-};
-
-const clamp = (v) => Math.max(0, Math.min(1, v));
-
-let rafId = null;
-
-const onPointerMove = (e) => {
-  if (rafId) return;
-
-  rafId = requestAnimationFrame(() => {
-    mouse.targetX = clamp(e.clientX / window.innerWidth);
-    mouse.targetY = clamp(1 - e.clientY / window.innerHeight);
-    rafId = null;
-  });
-};
-
-window.addEventListener("pointermove", onPointerMove, { passive: true });
-
-document.querySelectorAll(".glass-button").forEach((button) => {
-  const update = (e) => {
-    const rect = button.getBoundingClientRect();
-
-    const x =
-      clamp((e.clientX - rect.left) / rect.width) * 100;
-    const y =
-      clamp((e.clientY - rect.top) / rect.height) * 100;
-
-    button.style.setProperty("--x", `${x}%`);
-    button.style.setProperty("--y", `${y}%`);
-  };
-
-  const reset = () => {
-    button.style.setProperty("--x", "50%");
-    button.style.setProperty("--y", "50%");
-  };
-
-  button.addEventListener("pointermove", update, { passive: true });
-  button.addEventListener("pointerleave", reset, { passive: true });
-});
-body {
-  background-color: white;
-  color: black;
-}
-.dark-mode {
-  background-color: black;
-  color: white;
-}
-.container div {
-  margin: 10px;
-  padding: 10px;
-  text-align: center;  
-}
-	.container {
-	height: auto;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: stretch;
-}
-.neumorphism-1 {
-	height: 150px;
-	width: 150px;
-	border-radius: 50px;
-    background: linear-gradient(145deg, #5bc6ff, #4da7db);
-    box-shadow: 30px 30px 60px #489dcf, 
-            -30px -30px 60px #62d5ff;
-}
-.neumorphism-2 {
-	margin: 20px;
-	height: 150px;
-	width: 150px;
-	border-radius: 50px;
-  border: 3px solid darkblue;
-    background: linear-gradient(145deg, #4da7db, #5bc6ff);
-    box-shadow: 20px 20px 40px #489dcf, 
-            -20px -20px 40px #62d5ff;
-}
-.neumorphism-3 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 150px;
-	width: 150px;
-	border-radius: 100%;
-    background: linear-gradient(145deg, #4da7db, #5bc6ff);
-    box-shadow: 30px 30px 60px #489dcf, 
-            -30px -30px 60px #62d5ff;
-	position: relative;
-}
-.neumorphism-3:after {
-	content: '';
-	position: absolute;
-	height: 80%;
-	width: 80%;
-	background-color: transparent;
-	border-radius: 50%;
-	box-shadow: inset -3px -3px 7px #62d5ff, inset 3px 3px 5px rgba(94, 104, 121, 0.671);
-}
-
-@media screen and (max-width: 767px) {
-   .container {
-	display: block;
-}
-.neumorphism-1 {
-	margin: auto;
-        width: 200px;
-        height: 200px;
-}
-.neumorphism-2 {
-	margin: 10px auto;
-        width: 150px;
-        height: 200px;
-}
-.neumorphism-3 {
-	margin: auto; 
-        width: 150px;
-        height: 200px;
-}
-}
-</style>
- </head>
-<body style="height:1440px">
- <nav class="navbar navbar-clean">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">
-        <img src="images/logo.gif" class="w3-image" style="float:left; width:50px;" alt="X-PULSE logo" />
-        <strong>X-PULSE</strong>
-      </a>
-      <button type="button" class="navbar-toggle collapsed" aria-expanded="false" aria-controls="site-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="navbar-collapse" id="site-navbar">
-      <ul class="nav navbar-nav topnav" style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);">
-        <li class="home"><a href="index.html"><strong>About us</strong></a></li>
-        <li><a href="projects.html"><strong>Projects</strong></a></li>
-        <li><a href="gallery.html"><strong>Gallery</strong></a></li>
-        <li><a href="funds&synergies.html"><strong>Funds&Synergies</strong></a></li>
-        <li><a href="history.html"><strong>History</strong></a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Archive</strong><span class="caret"></span></a>
-          <ul class="dropdown-menu" style="background-color: #2894FF;">
-            <li><a href="archive2025.html">2025</a></li>
-            <li><a href="archive2024.html">2024</a></li>
-            <li><a href="archive2023.html">2023</a></li>
-          </ul>
-        </li>
-        <li><a href="references.html"><strong>References</strong></a></li>
-        <li><a href="contact.html"><strong>Contact</strong></a></li>
-      </ul>
-      <form class="navbar-form navbar-right" action="/action_page.php">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search" name="search">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <i class="glyphicon glyphicon-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</nav>
-		<div class="magic"></div>
+  </style>
 </head>
-<div class="hero-images">
-  <img src="images/j.png" alt="Lights" class="w3-image hero-banner" width="50%" height="50%" style="margin-top:-24px;float:left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-
-</div>
-<br>
-  <div class="container-fluid text-center">    
-  <div class="col-sm-2">	
-	<div class="neumorphism-2" style="margin-top:20px; width:100%; height:100%; padding:10px;">
-    <br>
-	<img src="images/logo.gif" alt="first" style="width:100%; height:100%; margin-top: 20px;">
-	<br>
-		<br>
-    <h4 style="color: #222479;">Motivation</h4>
-		<br>
-	<p style="text-align: justify; margin: 10px;">
-Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
-ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
-pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
-synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
-exposure imaging	of	stochastic	phenomena	in	matter.
-		</p>
-		<br>
-		<br>
-	</div>
-	<div class="neumorphism-2" style="margin-top:40px; width:100%; height:100%; padding:10px;">
-	<br>
-    <h4 style="color: #222479;">Pulsed X-ray imaging systems</h4>
-    <br>
-	<p style="text-align: justify; margin: 10px;">
-X-ray systems can produce very short output pulses
-and they make it possible to observe images obscured
-by smoke, dust and plasma. An X-ray intensifier can
-be used to provide visible wavelength images, which
-can be passed through an image converter and
-recorded by other conventional photographic systems. Still or cine images can be obtained. Obvious
-advantages are that events taking place in enclosed
-spaces can still be covered using X-rays powerful
-enough to pass through the covering material.</p>
-    <br>
-    <br>
-	</div>
-  </div>
-
-  <div class="col-sm-8"> 
-  <div class="neumorphism-2" style="width:100%; height:100%; margin-right:20px">         
-  <div class="text" style="padding: 0 24px; margin: 0 auto; max-width: 920px; text-align: justify;"> 
-      <br>
-      <h2><u><strong>References:</strong></u></h2>
-      <br>
-      <br>
-   <h4 style="text-align: justify;">
-[1]	Olbinado,	M.	P.,	Just,	X.,	Gelet,	J.-L.,	Lhuissier,	P.,	Scheel,	M.,	Vagovič,	P.,	Sato,	T.,	Graceffa,	R.,	Schulz,	J.,	Mancuso,	A.,	Morse,	J.,	
-&	Rack,	A.	(2017).	MHz	frame	rate	hard	X-ray	phase-contrast	imaging	using	synchrotron	radiation.	Optics	Express,	25(12),	
-13857.	<a href="https://doi.org/10.1364/oe.25.013857"> https://doi.org/10.1364/oe.25.013857></a></h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[2]	Vagovič,	P.,	Sato,	T.,	Mikeš,	L.,	Mills,	G.,	Graceffa,	R.,	Mattsson,	F.,	Villanueva-Perez,	P.,	Ershov,	A.,	Faragó,	T.,	Uličný,	J.,	
-Kirkwood,	H.,	Letrun,	R.,	Mokso,	R.,	Zdora,	M.-C.,	Olbinado,	M.	P.,	Rack,	A.,	Baumbach,	T.,	Schulz,	J.,	Meents,	A.,	…	Mancuso,	A.	P.	
-(2019).	Megahertz	x-ray	microscopy	at	x-ray	free-electron	laser	and	synchrotron	sources.	Optica,	6(9),	1106.	
-<a href="https://doi.org/10.1364/optica.6.001106"> https://doi.org/10.1364/optica.6.001106></a></h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[3]	Koliyadu,	J.	C.	P.,	Moško,	D.,	Asimakopoulou,	E.	M.,	Bellucci,	V.,	Birnšteinová,	Š.,	Bean,	R.,	Letrun,	R.,	Kim,	C.,	Kirkwood,	H.,	
-Giovanetti,	G.,	Jardon,	N.,	Szuba,	J.,	Guest,	T.,	Koch,	A.,	Grünert,	J.,	Szeles,	P.,	Villanueva-Perez,	P.,	Reuter,	F.,	Ohl,	C.-D.,	…	Vagovič,	
-P.	(2025).	Development	of	MHz	X-ray	phase	contrast	imaging	at	the	European	XFEL.	Journal	of	Synchrotron	Radiation,	32(1),	
-17–28.	<a href="https://doi.org/10.1107/s160057752400986x"> https://doi.org/10.1107/s160057752400986x></a></h4>
-<br>
-<h4 style="text-align: justify;">
-[4]	Xiang,	K.,	Huang,	S.,	Song,	H.,	Bazhenov,	V.,	Bellucci,	V.,	Birnšteinová,	Š.,	de	Wijn,	R.,	Koliyadu,	J.	C.	P.,	Koua,	F.	H.	M.,	Round,	
-A.,	Round,	E.,	Sarma,	A.,	Sato,	T.,	Sikorski,	M.,	Zhang,	Y.,	Asimakopoulou,	E.	M.,	Villanueva-Perez,	P.,	Porfyrakis,	K.,	Tzanakis,	I.,	…	
-Mi,	J.	(2023).	Ultrasound	cavitation	and	exfoliation	dynamics	of	2D	materials	re-vealed	in	operando	by	X-ray	free	electron	laser	
-megahertz	imaging	(Version	2).	arXiv.	<a href="https://doi.org/10.48550/ARXIV.2305.08538"> https://doi.org/10.48550/ARXIV.2305.08538></a></h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[5]	Reuter,	F.,	Sato,	T.,	Bellucci,	V.,	Birnšteinová,	Š.,	Deiter,	C.,	Koliyadu,	J.	C.	P.,	Letrun,	R.,	Villanueva-Perez,	P.,	Bean,	R.,	
-Mancuso,	A.	P.,	Meents,	A.,	Vagovic,	P.,	&	Ohl,	C.-D.	(2023).	Laser-induced,	single	droplet	fragmentation	dynamics	revealed	
-through	megahertz	x-ray	microscopy.	Physics	of	Fluids,	35(11).	<a href="https://doi.org/10.1063/5.0171225"> https://doi.org/10.1063/5.0171225></a></h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[6]	Soyama,	H.,	Liang,	X.,	Yashiro,	W.,	Kajiwara,	K.,	Asimakopoulou,	E.	M.,	Bellucci,	V.,	Birnšteinová,	Š.,	Giovanetti,	G.,	Kim,	C.,	
-Kirkwood,	H.	J.,	Koliyadu,	J.	C.	P.,	Letrun,	R.,	Zhang,	Y.,	Uličný,	J.,	Bean,	R.,	Mancuso,	A.	P.,	Villanueva-Perez,	P.,	Sato, T.,	Vagovič,	
-P.,	…	Korsunsky,	A.	M.	(2023).	Revealing	the	origins	of	vortex	cavitation	in	a	Venturi	tube	by	high-speed X-ray	imaging.	
-Ultrasonics	Sonochemistry,	101,	106715.	<a href="https://doi.org/10.1016/j.ultsonch.2023.106715"> https://doi.org/10.1016/j.ultsonch.2023.106715></a></h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[7]	Bellucci,	V.,	Zdora,	M.-C.,	Mikeš,	L.,	Birnšteinová,	Š.,	Oberta,	P.,	Romagnoni,	M.,	Mazzolari,	A.,	Villanueva-Perez,	P.,	Mokso,	R.,	
-David,	C.,	Makita,	M.,	Cipiccia,	S.,	Uličný,	J.,	Meents,	A.,	Mancuso,	A.	P.,	Chapman,	H.	N.,	&	Vagovič,	P.	(2023).	Hard	X-ray	
-stereographic	microscopy	for	single-shot	differential	phase	imaging.	Optics	Express,	31(11),	18399.	
-<a href="https://doi.org/10.1364/oe.492137"> https://doi.org/10.1364/oe.492137></a></h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[8]	Bellucci,	V.,	Birnšteinová,	Š.,	Sato,	T.,	Letrun,	R.,	Koliyadu,	J.	C.	P.,	Kim,	C.,	Giovanetti,	G.,	Deiter,	C.,	Samoylova,	L., Petrov,	I.,	
-Lopez	Morillo,	L.,	Graceffa,	R.,	Adriano,	L.,	Huelsen,	H.,	Kollmann,	H.,	Tran	Calliste,	T.	N.,	Korytar,	D.,	Zaprazny,	Z.,	Mazzolari,	A.,	
-…	Vagovic,	P.	(2024).	Development	of	crystal	optics	for	X-ray	multi-projection	imaging	for	synchrotron	and	XFEL	sources.	
-Journal	of	Synchrotron	Radiation,	31(6),	1534–1550.	<a href="https://doi.org/10.1107/s1600577524008488"> https://doi.org/10.1107/s1600577524008488></a></h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[9]	Vagovič,	P.,	Bellucci,	V.,	Villanueva-Perez,	P.,	&	Yashiro,	W.	(2023). Multi-beam	splitting	and	redirecting	apparatus,	
-tomoscopic	inspection	apparatus	and	method	for	creating	a	three-dimensional	tomoscopic	image	of	a	sample (European	Patent	
-EP	4160623	A1).</h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[10]	Villanueva-Perez,	P.,	Bellucci,	V.,	Zhang,	Y.,	Birnšteinová,	Š.,	Graceffa,	R.,	Adriano,	L.,	Asimakopoulou,	E.	M.,	Petrov,	I.,	Yao,	
-Z.,	Romagnoni,	M.,	Mazzolari,	A.,	Letrun,	R.,	Kim,	C.,	Koliyadu,	J.	C.	P.,	Deiter,	C.,	Bean,	R.,	Giovanetti,	G.,	Gelisio,	L.,	Ritschel,	T.,	…	
-Vagovič,	P.	(2023).	Megahertz	X-ray	Multi-projection	imaging	(Version	1).	arXiv.	
-<a href="https://arxiv.org/abs/2305.11920"> https://arxiv.org/abs/2305.11920</a></h4>
-<br>
-<p></p>
-<h4 style="text-align: justify;">
-[11]	Asimakopoulou,	E.	M.,	Bellucci,	V.,	Birnšteinová,	Š.,	Yao,	Z.,	Zhang,	Y.,	Petrov,	I.,	Deiter,	C.,	Mazzolari,	A.,	Romagnoni,	M.,	
-Korytar,	D.,	Zaprazny,	Z.,	Kuglerova,	Z.,	Juha,	L.,	Lukić,	B.,	Rack,	A.,	Samoylova,	L.,	Garcia-Moreno,	F.,	Hall,	S.	A.,	Neu,	T., …	
-Villanueva-Perez,	P.	(2024).	Development	towards	high-resolution	kHz-sp<a href="https://doi.org/10.1364/OE.510800"> https://doi.org/10.1364/OE.510800</a></h4>
-   <br>
-    <br>
-     <br>
+<body>
+  <nav class="navbar navbar-clean">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.gif" alt="X-PULSE logo" />
+          <span><strong>X-PULSE</strong></span>
+        </a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav topnav">
+          <li class="home"><a href="index.html"><strong>About us</strong></a></li>
+          <li><a href="projects.html"><strong>Projects</strong></a></li>
+          <li><a href="gallery.html"><strong>Gallery</strong></a></li>
+          <li><a href="funds&synergies.html"><strong>Funds&Synergies</strong></a></li>
+          <li><a href="history.html"><strong>History</strong></a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Archive</strong><span class="caret"></span></a>
+            <ul class="dropdown-menu" style="background-color: #2894FF;">
+              <li><a href="archive2025.html">2025</a></li>
+              <li><a href="archive2024.html">2024</a></li>
+              <li><a href="archive2023.html">2023</a></li>
+            </ul>
+          </li>
+          <li><a href="references.html"><strong>References</strong></a></li>
+          <li><a href="contact.html"><strong>Contact</strong></a></li>
+        </ul>
+        <form class="navbar-form navbar-right" action="/action_page.php">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search" />
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-   </div>
+  </nav>
 
-    <div class="col-sm-2 sidenav">
-   	<div class="neumorphism-2" style="width: 100%; height:fit-content;">
-	<br>
-	<h4><strong>Follow X - Pulse</strong></h4>
-	
-	<p><strong>on social media</strong></p>
-		<br>
-    <p class="social-icons">
-	 
-		<a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		<a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-	 	</p>
-		<hr>
-		<img src="images/gif.gif" alt="HTML5 Icon" style="width:200px; height:300px;"/>
-        <br>
-		<br>
-      <button class="btn1" onclick="myFunction()">DarkMatter</button>
-	
-		<br>
-		<br>
-    	</div>
-  
-	 <div class="neumorphism-2" style="width:100%; height:100%; margin-top:40px; padding:5px;">
-	 <br>
-     <br>
-     <br>
-	  <img src="images/f1.gif" style="width:200px; height:150px;"/>
-      <br>
-      <br>
-    <hr>
-	  <br>
-	<h4 style="text-align: center;"><b>Understanding	Fast	Phenomena	of	Fluid	Transport	in	Porous	Media	using	MHz	Xray	Microscopy</b></h4>
-	<br>
-	<p style="text-align: center;">Proposal	Number	6937,		PI	Patrick	Huber,	TUHH/DESY,	Hamburg, Germany,	Propagation	of	water	through	porous	media.</p>	
-		<br>
-		</p>
-	</div>
-   </div>
-   </div>
-
-   <div class="footer" style="align-content: center;">
-     <br>
-      <br>
-
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".navbar-toggle");
-  const menu = document.getElementById("site-navbar");
-
-  if (!toggle || !menu) {
-    return;
-  }
-
-  toggle.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("menu-open");
-    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-});
-</script>
-	     <h6 class="w3-small" style="text-align:center;">X - Pulse</p>
-		
-		 <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-			  <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-         <h6 class="w3-small" style="text-align:center;">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</p>
-	     <p style="color: blue;">Copyright ©2026 Duncan Phoenix</p>
+  <div class="magic"></div>
+  <div class="hero-images">
+    <img src="images/j.png" alt="Scientific visual" />
   </div>
-</body>
 
+  <div class="page-grid">
+    <aside class="sidenav">
+      <div class="box">
+        <div class="sidebar-intro">
+          <img src="images/logo.gif" alt="X-PULSE logo" style="width: 100%; height: 100%;" />
+        </div>
+        <hr />
+        <h3>Motivation</h3>
+        <p style="text-align: justify; margin: 10px;">
+          Modern 4th-generation X-ray facilities provide unprecedented opportunities for probing ultrafast dynamics. Their exceptionally high photon flux per pulse (109 - 1012 photons per pulse), combined with ultra-short pulse duration (~10 fs and ~100 ps at XFELs and synchrotrons) with pulse megahertz repetition rates, enables ultra-fast single-shot/single exposure imaging of stochastic phenomena in matter.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Pulsed X-ray Imaging Systems</h3>
+        <p style="text-align: justify; margin: 10px;">
+          X-ray systems can produce very short output pulses and make it possible to observe images obscured by smoke, dust and plasma. Intensifiers provide visible wavelength images that can be passed through image converters and recorded by conventional photographic systems, enabling still or cine capture in enclosed spaces.
+        </p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="polaroid article-content">
+        <div class="article-header">
+          <div class="article-tag">Publication Base</div>
+          <h2>References</h2>
+          <h3>X-ray Probing of Ultrafast Events</h3>
+          <p class="article-intro">Selected literature, patents, and preprints supporting the X-PULSE research and methodology roadmap.</p>
+        </div>
+
+        <hr class="article-divider" />
+
+        <h4 class="reference-item">[1] Olbinado, M. P., Just, X., Gelet, J.-L., Lhuissier, P., Scheel, M., Vagovic, P., Sato, T., Graceffa, R., Schulz, J., Mancuso, A., Morse, J., & Rack, A. (2017). MHz frame rate hard X-ray phase-contrast imaging using synchrotron radiation. Optics Express, 25(12), 13857. <a href="https://doi.org/10.1364/oe.25.013857">https://doi.org/10.1364/oe.25.013857</a></h4>
+        <h4 class="reference-item">[2] Vagovic, P., Sato, T., Mikes, L., Mills, G., Graceffa, R., Mattsson, F., Villanueva-Perez, P., Ershov, A., Farago, T., Ulicny, J., Kirkwood, H., Letrun, R., Mokso, R., Zdora, M.-C., Olbinado, M. P., Rack, A., Baumbach, T., Schulz, J., Meents, A., ... Mancuso, A. P. (2019). Megahertz x-ray microscopy at x-ray free-electron laser and synchrotron sources. Optica, 6(9), 1106. <a href="https://doi.org/10.1364/optica.6.001106">https://doi.org/10.1364/optica.6.001106</a></h4>
+        <h4 class="reference-item">[3] Koliyadu, J. C. P., Mosko, D., Asimakopoulou, E. M., Bellucci, V., Birnsteinova, S., Bean, R., Letrun, R., Kim, C., Kirkwood, H., Giovanetti, G., et al. (2025). Development of MHz X-ray phase contrast imaging at the European XFEL. Journal of Synchrotron Radiation, 32(1), 17-28. <a href="https://doi.org/10.1107/s160057752400986x">https://doi.org/10.1107/s160057752400986x</a></h4>
+        <h4 class="reference-item">[4] Xiang, K., Huang, S., Song, H., Bazhenov, V., Bellucci, V., Birnsteinova, S., et al. (2023). Ultrasound cavitation and exfoliation dynamics of 2D materials revealed in operando by X-ray free electron laser megahertz imaging (Version 2). arXiv. <a href="https://doi.org/10.48550/ARXIV.2305.08538">https://doi.org/10.48550/ARXIV.2305.08538</a></h4>
+        <h4 class="reference-item">[5] Reuter, F., Sato, T., Bellucci, V., Birnsteinova, S., Deiter, C., Koliyadu, J. C. P., et al. (2023). Laser-induced, single droplet fragmentation dynamics revealed through megahertz x-ray microscopy. Physics of Fluids, 35(11). <a href="https://doi.org/10.1063/5.0171225">https://doi.org/10.1063/5.0171225</a></h4>
+        <h4 class="reference-item">[6] Soyama, H., Liang, X., Yashiro, W., Kajiwara, K., Asimakopoulou, E. M., Bellucci, V., et al. (2023). Revealing the origins of vortex cavitation in a Venturi tube by high-speed X-ray imaging. Ultrasonics Sonochemistry, 101, 106715. <a href="https://doi.org/10.1016/j.ultsonch.2023.106715">https://doi.org/10.1016/j.ultsonch.2023.106715</a></h4>
+        <h4 class="reference-item">[7] Bellucci, V., Zdora, M.-C., Mikes, L., Birnsteinova, S., Oberta, P., Romagnoni, M., et al. (2023). Hard X-ray stereographic microscopy for single-shot differential phase imaging. Optics Express, 31(11), 18399. <a href="https://doi.org/10.1364/oe.492137">https://doi.org/10.1364/oe.492137</a></h4>
+        <h4 class="reference-item">[8] Bellucci, V., Birnsteinova, S., Sato, T., Letrun, R., Koliyadu, J. C. P., Kim, C., et al. (2024). Development of crystal optics for X-ray multi-projection imaging for synchrotron and XFEL sources. Journal of Synchrotron Radiation, 31(6), 1534-1550. <a href="https://doi.org/10.1107/s1600577524008488">https://doi.org/10.1107/s1600577524008488</a></h4>
+        <h4 class="reference-item">[9] Vagovic, P., Bellucci, V., Villanueva-Perez, P., & Yashiro, W. (2023). Multi-beam splitting and redirecting apparatus, tomoscopic inspection apparatus and method for creating a three-dimensional tomoscopic image of a sample (European Patent EP 4160623 A1).</h4>
+        <h4 class="reference-item">[10] Villanueva-Perez, P., Bellucci, V., Zhang, Y., Birnsteinova, S., Graceffa, R., Adriano, L., et al. (2023). Megahertz X-ray multi-projection imaging (Version 1). arXiv. <a href="https://arxiv.org/abs/2305.11920">https://arxiv.org/abs/2305.11920</a></h4>
+        <h4 class="reference-item">[11] Asimakopoulou, E. M., Bellucci, V., Birnsteinova, S., Yao, Z., Zhang, Y., Petrov, I., Deiter, C., Mazzolari, A., Romagnoni, M., Korytar, D., Zaprazny, Z., Kuglerova, Z., Juha, L., Lukic, B., Rack, A., Samoylova, L., Garcia-Moreno, F., Hall, S. A., Neu, T., ... Villanueva-Perez, P. (2024). Development towards high-resolution kHz-speed imaging.</h4>
+      </div>
+    </main>
+
+    <aside class="sidenav">
+      <div class="box">
+        <h3>Follow X - Pulse</h3>
+        <p style="text-align: center;">on social media</p>
+        <div class="social-links">
+          <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="Twitter" /></a>
+          <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="LinkedIn" /></a>
+        </div>
+        <hr />
+        <img src="images/gif.gif" alt="Animated visual" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; display: block;" />
+        <br />
+        <button class="btn1" onclick="myFunction()">DarkMatter</button>
+      </div>
+
+      <div class="box">
+        <h3><b>X-ray Probing of Ultrafast Events</b></h3>
+        <hr />
+        <img src="images/f1.gif" alt="Research illustration" style="width: 100%; max-width: 180px; height: auto; margin: 0 auto; display: block;" />
+        <h5 style="text-align: justify; margin: 10px 0 6px;"><b>Understanding Fast Phenomena of Fluid Transport in Porous Media using MHz X-ray Microscopy</b></h5>
+        <p style="text-align: justify; margin: 0;">Proposal Number 6937, PI Patrick Huber, TUHH/DESY, Hamburg, Germany, propagation of water through porous media.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <h6 class="w3-small">X - Pulse</h6>
+    <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="Twitter" /></a>
+    <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn" /></a>
+    <h6 class="w3-small">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</h6>
+    <p style="color: blue;">Copyright ©2026 Duncan Phoenix</p>
+  </footer>
+
+  <script>
+    function myFunction() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
 </html>
+
 
 
 
