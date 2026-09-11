@@ -65,806 +65,874 @@
     </script>	 
  </head>
     <style>
-body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #fff;
-      color: #111;
-      line-height: 1.6;
+    @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap");
+
+    :root {
+      --surface: #ffffff;
+      --surface-alt: #f5f9ff;
+      --surface-dark: #10161f;
+      --surface-dark-alt: #141c27;
+      --accent: #2894ff;
+      --accent-2: #6a1b9a;
+      --accent-3: #00d4ff;
+      --text: #111827;
+      --text-soft: #38506f;
+      --card-bg: rgba(16, 22, 31, 0.92);
+      --card-text: #eef7ff;
+      --card-soft: #c9d9ea;
+      --radius: 20px;
     }
 
-html {
-  min-height: 100%;
-}
-.google-map {
-     padding-bottom: 50%;
-     position: relative;
-}
-
-.google-map iframe {
-     height: 100%;
-     width: 100%;
-     left: 0;
-     top: 0;
-     position: absolute;
-}
-.dark-mode {
-  background-color: black;
-  color: white;
-}
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap");
-
-:root {
-  --bg: #0a0c10;
-  --card-bg: rgba(20, 25, 35, 0.9);
-  --accent: #00f5ff;
-  --text: #fafbfd;
-  --text-dim: #c6c7cc;
-  --radius: 20px;
-  --shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  width: 100%;
-  max-width: 1200px;
-}
-.card {
-  perspective: 1000px;
-  cursor: pointer;
-  position: relative;
-  transform-style: preserve-3d;
-}
-.card-inner {
-  position: relative;
-  width: 100%;
-  min-height: 360px;
-  transform-style: preserve-3d;
-  border-radius: var(--radius);
-  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-.card.flipped .card-inner {
-  transform: rotateY(180deg);
-}
-.card-face {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius);
-  background: var(--card-bg);
-  box-shadow: var(--shadow);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: box-shadow 0.3s, filter 0.3s;
-}
-.card-face::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius);
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
-    0 0 25px rgba(0, 255, 255, 0.15) inset;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.card:hover .card-face::before,
-.card.flipped .card-face::before {
-  opacity: 1;
-  animation: pulse 2s infinite alternate;
-}
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
-      0 0 25px rgba(0, 255, 255, 0.15) inset;
-  }
-  50% {
-    box-shadow: 0 0 22px rgba(0, 255, 255, 0.4),
-      0 0 35px rgba(0, 255, 255, 0.25) inset;
-  }
-  100% {
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.25),
-      0 0 25px rgba(0, 255, 255, 0.15) inset;
-  }
-}
-.card-front h2 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.6rem;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-.card-front p {
-  font-size: 1rem;
-  color: var(--text-dim);
-  line-height: 1.5;
-}
-.one {
-  background: url("images/vago.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.two {
-  background: url("images/JP.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.three {
-  background: url("images/JU.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.four {
-  background: url("https://iili.io/KST8L1R.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.five {
-  background: url("images/asima.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.six {
-  background: url("images/Deiter.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.seven {
-  background: url("images/perez.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.eight {
-  background: url("images/Koli.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.nine {
-  background: url("images/Bean.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.ten {
-  background: url("images/bellu.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.eleven {
-  background: url("images/roma.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.twelve {
-  background: url("images/petrov.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.card-back {
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card-back h3 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.4rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-ul.features {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-ul.features li {
-  margin-bottom: 0.6rem;
-  padding-left: 1.4rem;
-  position: relative;
-  color: var(--text-dim);
-  font-size: 0.95rem;
-}
-ul.features li::before {
-  content: "⚡";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-.cta-buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 1.5rem;
-}
-.cta-buttons a {
-  flex: 1;
-  text-align: center;
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s;
-}
-.cta-buttons a.primary {
-  background: var(--accent);
-  color: #000;
-}
-
-.cta-buttons a.primary:hover {
-  background: #00ffff;
-}
-
-.cta-buttons a.secondary {
-  border: 1px solid var(--accent);
-  color: var(--accent);
-}
-.cta-buttons a.secondary:hover {
-  background: rgba(0, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-
-  .card-inner {
-    min-height: 300px;
-  }
-  .card-face {
-    padding: 18px;
-  }
-  .card-front h2 {
-    font-size: 1.3rem;
-  }
-  .card-back h3 {
-    font-size: 1.2rem;
-  }
-  ul.features li {
-    font-size: 0.9rem;
-  }
-}
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.navbar-brand span {
-  display: inline;
-  white-space: nowrap;
-}
-.navbar-toggle {
-  background-color: #333 !important;
-  border: 1px solid #555 !important;
-}
-.navbar-toggle .icon-bar {
-  background-color: #fff !important;
-}
-.navbar-toggle:hover {
-  background-color: #555 !important;
-}
-
-.navbar-clean {
-  background: #f7f7f7;
-  border: 0;
-  border-radius: 0;
-  margin-bottom: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.navbar-clean .container-fluid {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.navbar-clean .navbar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar-clean .navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-right: 10px;
-  color: #111 !important;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.navbar-clean .navbar-brand img {
-  width: 46px;
-  height: auto;
-}
-
-.navbar-collapse {
-  display: block;
-  border-top: 1px solid #e7e7e7;
-  box-shadow: none;
-}
-
-.topnav {
-  margin: 0;
-  padding-left: 0 !important;
-}
-
-.navbar-nav > li > a {
-  padding: 10px 12px;
-  color: #111;
-}
-
-.navbar-form {
-  margin: 8px 0 8px 10px;
-}
-
-.btn1 {
-  background: linear-gradient(135deg, #6a1b9a, #2894ff);
-  color: #fff;
-  border: 0;
-  border-radius: 4px;
-  padding: 8px 14px;
-  font-weight: 600;
-}
-
-.footer {
-  width: 100%;
-  margin-top: auto;
-  clear: both;
-}
-
-.hero-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.hero-row img {
-  flex: 1 1 50%;
-  width: 50%;
-  height: auto;
-  margin-top: -24px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-}
-
-.page-grid {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr) 260px;
-  gap: 16px;
-  align-items: start;
-  padding: 20px 15px;
-}
-
-.sidebar-column,
-.main-column {
-  width: 100%;
-}
-
-.panel {
-  background: #fff;
-  padding: 14px;
-  margin-bottom: 18px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-radius: 6px;
-}
-
-body.dark-mode .panel {
-  background: #111;
-  color: #f5f5f5;
-}
-
-.social-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.social-row a img {
-  width: 32px;
-  height: 32px;
-}
-
-.contact-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 28px;
-}
-
-.contact-section .panel {
-  flex: 1 1 280px;
-  margin-bottom: 0;
-}
-
-.contact-section #map {
-  flex: 1 1 360px;
-  margin: 0;
-  max-width: none;
-}
-
-.container-fluid.text-center {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 20px 15px;
-}
-
-.container-fluid.text-center > .col-sm-2.sidenav {
-  flex: 0 0 260px;
-  max-width: 260px;
-  width: 100%;
-  margin-top: 0;
-}
-
-.container-fluid.text-center > .col-sm-8 {
-  flex: 1 1 0;
-  min-width: 0;
-  margin-top: 0;
-}
-
-@media (min-width: 992px) {
-  .container-fluid.text-center {
-    display: grid;
-    grid-template-columns: 260px minmax(0, 1fr) 260px;
-    gap: 16px;
-    align-items: start;
-  }
-
-  .container-fluid.text-center > .col-sm-2.sidenav,
-  .container-fluid.text-center > .col-sm-8 {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 0;
-  }
-
-  .container-fluid.text-center > .col-sm-2.sidenav {
-    flex: unset;
-  }
-
-  .container-fluid.text-center > .col-sm-8 {
-    flex: unset;
-  }
-
-  .container-fluid.text-center > .layout-left {
-    grid-column: 1;
-  }
-
-  .container-fluid.text-center > .layout-center {
-    grid-column: 2;
-  }
-
-  .container-fluid.text-center > .layout-right {
-    grid-column: 3;
-  }
-}
-
-.card-grid {
-  width: 100%;
-}
-
-.contact-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 28px;
-}
-
-.contact-section .box {
-  float: none !important;
-  margin: 0 !important;
-  flex: 1 1 280px;
-}
-
-.contact-section #map {
-  flex: 1 1 360px;
-  margin: 0 !important;
-  max-width: none;
-}
-
-#map {
-  width: 100%;
-  max-width: 760px;
-  margin: 40px 0 0;
-}
-
-#map iframe {
-  width: 100%;
-  max-width: 100%;
-  border: 0;
-}
-
-@media (max-width: 991px) {
-  .page-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 15px 10px;
-  }
-
-  .container-fluid.text-center {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .container-fluid.text-center > .col-sm-2.sidenav,
-  .container-fluid.text-center > .col-sm-8 {
-    flex: 1 1 100%;
-    max-width: 100%;
-    width: 100%;
-    margin-top: 0;
-  }
-
-  .contact-section {
-    flex-direction: column;
-    gap: 14px;
-  }
-}
-
-@media (max-width: 768px) {
-
-
-  .page-grid {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .container-fluid.text-center {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .col-sm-2.sidenav,
-  .col-sm-8,
-  .main-container,
-  .card-container,
-  .inner-container,
-  .border-outer,
-  .main-card,
-  .glow-layer-1,
-  .glow-layer-2,
-  .overlay-1,
-  .overlay-2,
-  .background-glow,
-  .content-container,
-  .scrollbar-glass,
-  .aurora2 {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .card-inner {
-    min-height: 320px;
-  }
-
-  .contact-section,
-  .contact-section #map,
-  #map,
-  #map iframe {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .contact-section .box {
-    margin: 0 !important;
-  }
-
-  .hero-row {
-    flex-direction: column;
-  }
-
-  .hero-row img {
-    width: 100%;
-    flex: 1 1 100%;
-    margin-top: 0;
-  }
-
-  .navbar-clean .navbar-header {
-    padding: 0 15px;
-  }
-
-  .navbar-clean .navbar-brand {
-    font-size: 18px;
-    padding-left: 0;
-  }
-
-  .navbar-toggle {
-    margin-right: 0;
-    border: 1px solid #555 !important;
-  }
-
-  .navbar-collapse {
-    display: none;
-    padding: 10px 15px 14px;
-    margin-top: 8px;
-    background: #f7f7f7;
-  }
-
-  .navbar-collapse.menu-open {
-    display: block;
-  }
-
-  .nav.navbar-nav {
-    padding-left: 0 !important;
-    margin: 0;
-  }
-
-  .navbar-nav > li > a {
-    padding: 11px 0;
-  }
-
-  .navbar-brand span {
-    display: block;
-    font-size: 0.9rem;
-    line-height: 1.2;
-  }
-
-  .navbar-form {
-    margin: 10px 0 0;
-    padding: 0;
-  }
-
-  .navbar-form .form-control {
-    width: 100%;
-  }
-}
-@media (max-width: 480px) {
-
-  .container-fluid.text-center {
-    padding: 12px 10px;
-  }
-
-  .navbar-brand img {
-    width: 40px !important;
-    height: auto !important;
-  }
-
-  .navbar-clean .navbar-brand {
-    font-size: 16px;
-  }
-
-  .w3-image {
-    width: 100% !important;
-    height: auto !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .navbar-collapse {
-    display: block !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-}
-</style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #fff;
+      color: var(--text);
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.dark-mode {
+      background: #000;
+      color: #f5f5f5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .navbar-clean {
+      background: #f7f7f7;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding: 8px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-clean .container-fluid {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .navbar-clean .navbar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-right: 20px;
+      padding-left: 0;
+      color: #111 !important;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .navbar-brand img {
+      width: 46px;
+      height: auto;
+    }
+
+    .navbar-toggle {
+      margin-right: 0;
+      border: 1px solid #ccc;
+      background: transparent;
+    }
+
+    .navbar-toggle .icon-bar {
+      background-color: #111;
+    }
+
+    .topnav {
+      padding-left: 0;
+      margin: 0;
+      text-shadow: 1px 1px 2px #000, 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);
+    }
+
+    .navbar-collapse {
+      border-top: 1px solid #e7e7e7;
+      box-shadow: none;
+    }
+
+    .navbar-nav > li > a {
+      padding: 10px 12px;
+      color: #111;
+    }
+
+    .navbar-form {
+      margin: 0 0 0 10px;
+    }
+
+    .hero-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    .hero-row img {
+      flex: 1 1 100%;
+      min-height: 220px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    }
+
+    .page-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 20px;
+      align-items: flex-start;
+    }
+
+    .sidenav {
+      flex: 0 0 240px;
+      max-width: 240px;
+    }
+
+    .main-content {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .box {
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%);
+      padding: 18px 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 14px 28px rgba(12, 24, 48, 0.08);
+      border-radius: 16px;
+      border: 1px solid rgba(40, 148, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+    }
+
+    .box:hover,
+    .polaroid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(12, 24, 48, 0.12);
+    }
+
+    body.dark-mode .box {
+      background: linear-gradient(180deg, var(--surface-dark) 0%, var(--surface-dark-alt) 100%);
+      color: #f5f5f5;
+      border-color: rgba(143, 214, 255, 0.16);
+    }
+
+    .box h3,
+    .box h4 {
+      color: #0d2f58;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+
+    .box h3 {
+      font-size: 1.25rem;
+      text-align: center;
+    }
+
+    body.dark-mode .box h3,
+    body.dark-mode .box h4 {
+      color: #8fd6ff;
+    }
+
+    .box hr,
+    .article-divider {
+      margin: 12px auto;
+      width: min(72%, 520px);
+      height: 2px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.95), rgba(106, 27, 154, 0.9), transparent);
+      box-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+    }
+
+    .sidebar-logo {
+      width: 100%;
+      max-width: 160px;
+      margin: 0 auto 14px;
+    }
+
+    .sidebar-caption,
+    .article-content p,
+    .contact-meta,
+    .info-list li,
+    .social-note {
+      color: var(--text-soft);
+    }
+
+    body.dark-mode .sidebar-caption,
+    body.dark-mode .article-content p,
+    body.dark-mode .contact-meta,
+    body.dark-mode .info-list li,
+    body.dark-mode .social-note {
+      color: #d6e8fb;
+    }
+
+    .polaroid {
+      background: var(--surface);
+      padding: 22px 24px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(12, 24, 48, 0.14);
+      border: 1px solid rgba(40, 148, 255, 0.12);
+      max-width: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    body.dark-mode .polaroid {
+      background: linear-gradient(180deg, #111 0%, #151c26 100%);
+      color: #f5f5f5;
+      border-color: rgba(40, 148, 255, 0.22);
+    }
+
+    .polaroid::before {
+      content: "";
+      position: absolute;
+      inset: auto -12% -18% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 148, 255, 0.18), rgba(40, 148, 255, 0));
+      pointer-events: none;
+      animation: driftGlow 10s ease-in-out infinite;
+    }
+
+    .polaroid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.04), transparent 30%, rgba(106, 27, 154, 0.05));
+      pointer-events: none;
+    }
+
+    .article-content {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .article-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 6px 8px 14px;
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(40, 148, 255, 0.12);
+      color: #1b5fa7;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      animation: tagPulse 4.5s ease-in-out infinite;
+    }
+
+    .article-content h2,
+    .article-content h3,
+    .article-content h4,
+    .article-content p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    .article-content h2 {
+      text-align: center;
+      color: #0d2f58;
+      font-size: 2.6rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    body.dark-mode .article-content h2 {
+      color: #8fd6ff;
+      text-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+    }
+
+    .article-content h3 {
+      text-align: center;
+      color: #6a1b9a;
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    body.dark-mode .article-content h3 {
+      color: #d7adff;
+    }
+
+    .article-intro {
+      max-width: 820px;
+      margin: 0 auto 4px;
+      padding: 14px 18px;
+      text-align: center !important;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.12), rgba(106, 27, 154, 0.08));
+      border: 1px solid rgba(40, 148, 255, 0.16);
+      border-radius: 999px;
+      color: #18324f;
+      box-shadow: 0 10px 24px rgba(12, 24, 48, 0.08);
+      animation: floatIntro 6s ease-in-out infinite;
+    }
+
+    body.dark-mode .article-intro {
+      color: #edf7ff;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.16), rgba(106, 27, 154, 0.14));
+      border-color: rgba(143, 214, 255, 0.18);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      width: 100%;
+    }
+
+    .card {
+      perspective: 1000px;
+      cursor: pointer;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 360px;
+      transform-style: preserve-3d;
+      border-radius: var(--radius);
+      transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      background: var(--card-bg);
+      box-shadow: 0 12px 28px rgba(40, 148, 255, 0.18);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      color: var(--card-text);
+      transition: box-shadow 0.3s ease, filter 0.3s ease;
+      overflow: hidden;
+    }
+
+    .card-face::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 11, 18, 0.08), rgba(7, 11, 18, 0.72));
+    }
+
+    .card-face::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(143, 214, 255, 0.16);
+    }
+
+    .card:hover .card-face,
+    .card.flipped .card-face {
+      box-shadow: 0 18px 34px rgba(40, 148, 255, 0.24);
+    }
+
+    .card-front > div,
+    .card-front > p,
+    .card-back > div,
+    .card-back > .cta-buttons {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-front h2,
+    .card-back h3 {
+      font-family: "Orbitron", sans-serif;
+      color: #8fd6ff;
+    }
+
+    .card-front h2 {
+      font-size: 1.45rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-front p,
+    .card-back li {
+      color: var(--card-soft);
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .one { background: url("images/vago.png") center/cover no-repeat; }
+    .two { background: linear-gradient(135deg, rgba(40, 148, 255, 0.22), rgba(106, 27, 154, 0.3)), url("images/team_0001_0001.png") center/cover no-repeat; }
+    .three { background: linear-gradient(135deg, rgba(40, 148, 255, 0.22), rgba(106, 27, 154, 0.3)), url("images/lab.png") center/cover no-repeat; }
+
+    ul.features {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul.features li {
+      margin-bottom: 0.6rem;
+      padding-left: 1.35rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    ul.features li:empty {
+      display: none;
+    }
+
+    ul.features li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-3);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .cta-buttons a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .cta-buttons a:hover {
+      transform: translateY(-1px);
+    }
+
+    .cta-buttons a.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      color: #041420;
+    }
+
+    .cta-buttons a.secondary {
+      border: 1px solid rgba(143, 214, 255, 0.4);
+      color: #dff5ff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .contact-section {
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+      gap: 20px;
+      align-items: stretch;
+      margin-top: 12px;
+    }
+
+    .contact-card {
+      min-height: 100%;
+    }
+
+    .contact-card h4 {
+      margin-bottom: 6px;
+    }
+
+    .contact-title {
+      text-align: left;
+      font-size: 1.3rem;
+    }
+
+    .info-list {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+    }
+
+    .info-list li {
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .info-list strong {
+      display: block;
+      color: #0d2f58;
+      margin-bottom: 2px;
+    }
+
+    body.dark-mode .info-list strong {
+      color: #8fd6ff;
+    }
+
+    .map-panel {
+      padding: 0;
+    }
+
+    .map-shell {
+      position: relative;
+      min-height: 100%;
+    }
+
+    .map-shell iframe {
+      width: 100%;
+      min-height: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(40, 148, 255, 0.1);
+    }
+
+    .social-links img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+
+    .social-gif,
+    .feature-visual {
+      width: 100%;
+      max-width: 180px;
+      margin: 0 auto;
+    }
+
+    .feature-visual {
+      border-radius: 12px;
+    }
+
+    .btn1 {
+      background: linear-gradient(135deg, #6a1b9a, #2894ff);
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(40, 148, 255, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn1:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(40, 148, 255, 0.24);
+    }
+
+    .footer {
+      background: #e8f4ff;
+      padding: 20px 15px 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    body.dark-mode .footer {
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .footer img {
+      display: inline-block;
+      margin: 0 6px;
+      width: 32px;
+      height: 32px;
+    }
+
+    @keyframes floatIntro {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    @keyframes driftGlow {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-10px, -12px, 0) scale(1.05); }
+    }
+
+    @keyframes tagPulse {
+      0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(40, 148, 255, 0);
+      }
+      50% {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 22px rgba(40, 148, 255, 0.12);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .page-grid {
+        flex-direction: column;
+      }
+
+      .sidenav,
+      .main-content {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
+
+      .map-shell iframe {
+        min-height: 360px;
+      }
+
+      .navbar-form {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-header {
+        padding: 0 15px;
+      }
+
+      .navbar-brand {
+        font-size: 18px;
+      }
+
+      .navbar-collapse {
+        display: none;
+        padding: 0 15px 14px;
+        margin-top: 8px;
+        background: #f7f7f7;
+      }
+
+      .navbar-collapse.menu-open {
+        display: block;
+      }
+
+      .navbar-nav {
+        margin: 7.5px 0;
+      }
+
+      .navbar-nav > li > a {
+        padding: 10px 0;
+      }
+
+      .navbar-right {
+        margin-right: 0;
+      }
+
+      .hero-row img {
+        min-height: 180px;
+      }
+
+      .page-grid {
+        padding: 15px;
+      }
+
+      .polaroid {
+        padding: 15px;
+      }
+
+      .article-header {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .article-content h2 {
+        font-size: 2rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.25rem;
+      }
+
+      .article-intro {
+        border-radius: 22px;
+        padding: 12px 14px;
+        font-size: 0.98rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .card-inner {
+        min-height: 320px;
+      }
+
+      .card-face {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-brand img {
+        width: 40px;
+      }
+
+      .article-content h2 {
+        font-size: 1.85rem;
+      }
+
+      .article-content h3,
+      .box h3,
+      .contact-title {
+        font-size: 1.05rem;
+      }
+
+      .footer {
+        padding: 15px 10px 25px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .navbar-collapse {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+    }
+    </style>
 
 </head>
 <body>
-   <nav class="navbar navbar-clean">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html" style="text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(255, 255, 255);">
-        <img src="images/logo.gif" class="w3-image" alt="X-PULSE logo" />
-        <strong>X-PULSE</strong>
-      </a>
-      <button type="button" class="navbar-toggle collapsed" aria-expanded="false" aria-controls="site-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="navbar-collapse" id="site-navbar">
-      <ul class="nav navbar-nav topnav" style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);">
-        <li class="home"><a href="index.html"><strong>About us</strong></a></li>
-        <li><a href="projects.html"><strong>Projects</strong></a></li>
-        <li><a href="gallery.html"><strong>Gallery</strong></a></li>
-        <li><a href="funds&synergies.html"><strong>Funds&Synergies</strong></a></li>
-        <li><a href="history.html"><strong>History</strong></a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Archive</strong><span class="caret"></span></a>
-          <ul class="dropdown-menu" style="background-color: #2894FF;">
-            <li><a href="archive2025.html">2025</a></li>
-            <li><a href="archive2024.html">2024</a></li>
-            <li><a href="archive2023.html">2023</a></li>
-          </ul>
-        </li>
-        <li><a href="references.html"><strong>References</strong></a></li>
-        <li><a href="contact.html"><strong>Contact</strong></a></li>
-      </ul>
-      <form class="navbar-form navbar-right" action="/action_page.php">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search" name="search">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <i class="glyphicon glyphicon-search"></i>
-            </button>
+  <nav class="navbar navbar-clean">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html" style="text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(255, 255, 255);">
+          <img src="images/logo.gif" class="w3-image" alt="X-PULSE logo" />
+          <strong>X-PULSE</strong>
+        </a>
+        <button type="button" class="navbar-toggle collapsed" aria-expanded="false" aria-controls="site-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse" id="site-navbar">
+        <ul class="nav navbar-nav topnav">
+          <li class="home"><a href="index.html"><strong>About us</strong></a></li>
+          <li><a href="projects.html"><strong>Projects</strong></a></li>
+          <li><a href="gallery.html"><strong>Gallery</strong></a></li>
+          <li><a href="funds&synergies.html"><strong>Funds&Synergies</strong></a></li>
+          <li><a href="history.html"><strong>History</strong></a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><strong>Archive</strong><span class="caret"></span></a>
+            <ul class="dropdown-menu" style="background-color: #2894FF;">
+              <li><a href="archive2025.html">2025</a></li>
+              <li><a href="archive2024.html">2024</a></li>
+              <li><a href="archive2023.html">2023</a></li>
+            </ul>
+          </li>
+          <li><a href="references.html"><strong>References</strong></a></li>
+          <li><a href="contact.html"><strong>Contact</strong></a></li>
+        </ul>
+        <form class="navbar-form navbar-right" action="/action_page.php">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
- </nav>
-			   <div class="magic"></div>
+  </nav>
+  <div class="magic"></div>
 
- <div class="hero-row">
-   <img src="images/j.png" alt="Lights" class="w3-image">
-  
- </div>
-<br>
- <div class="container-fluid text-center">    
-   <div class="col-sm-2 sidenav">	
-    <main class="main-container">
-    <div ↖️ class="card-container">
-    <div class="inner-container">
-      <div class="border-outer">
-      <div ↖️ class="main-card"></div>
-      </div>
-      <div class="glow-layer-1"></div>
-      <div class="glow-layer-2"></div>
-    </div>
-    <div class="overlay-1"></div>
-    <div class="overlay-2"></div>
-    <div class="background-glow"></div>
-    <div class="content-container">
-      <div class="content-top">
-        <div class="aurora2" style="border-radius:10px; "> 
-          <h4 style="text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(255, 255, 255);">Motivation</h4>
-        </div>
-      </div>
-    <img src="images/div.png" alt="first" style="width:100%;">
-    <br>
-    <p></p>
-    <p style="text-align: justify; padding: 10px;">
-Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
-ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
-pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
-synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
-exposure imaging	of	stochastic	phenomena	in	matter.
-		</p>
-        </div>
-      </div>
-	</main>
-   
-      <div class="box">	    
-    <br>
-  <h3 style="color: #222479;"><strong>THIS</strong></h3>
-  <br>
-  <br>
-	<p style="text-align: justify; margin: 20px;">
-	</p>
-    <br>
-    <br>
-	</div>
+  <div class="hero-row">
+    <img src="images/j.png" alt="Scientific visual" class="w3-image">
   </div>
-  <div class="col-sm-8 text-left"> 
- <h2><strong>Meat Z Team</strong></h2>
-	  <br>
-  <div class="card-grid">
+
+  <div class="page-grid">
+    <aside class="sidenav">
+      <div class="box">
+        <img src="images/logo.gif" alt="X-PULSE logo" class="sidebar-logo">
+        <hr>
+        <h3>Motivation</h3>
+        <img src="images/div.png" alt="Decorative divider" style="width:100%; margin: 8px 0 14px;">
+        <p class="sidebar-caption" style="text-align: justify;">
+          Modern 4th-generation X-ray facilities provide unprecedented opportunities for probing ultrafast dynamics. Their exceptionally high photon flux per pulse, combined with ultra-short pulse duration and megahertz repetition rates, enables ultra-fast single-shot imaging of stochastic phenomena in matter.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Contact Snapshot</h3>
+        <p class="social-note" style="text-align: center; margin-bottom: 10px;">Core points of contact for collaboration, research, and project coordination.</p>
+        <ul class="info-list">
+          <li><strong>Location</strong>European XFEL GmbH, Holzkoppel 4, 22869, Germany</li>
+          <li><strong>Main line</strong>+49 (0)40 8998-6348</li>
+          <li><strong>Email</strong>x_pulse@gmail.com</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="polaroid article-content">
+        <div class="article-header">
+          <div class="article-tag">Contact Network</div>
+          <h2>Meet Z Team</h2>
+          <h3>X-PULSE collaborators and contact points</h3>
+          <p class="article-intro">The contact page now follows the same visual language as the refreshed home layout, with a clearer team overview, cleaner contact panels, and a more deliberate research presentation.</p>
+        </div>
+
+        <hr class="article-divider">
+
+        <div class="card-grid">
  <!-- Card 1 -->
   <div class="card">
     <div class="card-inner">
@@ -912,8 +980,6 @@ exposure imaging	of	stochastic	phenomena	in	matter.
           <ul class="features">
             <li>focus on Central European region and Widening countries</li>
             <li>emphasis on strategic engagement</li>
-            <li></li>
-            <li></li>
           </ul>
         </div>
         <div class="cta-buttons">
@@ -939,22 +1005,23 @@ exposure imaging	of	stochastic	phenomena	in	matter.
         <div>
           <h3>Specializations</h3>
           <ul class="features">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Academic coordination</li>
+            <li>University collaboration</li>
+            <li>Scientific mentoring</li>
+            <li>Physics education</li>
           </ul>
         </div>
         <div class="cta-buttons">
-          <a href="mailto:" class="primary">Email</a>
+          <a href="mailto:jozef.ulicny@upjs.sk" class="primary">Email</a>
           <a href="#" class="secondary">Profile</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Card 4 -->
- <!--  <div class="card">
+			<!-- >
+<!-- Card 4 -->
+   <!-->div class="card">
     <div class="card-inner">
       <div class="card-face card-front four">
         <div>
@@ -980,8 +1047,8 @@ exposure imaging	of	stochastic	phenomena	in	matter.
       </div>
     </div>
   </div>
- <!-- Card 5 -->
- <!-- <div class="card">
+			
+ <div class="card">
     <div class="card-inner">
       <div class="card-face card-front five">
         <div>
@@ -1007,192 +1074,70 @@ exposure imaging	of	stochastic	phenomena	in	matter.
       </div>
     </div>
   </div>
-
-	    <!-- Card 6 -->
-  <!--<div class="card">
-    <div class="card-inner">
-      <div class="card-face card-front six">
-        <div>
-          <h2>r</h2>
-          <p></p>
+<!-->
         </div>
-        <p>Tel: 
-                e-mail: </p>
-      </div>
-      <div class="card-face card-back">
-        <div>
-          <h3>Features</h3>
-          <ul class="features">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <div class="cta-buttons">
-          <a href="#" class="primary">Get Started</a>
-          <a href="#" class="secondary">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-	  	 -->
-	  <br>
-	  <br>
-	   <br>
-	  <br>
-  </div>
-	  </div>
-	  <div class="row" style="width: 100%;">
-	  <div class="box" style="float:left; margin: 40px;">
-    <h4><strong>Please contact us :</strong></h4>
-    <br>
-    <h4 style="text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(96, 12, 98), 0 0 5px rgb(208, 220, 74);"><u><strong>Address:</strong></u></h4>
-	<br>
-    <h4><strong>European XFEL Gmbh</strong></h4>
-	<p></p>
-    <h4><strong></strong>Holzkoppel 4</strong></h4>
-    <p></p>
-    <h4><strong></strong>22869</strong></h4>
-	<p></p>
-    <h4><strong></strong>Germany</strong></h4>
-    <br>
-    <h4><strong>tel.:  +49 (0)40 8998-6348</strong></Tel></h4>
-    <br>
-    <h4><strong>e-mail: x_pulse@gmail.com </strong></Tel></h4>
-    <br>
-	  </div>
-       <div id="map" style="margin-right:40px; margin-top:40px; ">
-	   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2368.1935157686953!2d9.8259547779905!3d53.590008656462544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1839beb4c5823%3A0x41f8ea52d9e23f1c!2sLighthouse%20Erlebniszentrum%20European%20XFEL!5e0!3m2!1sen!2suk!4v1764773879927!5m2!1sen!2suk" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	   </div>
-       </div>
-	   <br>
-	   <br>
-	   </div>
-   
-    <div class="col-sm-2 sidenav">
-    <main class="main-container">
-    <div ↖️ class="card-container">
-    <div class="inner-container">
-      <div class="border-outer">
-      <div ↖️ class="main-card"></div>
-      </div>
-      <div class="glow-layer-1"></div>
-      <div class="glow-layer-2"></div>
-    </div>
-    <div class="overlay-1"></div>
-    <div class="overlay-2"></div>
-    <div class="background-glow"></div>
-    <div class="content-container">
-    <div class="content-top">
-    <div class="scrollbar-glass" style="margin-bottom: 20px;">  
-    <div class="main-container" style="margin-bottom: 20px;">
-    <br>
-	<h3>Follow X - Pulse</h3>
-	<p>on social media</p>
-    <br>
-		<p>
-	
-		 <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		 <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="HTML5 Icon" style="width:32px;height:32px;"/></a>
-		</p>
-	    <br>
-    <img src="images/gif.gif" alt="HTML5 Icon" style="width:200px; height:300px;"/>
-	<br>
-	<br>
-  <button class="btn1" onclick="myFunction()">DarkMatter</button>
 
-        <div class="box" style="margin-top: 20px;">
-    <main class="main-container">
-    <div ↖️ class="card-container">
-    <div class="inner-container">
-      <div class="border-outer">
-      <div ↖️ class="main-card"></div>
-      </div>
-      <div class="glow-layer-1"></div>
-      <div class="glow-layer-2"></div>
-    </div>
-    <div class="overlay-1"></div>
-    <div class="overlay-2"></div>
-    <div class="background-glow"></div>
-    <div class="content-container">
-    <div class="content-top">
-    <div class="scrollbar-glass" style="margin-bottom: 20px;">  
-    <div class="main-container" style="margin-bottom: 20px;">
-    <br>
-   <img src="images/f1.gif" style="width:200px; height:150px;"/>
-      <br>
-	<br>
-	<h5 style="text-align: justify;"><b>Understanding	Fast	Phenomena	of	Fluid	Transport	in	Porous	Media	using	MHz	Xray	Microscopy</b></h5>
-	<br>
-	<p style="text-align: justify;">Proposal	Number	6937,		PI	Patrick	Huber,	TUHH/DESY,	Hamburg, Germany,	Propagation	of	water	through	porous	media.</p>	
-    <hr>
-       <br>
-	 </div>
-    </div>
-    </div>
-    </div>
-	</div>
-  </div>
- </div>
-	</div>
-	  </div>
+        <hr class="article-divider">
 
-	<div class="footer">
-     <br>
-      <br>
-  	 <h6 class="w3-small" style="text-align:center;">X - Pulse</p>
-		
-		 <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-		  <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="HTML5 Icon" style="width:32px;height:32px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"/></a>
-      <h6 class="w3-small" style="text-align:center;">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</p>
-	  <br>
-	  <p style="color: blue;">Copyright ©2026 Duncan Phoenix</p>
+        <div class="contact-section">
+          <div class="box contact-card">
+            <h3 class="contact-title">Please contact us</h3>
+            <p class="contact-meta">For scientific inquiries, project collaboration, or institutional contact.</p>
+            <ul class="info-list">
+              <li><strong>Institution</strong>European XFEL GmbH</li>
+              <li><strong>Address</strong>Holzkoppel 4, 22869, Germany</li>
+              <li><strong>Telephone</strong>+49 (0)40 8998-6348</li>
+              <li><strong>Email</strong>x_pulse@gmail.com</li>
+            </ul>
+          </div>
+
+          <div class="box map-panel" id="map">
+            <div class="map-shell">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2368.1935157686953!2d9.8259547779905!3d53.590008656462544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1839beb4c5823%3A0x41f8ea52d9e23f1c!2sLighthouse%20Erlebniszentrum%20European%20XFEL!5e0!3m2!1sen!2suk!4v1764773879927!5m2!1sen!2suk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="sidenav">
+      <div class="box">
+        <h3>Follow X-PULSE</h3>
+        <p class="social-note" style="text-align: center;">on social media</p>
+        <div class="social-links">
+          <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="Twitter"></a>
+          <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="LinkedIn"></a>
+        </div>
+        <img src="images/gif.gif" alt="Animated visual" class="social-gif">
+        <div style="text-align: center; margin-top: 18px;">
+          <button class="btn1" onclick="myFunction()">DarkMatter</button>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>X-ray Probing of Ultrafast Events</h3>
+        <hr>
+        <img src="images/f1.gif" alt="Research illustration" class="feature-visual">
+        <h4 style="text-align: justify; margin-top: 14px;">Understanding Fast Phenomena of Fluid Transport in Porous Media using MHz X-ray Microscopy</h4>
+        <p class="social-note" style="text-align: justify; margin-bottom: 0;">Proposal Number 6937, PI Patrick Huber, TUHH/DESY, Hamburg, Germany, propagation of water through porous media.</p>
+      </div>
+    </aside>
   </div>
-	  <script>
+
+  <footer class="footer">
+    <h6 class="w3-small">X - Pulse</h6>
+    <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="Twitter"></a>
+    <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
+    <h6 class="w3-small">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</h6>
+    <p style="color: blue;">Copyright ©2026 Duncan Phoenix</p>
+  </footer>
+
+  <script>
 function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
+  document.body.classList.toggle("dark-mode");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const layout = document.querySelector(".container-fluid.text-center");
-  const sidebars = Array.from(document.querySelectorAll(".col-sm-2.sidenav"));
-  const middleColumn = layout ? layout.querySelector(".col-sm-8") : null;
-  const mapEl = document.getElementById("map");
-  const contactRow = mapEl ? mapEl.closest(".row") : null;
-  const footer = document.querySelector(".footer");
-
-  if (layout && middleColumn && sidebars.length > 1) {
-    const leftSidebar = sidebars[0];
-    const rightSidebar = sidebars[1];
-
-    leftSidebar.classList.add("layout-left");
-    middleColumn.classList.add("layout-center");
-    rightSidebar.classList.add("layout-right");
-
-    // Enforce exact visual order: left Motivation, center Meat Z Team, right Follow X-Pulse.
-    layout.append(leftSidebar, middleColumn, rightSidebar);
-
-    // Keep main panels at the very top of each sidebar.
-    [leftSidebar, rightSidebar].forEach((sidebar) => {
-      const mainPanel = sidebar.querySelector("main.main-container");
-      if (mainPanel) {
-        sidebar.prepend(mainPanel);
-      }
-    });
-  }
-
-  if (middleColumn && contactRow) {
-    contactRow.classList.add("contact-section");
-    middleColumn.appendChild(contactRow);
-  }
-
-  // Keep footer at the page root so it can sit at the true bottom of the page.
-  if (footer && footer.parentElement !== document.body) {
-    document.body.appendChild(footer);
-  }
-
   const toggle = document.querySelector(".navbar-toggle");
   const menu = document.getElementById("site-navbar");
 
@@ -1206,9 +1151,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
- </body>
+</body>
 </html>
-
 
 
 
