@@ -962,4 +962,47 @@
   </footer>
 
   <script>
-    function myFunction
+    function myFunction() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const carousel = document.querySelector("[data-carousel]");
+
+      if (!carousel) {
+        return;
+      }
+
+      const slides = Array.from(carousel.querySelectorAll(".article-carousel-slide"));
+      const dots = Array.from(carousel.querySelectorAll(".article-carousel-dot"));
+      let activeIndex = 0;
+
+      const showSlide = (nextIndex) => {
+        slides[activeIndex].classList.remove("is-active");
+        dots[activeIndex].classList.remove("is-active");
+
+        activeIndex = nextIndex;
+
+        slides[activeIndex].classList.add("is-active");
+        dots[activeIndex].classList.add("is-active");
+      };
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          showSlide(index);
+          restartTimer();
+        });
+      });
+
+      const advance = () => showSlide((activeIndex + 1) % slides.length);
+      let timer = window.setInterval(advance, 4200);
+
+      const restartTimer = () => {
+        window.clearInterval(timer);
+        timer = window.setInterval(advance, 4200);
+      };
+    });
+  </script>
+</body>
+</html>
+
