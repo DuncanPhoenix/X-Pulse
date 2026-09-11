@@ -12,8 +12,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="JS/Script1.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://elfsightcdn.com/platform.js" async></script>
   <style>
     body {
       margin: 0;
@@ -33,7 +31,7 @@
       height: auto;
       display: block;
     }
-  
+
     .navbar-clean {
       background: #f7f7f7;
       border: 0;
@@ -98,6 +96,7 @@
       gap: 8px;
       align-items: center;
       margin: 10px 0;
+      justify-content: center;
     }
 
     .social-links a {
@@ -121,13 +120,6 @@
       margin-bottom: 12px;
     }
 
-    .sidebar-intro img {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-
     .hero-images {
       display: flex;
       flex-wrap: wrap;
@@ -135,7 +127,7 @@
     }
 
     .hero-images img {
-      flex: 1 1 50%;
+      flex: 1 1 100%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
       min-height: 220px;
       object-fit: cover;
@@ -161,29 +153,133 @@
     }
 
     .box {
-      background: #fff;
-      padding: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+      padding: 18px 16px;
       margin-bottom: 18px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      border-radius: 6px;
+      box-shadow: 0 14px 28px rgba(12, 24, 48, 0.08);
+      border-radius: 16px;
+      border: 1px solid rgba(40, 148, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     body.dark-mode .box {
-      background: #111;
+      background: linear-gradient(180deg, #10161f 0%, #141c27 100%);
       color: #f5f5f5;
+      border-color: rgba(143, 214, 255, 0.16);
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2894ff, #6a1b9a, #00d4ff);
+    }
+
+    .box:hover,
+    .polaroid:hover,
+    .fund-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(12, 24, 48, 0.12);
+    }
+
+    .box h3 {
+      color: #0d2f58;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    body.dark-mode .box h3 {
+      color: #8fd6ff;
+    }
+
+    .box h5 {
+      background: transparent;
+      text-shadow: none;
+      color: inherit;
+      margin-top: 0;
+    }
+
+    .box hr {
+      margin: 12px auto;
+      width: 72%;
+      height: 2px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.75), transparent);
+      box-shadow: none;
     }
 
     .polaroid {
       background: #fff;
-      padding: 18px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      padding: 22px 24px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(12, 24, 48, 0.14);
+      border: 1px solid rgba(40, 148, 255, 0.12);
       max-width: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     body.dark-mode .polaroid {
-      background: #111;
+      background: linear-gradient(180deg, #111 0%, #151c26 100%);
       color: #f5f5f5;
+      border-color: rgba(40, 148, 255, 0.22);
+    }
+
+    .polaroid::before {
+      content: "";
+      position: absolute;
+      inset: auto -12% -18% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 148, 255, 0.18), rgba(40, 148, 255, 0));
+      pointer-events: none;
+      animation: driftGlow 10s ease-in-out infinite;
+    }
+
+    .polaroid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.04), transparent 30%, rgba(106, 27, 154, 0.05));
+      pointer-events: none;
+    }
+
+    .article-content {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .article-header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 6px 8px 14px;
+    }
+
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(40, 148, 255, 0.12);
+      color: #1b5fa7;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      animation: tagPulse 4.5s ease-in-out infinite;
     }
 
     .article-content h2,
@@ -192,22 +288,132 @@
     .article-content p {
       margin-top: 0;
       margin-bottom: 10px;
-      text-align: justify;
       line-height: 1.7;
+      position: relative;
+      z-index: 1;
     }
 
-    .article-content h1 {
+    .article-content h2 {
+      text-align: center;
+      color: #0d2f58;
+      font-size: 2.6rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    body.dark-mode .article-content h2 {
+      color: #8fd6ff;
+      text-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+    }
+
+    .article-content h3 {
+      text-align: center;
+      color: #6a1b9a;
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    body.dark-mode .article-content h3 {
+      color: #d7adff;
+    }
+
+    .article-intro {
+      max-width: 860px;
+      margin: 0 auto 4px;
+      padding: 14px 18px;
+      text-align: center !important;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.12), rgba(106, 27, 154, 0.08));
+      border: 1px solid rgba(40, 148, 255, 0.16);
+      border-radius: 999px;
+      color: #18324f;
+      box-shadow: 0 10px 24px rgba(12, 24, 48, 0.08);
+      animation: floatIntro 6s ease-in-out infinite;
+    }
+
+    body.dark-mode .article-intro {
+      color: #edf7ff;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.16), rgba(106, 27, 154, 0.14));
+      border-color: rgba(143, 214, 255, 0.18);
+    }
+
+    .article-divider {
+      width: min(72%, 520px);
+      height: 2px;
+      margin: 16px auto 20px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(40, 148, 255, 0.95), rgba(106, 27, 154, 0.9), transparent);
+      box-shadow: 0 0 18px rgba(40, 148, 255, 0.18);
+      position: relative;
+      z-index: 1;
+    }
+
+    .fund-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fund-item {
+      background: rgba(40, 148, 255, 0.05);
+      border-left: 4px solid rgba(40, 148, 255, 0.42);
+      border-radius: 10px;
+      padding: 11px 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    body.dark-mode .fund-item {
+      background: rgba(143, 214, 255, 0.06);
+      border-left-color: rgba(143, 214, 255, 0.36);
+    }
+
+    .fund-item p {
+      margin: 0;
+      text-align: justify;
+    }
+
+    .fund-item a {
+      display: inline-block;
       margin-top: 6px;
-      margin-bottom: 12px;
+      word-break: break-word;
+    }
+
+    .impact-note {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.12), rgba(106, 27, 154, 0.08));
+      border: 1px solid rgba(40, 148, 255, 0.16);
+      font-weight: 600;
+      text-align: justify;
+      position: relative;
+      z-index: 1;
+    }
+
+    body.dark-mode .impact-note {
+      background: linear-gradient(135deg, rgba(40, 148, 255, 0.18), rgba(106, 27, 154, 0.15));
+      border-color: rgba(143, 214, 255, 0.2);
     }
 
     .btn1 {
       background: linear-gradient(135deg, #6a1b9a, #2894ff);
       color: #fff;
       border: 0;
-      border-radius: 4px;
-      padding: 8px 14px;
+      border-radius: 999px;
+      padding: 10px 18px;
       font-weight: 600;
+      box-shadow: 0 10px 20px rgba(40, 148, 255, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn1:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(40, 148, 255, 0.24);
     }
 
     .footer {
@@ -229,6 +435,38 @@
       height: 32px;
     }
 
+    @keyframes floatIntro {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes driftGlow {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(-10px, -12px, 0) scale(1.05);
+      }
+    }
+
+    @keyframes tagPulse {
+      0%,
+      100% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(40, 148, 255, 0);
+      }
+      50% {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 22px rgba(40, 148, 255, 0.12);
+      }
+    }
+
     @media (max-width: 991px) {
       .page-grid {
         flex-direction: column;
@@ -238,10 +476,6 @@
       .main-content {
         flex: 1 1 100%;
         max-width: 100%;
-      }
-
-      .topnav {
-        padding-left: 0;
       }
 
       .navbar-form {
@@ -271,18 +505,6 @@
         padding: 10px 0;
       }
 
-      .navbar-right {
-        margin-right: 0;
-      }
-
-      .navbar-collapse {
-        padding: 0 15px;
-      }
-
-      .navbar-nav > li > a {
-        padding: 10px 0;
-      }
-
       .hero-images {
         flex-direction: column;
       }
@@ -299,13 +521,24 @@
         padding: 15px;
       }
 
-      .article-content h1 {
-        font-size: 28px;
+      .article-header {
+        padding-left: 0;
+        padding-right: 0;
       }
 
       .article-content h2,
       .article-content h3 {
-        font-size: 22px;
+        font-size: 1.45rem;
+      }
+
+      .article-intro {
+        border-radius: 22px;
+        padding: 12px 14px;
+        font-size: 0.98rem;
+      }
+
+      .article-divider {
+        width: min(86%, 420px);
       }
     }
 
@@ -314,13 +547,17 @@
         padding: 8px 0;
       }
 
-      .article-content h1 {
-        font-size: 24px;
+      .article-content h2 {
+        font-size: 1.85rem;
       }
 
       .article-content h3,
       .article-content h4 {
-        font-size: 16px;
+        font-size: 1.05rem;
+      }
+
+      .article-intro {
+        font-size: 0.94rem;
       }
 
       .footer {
@@ -361,11 +598,6 @@
           <li><a href="references.html"><strong>References</strong></a></li>
           <li><a href="contact.html"><strong>Contact</strong></a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right topnav">
-          <li>
-            <div id="google_translate_element" class="translator-widget"></div>
-          </li>
-        </ul>
         <form class="navbar-form navbar-right" action="/action_page.php">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="search" />
@@ -379,6 +611,7 @@
       </div>
     </div>
   </nav>
+
   <div class="magic"></div>
   <div class="hero-images">
     <img src="images/j.png" alt="Scientific visual" />
@@ -388,58 +621,56 @@
     <aside class="sidenav">
       <div class="box">
         <div class="sidebar-intro">
-  
-     <img src="images/logo.gif" style="width:100%; height: 100%">
-     </div>
-     <hr>
-     <h3>Motivation</h3>
-     <br>
-     <img src="images/div.png" alt="first" style="width:100%;">
-     <br>
-     <p></p>
-     <br>
-     <p style="text-align: justify; padding:10px;">
- Modern	4th-generation	X-ray	facilities	provide	unprecedented	opportunities	for	probing	
- ultrafast	dynamics.	Their	exceptionally	high	photon	flux	per	pulse (109 - 1012 photons	per	
- pulse),	combined	with	ultra-short	pulse	duration (~10	fs	 and	~100	ps at XFEL’s	and	
- synchrotrons)	with	pulse megahertz	repetition	rates,	enables	ultra-fast	single-shot/single	
- exposure imaging	of	stochastic	phenomena	in	matter.
-      </p>
-     </div>
+          <img src="images/logo.gif" alt="X-PULSE logo" style="width: 100%; height: 100%;" />
+        </div>
+        <hr />
+        <h3>Motivation</h3>
+        <p style="text-align: justify; margin: 10px;">
+          Modern 4th-generation X-ray facilities provide unprecedented opportunities for probing ultrafast dynamics. Their exceptionally high photon flux per pulse (109 - 1012 photons per pulse), combined with ultra-short pulse duration (~10 fs and ~100 ps at XFELs and synchrotrons) with pulse megahertz repetition rates, enables ultra-fast single-shot/single exposure imaging of stochastic phenomena in matter.
+        </p>
+      </div>
     </aside>
 
     <main class="main-content">
       <div class="polaroid article-content">
-     <br>
-     <h2>X-Pulse</h2>
-     <br>
-     <h3>X-ray Probing of Ultrafast Events</h3>
-     <br>
-   <h3>Funding and Project Synergies</h3>
-   <br>
-<p><strong>This project builds on and complements several national, international, and European initiatives:</strong></p>
-        <br>
-<div class="table-responsive">
-  <table>
-    <tbody>
-      <tr><td>1. Röntgen Ångström Cluster, InVision, 2019–2024. PIs: John Banhard (TU Berlin), Stephen Hall (Lund University), Patrik Vagovič (work package leader at EuXFEL).</td></tr>
-      <tr><td>2. European XFEL R&amp;D project: MHz X-ray microscopy (2020–2022). PI: Patrik Vagovič.</td></tr>
-      <tr><td>3. HORIZON-EIC Pathfinder (2022–2025), Grant No. 101046448. PI: Patrik Vagovič. <a href="https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder_en">https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder_en</a></td></tr>
-      <tr><td>4. Slovak Technological and Innovation Consortium project, “Stephanik” (2025–2027).</td></tr>
-      <tr><td>5. STFC International pipeline project (application submitted) to support X-PULSE activities at European XFEL. <a href="https://www.xfel.eu/">https://www.xfel.eu/</a></td></tr>
-    </tbody>
-  </table>
-</div>
-        <br>
-<p style="text-align: justify;"><strong>Access and funding at P25 will leverage these investments, creating a platform with high international visibility and strong user engagement. We are preparing to propose a user consortium to the European XFEL management, where our instruments will be installed at SASE1, and a collaboration with ESRF ID19 on fast imaging is already established. The fast-imaging capabilities at P25 will significantly enhance Europe’s existing strengths in this rapidly growing field by expanding access to advanced fast and ultrafast X-ray imaging.</strong></p>
-      <br>
+        <div class="article-header">
+          <div class="article-tag">Program Alignment</div>
+          <h2>Funds &amp; Synergies</h2>
+          <h3>X-ray Probing of Ultrafast Events</h3>
+          <p class="article-intro">This initiative builds on and complements national, international, and European funding programs to accelerate fast and ultrafast X-ray imaging.</p>
+        </div>
+
+        <hr class="article-divider" />
+
+        <div class="fund-list">
+          <div class="fund-item">
+            <p><strong>1. Rontgen Angstrom Cluster, InVision (2019-2024).</strong> PIs: John Banhard (TU Berlin), Stephen Hall (Lund University), and Patrik Vagovic as work package leader at European XFEL.</p>
+            <a href="https://www.rontgen-angstrom.eu" target="_blank">https://www.rontgen-angstrom.eu</a>
+          </div>
+          <div class="fund-item">
+            <p><strong>2. European XFEL R&amp;D Project: MHz X-ray Microscopy (2020-2022).</strong> PI: Patrik Vagovic.</p>
+          </div>
+          <div class="fund-item">
+            <p><strong>3. HORIZON-EIC Pathfinder (2022-2025), Grant No. 101046448.</strong> PI: Patrik Vagovic.</p>
+            <a href="https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder_en" target="_blank">https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder_en</a>
+          </div>
+          <div class="fund-item">
+            <p><strong>4. Slovak Technological and Innovation Consortium, Stephanik Project (2025-2027).</strong></p>
+          </div>
+          <div class="fund-item">
+            <p><strong>5. STFC International Pipeline Project (application submitted).</strong> Supporting X-PULSE activities at European XFEL.</p>
+            <a href="https://www.xfel.eu/" target="_blank">https://www.xfel.eu/</a>
+          </div>
+        </div>
+
+        <p class="impact-note">Access and funding at P25 will leverage these investments, creating a platform with high international visibility and strong user engagement. We are preparing a user consortium proposal for European XFEL management, with planned instrument installation at SASE1 and an established collaboration with ESRF ID19 on fast imaging. The P25 fast-imaging capabilities will strengthen Europe in this rapidly growing field by widening access to advanced ultrafast X-ray imaging.</p>
       </div>
     </main>
 
     <aside class="sidenav">
       <div class="box">
         <h3>Follow X - Pulse</h3>
-        <p>on social media</p>
+        <p style="text-align: center;">on social media</p>
         <div class="social-links">
           <a href="https://x.com/" target="_blank"><img src="images/twitter.png" alt="Twitter" /></a>
           <a href="https://linkedin.com/" target="_blank"><img src="images/link.png" alt="LinkedIn" /></a>
@@ -449,6 +680,7 @@
         <br />
         <button class="btn1" onclick="myFunction()">DarkMatter</button>
       </div>
+
       <div class="box">
         <h3><b>X-ray Probing of Ultrafast Events</b></h3>
         <hr />
@@ -461,7 +693,6 @@
 
   <footer class="footer">
     <h6 class="w3-small">X - Pulse</h6>
-
     <a href="https://x.com/" target="_blank"><img src="images/titbl.png" alt="Twitter" /></a>
     <a href="https://linkedin.com/" target="_blank"><img src="images/linkedin.jpg" alt="LinkedIn" /></a>
     <h6 class="w3-small">e-mail: x_pulse@gmail.eu tel.: +49 (0)40 8998-6348</h6>
@@ -475,6 +706,7 @@
   </script>
 </body>
 </html>
+
   
 
 
